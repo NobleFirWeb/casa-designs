@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Casa Designs</title>
+        <meta name="description" content="Casa Designs offers custom woodworking and creative furniture in Tualatin, Oregon." />
+        <meta name="keywords" content="custom wood, furniture, cutting boards, woodworking, Tualatin, Oregon" />
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/loader.css" />
+        <script defer src="js/main.js"></script>
+        <script defer src="js/loader.js"></script>
+        <script src="https://kit.fontawesome.com/c73bb36ef6.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
+        <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+    </head>
+
+    <body>
+
+            <!-- CURTAIN LOADER -->
+            <div class="loader">
+                <video autoplay muted loop playsinline>
+                    <source src="./media/hero-bg2.mp4" type="video/mp4" />
+                </video>
+            
+                <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <mask id="mask">
+                            <rect width="100%" height="100%" fill="white" />
+                            <text class="loader-title" id="loaderTitle" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black"
+                            style="font-size: clamp(5rem, 24vw, 16.5rem); line-height: 2;" data-rise>
+                                Casa Designs
+                            </text>
+                            <text class="subtext" x="50%" y="70%" text-anchor="middle" dominant-baseline="middle" fill="black" style="font-size: clamp(0.5rem, 5vw, 2rem);">Crafted with Precision, Built to Last</text>
+                        </mask>
+                    </defs>
+                    <rect width="100%" height="100%" fill="black" mask="url(#mask)" opacity="0.85" />
+                </svg>
+            
+                <div class="scroll-cue" id="scrollCue" roles="button" tabindex="0"><sl-icon name="chevron-double-down"></sl-icon></div>
+            </div>
+
+            <!-- CONTENT SECTION (slides over the hero) -->
+        <div class="content">
+
+
+            <!-- Navbar -->
+            <header class="navbar">
+                <div class="logo">
+                    <img 
+                        src="./img/nav-logo-dark.png" 
+                        alt="Casa Designs Logo" 
+                        class="navbar-logo" 
+                        data-dark="./img/nav-logo-dark.png"
+                        data-light="./img/nav-logo-light.png" 
+                    />
+                </div>
+                <nav class="nav-links">
+                    <a href="#about">About</a>
+                    <div class="nav-dropdown">
+                        <a href="#" class="dropdown-toggle" id="dropdownToggle">
+                            Gallery <span class="arrow"><i class="fa fa-chevron-down"></i></span>
+                        </a>
+                        <div class="dropdown-menu" id="dropdownMenu">
+                            <div class="dropdown-left">
+                                <h2 class="dropdown-title">Crafted with precision, built to last.</h2>
+                                <a href="#all-projects" class="dropdown-link" id="allProjects">View All Projects <sl-icon name="arrow-right"></sl-icon>
+                                </a>
+                            </div>
+                            <div class="dropdown-cards">
+                                <a href="#sf-olympic-club" class="dropdown-card1">
+                                    <div class="card-content">
+                                        <h4>SF Olympic Club</h4>
+                                        <p>Custom display pieces for golf’s elite.</p>
+                                    </div>
+                                    <span class="card-arrow">
+                                        <sl-icon name="arrow-right"></sl-icon>
+                                    </span>
+                                </a>
+                                <a href="#custom-projects" class="dropdown-card2">
+                                    <div class="card-content">
+                                        <h4>Custom Projects</h4>
+                                        <p>Made-to-order woodwork for any space.</p>
+                                    </div>
+                                    <span class="card-arrow">
+                                        <sl-icon name="arrow-right"></sl-icon>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#">Custom Projects</a>
+                </nav>
+                <div class="contact-btn">
+                    <span>Contact Us <i class="fa fa-envelope"></i>
+                    </span>
+                </div>
+            </header>
+
+            <header class="mobile-navbar">
+                <div class="mobile-nav-left">
+                    <img 
+                        src="./img/nav-logo-dark.png" 
+                        alt="Casa Designs Logo" 
+                        class="mobile-logo" 
+                        data-dark="./img/nav-logo-dark.png"
+                        data-light="./img/nav-logo-light.png"  
+                    />
+                </div>
+                <div class="mobile-toggle" id="mobileToggle">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                </div>
+            </header>
+            
+            <nav class="mobile-menu" id="mobileMenu">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li class="mobile-dropdown">
+                        <span>Gallery</span>
+                        <ul class="dropdown-links">
+                            <li><a href="#sf-olympic-club">SF Olympic Club</a></li>
+                            <li><a href="#custom-projects">Custom Projects</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#custom-projects">Custom Projects</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+
+
+            <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-left">
+                <h1 class="hero-title" data-rise="true">
+                    <span class="hero-title-line hero-title-casa">Casa</span>
+                    <span class="hero-title-line hero-title-designs">Designs<strong>.</strong></span>
+                </h1>
+            </div>
+            <div class="hero-right">
+                <img src="./img/hero-bg.jpg" alt="Woodgrain background" class="hero-img"/>
+                <div class="hero-overlay">
+            </div>
+            <div class="scroll-down">
+                <a href="#about">Scroll Down</a>
+                <div class="divider"></div>
+            </div>
+        </section>
+
+
+        <section class="about" id="about">
+            <div class="about-top">
+                <div class="about-left">
+                    <div class="about-index" slide-right="true">01</div>
+                    <div class="about-label" data-rise="true">Who We Are</div>
+                    <p class="about-intro">
+                        Casa Designs is located in Tualatin, Oregon. All woodwork is handcrafted in my home shop with a small variety of available inventory.
+                    </p>
+                    <p class="about-description">
+                        A large potion of my work is custom made cutting boards based on specific dimensions, choice of wood and its intended use or location. These include Counter Top, Stove Top, Under Counter Insert, and Sink Inserts.
+                    </p>
+                    <p class="about-description2">
+                        Charcuterie boards and Cheese Slicers are also made with the same craftsmanship, care, hardwoods, and food-safe preparation.
+                    </p> 
+                    <p class="about-description3">
+                        I have been commissioned to provide unique wood projects for restaurant center pieces and buffet displays, various pro shop and course projects for the SF Olympic Club Golf Club, and many other custom projects like personalized boxes and gifts.  
+                    </p>
+                </div>
+                <div class="about-right">
+                    <img src="./img/about-image.jpg" alt="Woodwork" class="about-img" slide-left="true"/>
+                </div>
+            </div>
+        
+            <div class="about-features">
+                <div class="feature">
+                    <div class="feature-num">
+                        <sl-icon name="lightning-charge"></sl-icon>
+                    </div>
+                    <h4 class="feature-title">Experience & Creativity</h4>
+                    <p class="feature-text">
+                        With decades of hands-on experience and an artist’s eye for detail, Casa Designs transforms simple hardwoods into functional pieces of art.
+                    </p>
+                </div>
+                <div class="feature">
+                    <div class="feature-num">
+                        <sl-icon name="infinity"></sl-icon>
+                    </div>
+                    <h4 class="feature-title">Premium Hardwoods & Finishes</h4>
+                    <p class="feature-text">
+                        Only the highest quality woods are sourced for each project—think walnut, maple, cherry, and exotic grains—finished with professional-grade oils and treatments for durability and beauty.
+                    </p>
+                </div>
+                <div class="feature">
+                    <div class="feature-num">
+                        <sl-icon name="house-heart"></sl-icon>
+                    </div>
+                    <h4 class="feature-title">One Craftsman, Start to Finish</h4>
+                    <p class="feature-text">
+                        Every piece is personally crafted in a small Tualatin workshop by my hands. From design to delivery, there's no handoff—just dedication.
+                    </p>
+                </div>
+                <div class="feature">
+                    <div class="feature-num">
+                        <sl-icon name="highlights"></sl-icon>
+                    </div>
+                    <h4 class="feature-title">Functional, Custom-Tailored Design</h4>
+                    <p class="feature-text">
+                        From sizing to wood type to finish, every detail is built around your space and lifestyle. These are not just cutting boards—they’re heirlooms in the making.
+                    </p>
+                </div>
+            </div>
+
+            <div class="about-owner">
+                <div class="about-owner-left">
+                    <h3 class="owner-title" data-rise="true">Meet the Craftsman</h3>
+                    <img src="./img/nav-logo-light.png" alt="Jack LaBue - Owner of Casa Designs" class="owner-img" slide-right="true"/>
+                </div>
+                <div class="about-owner-right">
+                    <h4 class="owner-name">Jack LaBue</h4>
+                    <p class="owner-bio">
+                        Jack is the hands, heart, and hard-earned experience behind Casa Designs. From his workshop in
+                        Tualatin, Oregon, he crafts every piece with passion and precision.
+                    </p>
+                    <p class="owner-bio">
+                        As a retired craftsman, Jack dedicates
+                        his time to creating one-of-a-kind woodworking projects — from custom cutting boards to commissioned
+                        custom pieces — each telling its own story of craftsmanship and care.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <div class="services-top">
+                <div class="services-left">
+                    <div class="services-index">02</div>
+                    <div class="services-label">What We Do</div>
+                </div>
+                <div class="services-right">
+                    <p class="services-intro">
+                        Casa Designs specializes in handcrafting custom cutting boards, charcuterie displays, and made-to-order
+                        wooden pieces.
+                        Each item is built in a personal shop with care, precision, and premium hardwoods.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="services-carousel-wrapper">
+                <div class="services-grid">
+                    <div class="service-card">
+                        <img src="./img/about-image.jpg" alt="Cutting Boards" class="service-img" />
+                        <h4 class="service-title">Custom Cutting Boards</h4>
+                        <p class="service-text">
+                            Tailored for your kitchen with precision cuts and wood choices for everyday functionality.
+                        </p>
+                        <a href="#cutting-boards" class="service-link">Explore <sl-icon name="arrow-right"></sl-icon></a>
+                    </div>
+            
+                    <div class="service-card">
+                        <img src="./img/charcuterie.jpg" alt="Charcuterie Boards" class="service-img" />
+                        <h4 class="service-title">Charcuterie & Cheese Slicers</h4>
+                        <p class="service-text">
+                            Elegant, food-safe boards for your gatherings — where craftsmanship meets presentation.
+                        </p>
+                        <a href="#cheese-charcuterie" class="service-link">Browse <sl-icon name="arrow-right"></sl-icon></a>
+                    </div>
+            
+                    <div class="service-card">
+                        <img src="./img/custom-projects.jpg" alt="Custom Projects" class="service-img" />
+                        <h4 class="service-title">Custom Projects</h4>
+                        <p class="service-text">
+                            Personalized tables, boxes, risers and more — designed to fit your vision.
+                        </p>
+                        <a href="#custom-projects" class="service-link">See More <sl-icon name="arrow-right"></sl-icon></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section class="projects" id="projects">
+            <div class="projects-top">
+                <div class="projects-left">
+                    <div class="projects-index">03</div>
+                    <div class="projects-label">Recent Designs</div>
+                </div>
+                <div class="projects-right">
+                    <p class="projects-intro">
+                        Each piece reflects careful craftsmanship and a passion for precision. Explore the latest custom work
+                        created in my local shop, where every detail matters.
+                    </p>
+                </div>
+            </div>
+            <sl-carousel class="carousel-thumbnails" navigation loop>
+                <sl-carousel-item>
+                    <img alt="The sun shines on the mountains and trees (by Adam Kool on Unsplash)"
+                        src="./img/custom-projects.jpg" />
+                </sl-carousel-item>
+                <sl-carousel-item>
+                    <img alt="A waterfall in the middle of a forest (by Thomas Kelly on Unsplash)" src="./img/woodworking1.jpg" />
+                </sl-carousel-item>
+                <sl-carousel-item>
+                    <img alt="The sun is setting over a lavender field (by Leonard Cotte on Unsplash)"
+                        src="./img/woodworking2.jpg" />
+                </sl-carousel-item>
+                <sl-carousel-item>
+                    <img alt="A field of grass with the sun setting in the background (by Sapan Patel on Unsplash)"
+                        src="./img/woodworking3.jpg" />
+                </sl-carousel-item>
+                <sl-carousel-item>
+                    <img alt="A scenic view of a mountain with clouds rolling in (by V2osk on Unsplash)"
+                        src="./img/woodworking4.jpg" />
+                </sl-carousel-item>
+            </sl-carousel>
+            
+            <div class="thumbnails">
+                <div class="thumbnails__scroller">
+                    <img alt="Thumbnail by 1" class="thumbnails__image active" src="./img/custom-projects.jpg" />
+                    <img alt="Thumbnail by 2" class="thumbnails__image" src="./img/woodworking1.jpg" />
+                    <img alt="Thumbnail by 3" class="thumbnails__image" src="./img/woodworking2.jpg" />
+                    <img alt="Thumbnail by 4" class="thumbnails__image" src="./img/woodworking3.jpg" />
+                    <img alt="Thumbnail by 5" class="thumbnails__image" src="./img/woodworking4.jpg" />
+                </div>
+            </div>
+
+
+
+
+            
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="contact-header">
+                <h2 class="contact-title" data-rise="true">Let’s Connect</h2>
+                <p class="contact-subtitle">Have a project in mind or just want to say hello? I would love to hear from you.
+                </p>
+            </div>
+        
+            <div class="contact-grid">
+                <div class="contact-form" slide-right="true">
+                    <form action="https://formspree.io/f/yourFormID" method="POST">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required />
+
+                        <label for="email">Your Phone Number</label>
+                        <input type="phone" id="phone" name="phone" required />
+        
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required />
+        
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+        
+                        <button type="submit" class="contact-button">Send Message</button>
+                    </form>
+                </div>
+        
+                <div class="contact-map">
+                    <h3>Located in</h3>
+                    <p>Tualatin, Oregon</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22421.632660288447!2d-122.79051447374891!3d45.37496614090511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549506fef97382f7%3A0x7ccd20f9f59a5d22!2sTualatin%2C%20OR!5e0!3m2!1sen!2sus!4v1748906896449!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" slide-left="true"></iframe>
+                </div>
+            </div>
+        </section>
+
+
+        </div>
+
+
+
+
+        <script src="./js/index.js" async defer></script>
+        <script src="./js/animations.js" async defer></script>
+
+        <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
+        <script>
+            {
+                const carousel = document.querySelector('.carousel-thumbnails');
+                const scroller = document.querySelector('.thumbnails__scroller');
+                const thumbnails = document.querySelectorAll('.thumbnails__image');
+
+                scroller.addEventListener('click', e => {
+                    const target = e.target;
+
+                    if (target.matches('.thumbnails__image')) {
+                        const index = [...thumbnails].indexOf(target);
+                        carousel.goToSlide(index);
+                    }
+                });
+
+                carousel.addEventListener('sl-slide-change', e => {
+                    const slideIndex = e.detail.index;
+
+                    [...thumbnails].forEach((thumb, i) => {
+                        thumb.classList.toggle('active', i === slideIndex);
+                        if (i === slideIndex) {
+                            thumb.scrollIntoView({
+                                block: 'nearest'
+                            });
+                        }
+                    });
+                });
+            }
+        </script>
+        
+    </body>
+</html>
+
+
+
+

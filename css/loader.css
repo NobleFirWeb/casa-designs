@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk&family=Syne:wght@400..800&display=swap');
+
+body {
+    scroll-snap-type: y mandatory;
+}
+
+#hero {
+    scroll-snap-align: start;
+    scroll-snap-type: mandatory;
+}
+
+/* CURTAIN LOADER STYLES */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.loader video {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.loader svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.loader svg text {
+  font-family: 'Anton', sans-serif;
+}
+
+.scroll-cue {
+  pointer-events: auto;
+  cursor: pointer;
+  position: absolute;
+  bottom: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3.5rem;
+  color: white;
+  font-weight: 100;
+  opacity: 0.8;
+  animation: bounce 2s infinite;
+  z-index: 2;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(15px);
+  }
+}
+
+[data-rise] {
+  opacity: 0;
+  transform: translateY(60px);
+  animation: riseIn 1s ease-out 1.2s forwards;
+}
+
+@keyframes riseIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Content starts BELOW the loader */
+.content {
+  position: relative;
+  z-index: 2;
+  width: 100vw;
+  margin-top: 100vh; /* pushes content down to appear behind curtain */
+  background: #fff;;
+    overflow-y: hidden;
+}
+
+@media (max-width: 1024px) {
+  #loaderTitle {
+    font-size: 7.75rem !important;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 768px) {
+  #loaderTitle {
+    font-size: 11rem !important;
+  }
+  .scroll-cue {
+    bottom: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #loaderTitle {
+    font-size: 8rem !important;
+  }
+}
+
