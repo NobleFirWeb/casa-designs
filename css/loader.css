@@ -99,11 +99,14 @@ body {
 }
 
 @media (max-width: 768px) {
+  .loader {
+    height: 95vh;
+  }
   #loaderTitle {
     font-size: 11rem !important;
   }
   .scroll-cue {
-    bottom: 1.75rem;
+    bottom: 2rem;
   }
 }
 
