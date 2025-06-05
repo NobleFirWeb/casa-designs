@@ -93,6 +93,25 @@ mobileNavLinks.forEach(link => {
   });
 });
 
+// Mobile Hero Scroll 
+document.getElementById("mobileHeroScroll").addEventListener("click", () => {
+  document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+});
+
+
+//Mobile Menu Dropdown Toggles
+const mobileDropdownToggle = document.querySelector('.mobile-dropdown .dropdown-toggle');
+const mobileDropdown = document.querySelector('.mobile-dropdown');
+
+mobileDropdownToggle.addEventListener('click', () => {
+  mobileDropdown.classList.toggle('open');
+
+});
+
+
+
+
+
 
 
 

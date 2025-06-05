@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Casa Designs</title>
+        <title>Casa Designs - Custom woodworking in Tualatin, Oregon providing customers with custom cutting boards, cheese slicers, charcuterie boards, and custom furniture pieces.</title>
         <meta name="description" content="Casa Designs offers custom woodworking and creative furniture in Tualatin, Oregon." />
         <meta name="keywords" content="custom wood, furniture, cutting boards, woodworking, Tualatin, Oregon" />
         <link rel="stylesheet" href="css/styles.css" />
@@ -35,7 +35,7 @@
                             style="font-size: clamp(5rem, 24vw, 16.5rem); line-height: 2;" data-rise>
                                 Casa Designs
                             </text>
-                            <text class="subtext" x="50%" y="70%" text-anchor="middle" dominant-baseline="middle" fill="black" style="font-size: clamp(0.5rem, 5vw, 2rem);">Crafted with Precision, Built to Last</text>
+                            <text class="subtext" x="50%" y="67.5%" text-anchor="middle" dominant-baseline="middle" fill="black" style="font-size: clamp(1.5rem, 5vw, 2rem);">Crafted with Precision, Built to Last</text>
                         </mask>
                     </defs>
                     <rect width="100%" height="100%" fill="black" mask="url(#mask)" opacity="0.85" />
@@ -95,10 +95,10 @@
                     </div>
                     <a href="#">Custom Projects</a>
                 </nav>
-                <div class="contact-btn">
-                    <span>Contact Us <i class="fa fa-envelope"></i>
+                <a href="#contact" class="contact-btn">
+                    <span>Contact  <i class="fa fa-envelope"></i>
                     </span>
-                </div>
+                </a>
             </header>
 
             <header class="mobile-navbar">
@@ -117,20 +117,27 @@
                 </div>
             </header>
             
-            <nav class="mobile-menu" id="mobileMenu">
-                <ul>
+            <div class="mobile-menu" id="mobileMenu">
+                <ul class="mobile-nav-links">
                     <li><a href="#about">About</a></li>
                     <li class="mobile-dropdown">
-                        <span>Gallery</span>
+                        <button class="dropdown-toggle">
+                            Gallery <i class="fa fa-chevron-right"></i>
+                        </button>
                         <ul class="dropdown-links">
                             <li><a href="#sf-olympic-club">SF Olympic Club</a></li>
                             <li><a href="#custom-projects">Custom Projects</a></li>
                         </ul>
                     </li>
                     <li><a href="#custom-projects">Custom Projects</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
-            </nav>
+            
+                <div class="mobile-logo-bottom">
+                    <img src="./img/nav-logo-light.png" alt="Casa Designs Logo" />
+                </div>
+            </div>
+
 
 
             <!-- Hero Section -->
@@ -140,6 +147,10 @@
                     <span class="hero-title-line hero-title-casa">Casa</span>
                     <span class="hero-title-line hero-title-designs">Designs<strong>.</strong></span>
                 </h1>
+                <div class="mobile-hero-scroll" id="mobileHeroScroll" role="button" tabindex="0">
+                    <a href="#about">Scroll Down</a>
+                    <div class="divider"></div>
+                </div>
             </div>
             <div class="hero-right">
                 <img src="./img/hero-bg.jpg" alt="Woodgrain background" class="hero-img"/>

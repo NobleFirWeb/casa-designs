@@ -71,7 +71,7 @@ body {
 [data-rise] {
   opacity: 0;
   transform: translateY(60px);
-  animation: riseIn 1s ease-out 1.2s forwards;
+  animation: riseIn 2s ease-out 2.2s forwards;
 }
 
 @keyframes riseIn {
@@ -96,17 +96,18 @@ body {
     font-size: 7.75rem !important;
     line-height: 1.2;
   }
+  .scroll-cue {
+    bottom: 10rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .loader {
-    height: 95vh;
-  }
+
   #loaderTitle {
     font-size: 11rem !important;
   }
   .scroll-cue {
-    bottom: 2rem;
+    bottom: 10rem;
   }
 }
 
