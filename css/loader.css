@@ -42,6 +42,17 @@ body {
   font-family: 'Anton', sans-serif;
 }
 
+.loader-mask {
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .loader-mask {
+    opacity: 0.65; /* Reduce opacity on mobile */
+  }
+}
+
 .scroll-cue {
   pointer-events: auto;
   cursor: pointer;

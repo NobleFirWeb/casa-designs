@@ -27,19 +27,21 @@
                     <source src="./media/hero-bg2.mp4" type="video/mp4" />
                 </video>
             
-                <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-                    <defs>
-                        <mask id="mask">
-                            <rect width="100%" height="100%" fill="white" />
-                            <text class="loader-title" id="loaderTitle" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black"
-                            style="font-size: clamp(5rem, 24vw, 16.5rem); line-height: 2;" data-rise>
-                                Casa Designs
-                            </text>
-                            <text class="subtext" x="50%" y="67.5%" text-anchor="middle" dominant-baseline="middle" fill="black" style="font-size: clamp(1.5rem, 5vw, 2rem);">Crafted with Precision, Built to Last</text>
-                        </mask>
-                    </defs>
-                    <rect width="100%" height="100%" fill="black" mask="url(#mask)" opacity="0.85" />
-                </svg>
+                <div class="loader-mask">
+                    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <mask id="mask">
+                                <rect width="100%" height="100%" fill="white" />
+                                <text class="loader-title" id="loaderTitle" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black"
+                                style="font-size: clamp(5rem, 24vw, 16.5rem); line-height: 2;" data-rise>
+                                    Casa Designs
+                                </text>
+                                <text class="subtext" x="50%" y="67.5%" text-anchor="middle" dominant-baseline="middle" fill="black" style="font-size: clamp(1.5rem, 5vw, 2rem);">Crafted with Precision, Built to Last</text>
+                            </mask>
+                        </defs>
+                        <rect width="100%" height="100%" fill="black" mask="url(#mask)" opacity="0.85" />
+                    </svg>
+                </div>
             
                 <div class="scroll-cue" id="scrollCue" roles="button" tabindex="0"><sl-icon name="chevron-double-down"></sl-icon></div>
             </div>
