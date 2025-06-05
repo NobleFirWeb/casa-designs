@@ -348,6 +348,7 @@ body {
 .mobile-navbar.navbar--active {
     position: fixed;
     background-color: #ffffff;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
@@ -400,6 +401,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .mobile-menu.open {
@@ -1189,9 +1192,11 @@ body.scroll-lock {
 /* Projects Section */
 .projects {
     min-height: 100vh;
+    width: 100vw;
     height: auto;
-    margin: 5% 5%;
-    padding: 0 5%;
+    margin: 5% 0;
+    padding: 5% 5%;
+    background-color: #000;
 }
 
 .projects-top {
@@ -1200,6 +1205,7 @@ body.scroll-lock {
   align-items: center;
   gap: 6rem;
   margin: 6rem 0;
+  padding: 0 5%;
 }
 
 .projects-left {
@@ -1222,6 +1228,7 @@ body.scroll-lock {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
+  line-height: 1.2;
   font-size: 1.25rem;
   position: relative;
   margin-top: -9rem;
@@ -1237,6 +1244,7 @@ body.scroll-lock {
   font-weight: 500;
   line-height: 1.6;
   max-width: 720px;
+  color: #fff;
 }
 
 
@@ -1246,7 +1254,12 @@ sl-carousel-item img {
     width: 100%;
     height: auto;
     max-height: 70vh;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #fff;
+}
+
+.carousel-navigation-button {
+    color: #fff;
+    font-size: 2rem;
 }
 
 
@@ -1256,7 +1269,7 @@ sl-carousel-item img {
     height: 75vh;
     width: auto;
     max-width: 80vw;
-    margin: 0 auto;
+    margin: 2rem auto;
   }
 
   .thumbnails {
@@ -1277,13 +1290,14 @@ sl-carousel-item img {
 
 
   .thumbnails__image {
-    width: 64px;
-    height: 64px;
+    width: 72px;
+    height: 72px;
     object-fit: cover;
-    opacity: 0.3;
+    opacity: 0.4;
     will-change: opacity;
     transition: 250ms opacity;
     cursor: pointer;
+    border: 1px solid #fff;
   }
 
   .thumbnails__image.active {
@@ -1292,19 +1306,30 @@ sl-carousel-item img {
 
 @media (max-width: 1024px) {
     #projects {
-        min-height: auto;
+        min-height: 80vh;
         height: auto;
     }
     .carousel-thumbnails {
         height: auto;
-        max-width: 90vw;
+        min-height: 600px;
+        margin-top: 2rem;
+        max-width: 100vw;
     }
+    .carousel-thumbnails sl-carousel-item {
+        min-width: 750px;
+        height: auto;
+        min-height: 550px;
+        max-height: 650px;
+        max-width: 100%;
+    }
+    
 }
 
 @media (max-width: 768px) {
     #projects {
-            padding: 0;
-        }
+        min-height: 80vh;
+        padding: 0;
+    }
     
         .projects-top {
             flex-direction: column;
@@ -1334,48 +1359,108 @@ sl-carousel-item img {
         }
     
         .carousel-thumbnails {
-            height: 100%;
-            width: 100vw;
+            height: auto;
+            min-height: 400px;
+            max-width: 100vw;
+            margin-top: 2rem;
         }
+
+        .carousel-thumbnails sl-carousel-item {
+            min-width: 345px;
+            max-width: 100%;
+            height: auto;
+            min-height: 350px;
+            max-height: 350px;
+        }
+
+        .carousel-thumbnails sl-carousel-item img {
+            width: 100%;
+            height: auto;
+            max-height: 350px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .thumbnails__image {
+            width: 64px;
+            height: 64px;
+        }
+}
+
+@media (max-width: 480px) {
+    #projects {
+        min-height: 100vh;
+        padding: 0;
+    }
 }
 
 /* Contact Section */
 .contact {
     width: 100%;
     height: auto;
-    padding: 6rem 2rem;
-    background-color: #f9f9f9;
+    margin: 5% 0;
+    padding: 5% 5%;
+    background-color: #ffffff;
     color: #222;
 }
 
 .contact-header {
-    text-align: center;
-    margin-bottom: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6rem;
+  margin: 6rem 5%;
+  flex-wrap: wrap;
 }
 
-.contact-title {
-    font-size: 2.75rem;
-    color: #333;
-    margin-bottom: 0.5rem;
+.contact-left {
+  flex: 1;
+}
+
+.contact-index {
+  font-size: 8rem;
+  color: #eee;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  padding-bottom: 5rem;
+}
+
+.contact-label {
+  color: #ff7a3d;
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 1.25rem;
+  position: relative;
+  margin-top: -9rem;
+  margin-bottom: 1rem;
+}
+
+.contact-right {
+  flex: 2;
 }
 
 .contact-subtitle {
-    font-size: 1.25rem;
-    color: #666;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #000;
+  max-width: 720px;
 }
+
 
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 5%;
 }
 
 .contact-form {
     margin-top: 2rem;
-    width: 500px;
-    max-width: 600px;
+    width: auto;
+    max-width: 100%;
 }
 
 .contact-form form {
@@ -1417,7 +1502,9 @@ sl-carousel-item img {
 .contact-map {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-evenly;
+    width: auto;
+    max-width: 100%;
 }
 
 .contact-map h3 {
@@ -1433,6 +1520,9 @@ sl-carousel-item img {
 }
 
 @media (max-width: 1024px) {
+    .contact-header {
+        padding-top: 3rem;
+    }
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -1452,16 +1542,39 @@ sl-carousel-item img {
     }
 }
 
-@media (max-width: 1024px) {
-    .contact-header {
-        padding-top: 3rem;
-    }
-}
-
 @media (max-width: 768px) {
-.contact {
-        padding: 4rem 1rem;
+#contact {
+    padding: 5% 0;
+    margin: 0;
     }
+    .contact-header {
+    flex-direction: column;
+    gap: 3rem;
+    margin: 3rem 0;
+  } 
+        .contact-left,
+        .contact-right {
+            width: 100%;
+        }
+    .contact-left {
+        padding: 0 5%;
+    }
+
+  .contact-index {
+    font-size: 5rem;
+    padding-bottom: 1rem;
+  }
+
+  .contact-label {
+    font-size: 1.1rem;
+    margin-top: -4.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
 
     .contact-grid {
         grid-template-columns: 1fr;
@@ -1503,7 +1616,7 @@ sl-carousel-item img {
     border-radius: 50%;
     background-color: #000;
     color: #fff;
-    border: none;
+    border: 1px solid #fff;;
     cursor: pointer;
     display: none;
     /* Hidden by default */
@@ -1511,12 +1624,13 @@ sl-carousel-item img {
     align-items: center;
     font-size: 1.25rem;
     z-index: 999;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, border 0.3s ease-in-out;
 }
 
 .scroll-top-btn:hover {
-    transform: translateY(-4px);
-    opacity: 0.85;
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #000;
 }
 
 /* Rise Animations */

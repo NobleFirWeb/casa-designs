@@ -109,6 +109,23 @@ mobileDropdownToggle.addEventListener('click', () => {
 });
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  const carousel = document.querySelector('sl-carousel');
+
+  function toggleCarouselNavigation() {
+    if (window.innerWidth <= 480) {
+      carousel.removeAttribute('navigation');
+    } else {
+      carousel.setAttribute('navigation', '');
+    }
+  }
+
+  // Run on load
+  toggleCarouselNavigation();
+
+  // Run on resize
+  window.addEventListener('resize', toggleCarouselNavigation);
+});
 
 
 
