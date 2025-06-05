@@ -689,7 +689,7 @@ body.scroll-lock {
     .mobile-hero-scroll {
         position: absolute;
         right: 1.5rem;
-        bottom: 2rem;
+        bottom: 2.75rem;
         cursor: pointer;
         z-index: 2;
         display: inline-block;
