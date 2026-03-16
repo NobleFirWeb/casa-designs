@@ -879,7 +879,8 @@ body, html {
     margin: 7.5% auto;
     line-height: 0.98;
     letter-spacing: -0.1vw;
-    max-width: 80%;
+    max-width: 85%;
+    text-align: center;
 }
 
 /* Stats Section Styles */
