@@ -92,12 +92,12 @@ body {
   }
 }
 
-/* Content starts BELOW the loader */
+/* 
 .content {
   position: relative;
   z-index: 2;
   width: 100vw;
-  margin-top: 100vh; /* pushes content down to appear behind curtain */
+  margin-top: 100vh;
   background: #fff;;
     overflow-y: hidden;
 }
@@ -128,3 +128,4 @@ body {
   }
 }
 
+*/

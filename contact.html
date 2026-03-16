@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/contact.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/Draggable.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/InertiaPlugin.min.js"></script>
+    </head>
+    <body>
+
+        <!-- Stairs Overlay -->
+        <div id="stairs-overlay" class="stairs-overlay" aria-hidden="true">
+            <div class="stairs-wrap">
+                <div class="stair"></div>
+                <div class="stair"></div>
+                <div class="stair"></div>
+                <div class="stair"></div>
+                <div class="stair"></div>
+            </div>
+        </div>
+
+    <main class="page">
+        
+        <header>
+            <div class="logo">
+                <img src="./img/nav-logo.png" alt="Casa Designs Logo" />
+                <h3 class="logo-badge">
+                    <span>Casa</span>
+                    <span>Designs</span>
+                </h3>
+            </div>
+            <div class="nav-right">
+                <a href="#" class="work-btn">Commission Us</a>
+                <div class="menu-toggle" id="menuToggle">
+                    <svg width="60" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+                        <line x1="3" y1="8" x2="32" y2="8"></line>
+                        <line x1="3" y1="12" x2="32" y2="12"></line>
+                        <line x1="3" y1="16" x2="32" y2="16"></line>
+                    </svg>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="row greeting-row">
+                <div class="flip-container">
+                    <span id="flip-text" class="serif-font">Hello!</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="label">General Inquiries</div>
+                <div class="email-value">info@casadesigns.com</div>
+            </div>
+
+            <div class="row">
+                <div class="label">Location</div>
+                <div class="email-value">Tualatin, OR</div>
+            </div>
+        </div>
+
+        <section class="contact-form-section">
+            <div class="contact-grid">
+                <div class="contact-header">
+                    <h2 class="serif-font text_reveal_text" data-anm-scroll-text-reveal data-anm-start="top 90%" data-anm-stagger="0.1">Or leave us a message</h2>
+                    <p class="text_reveal_text" data-anm-scroll-text-reveal data-anm-start="top 90%" data-anm-stagger="0.1">Fill out the form and we'll get back to you as soon as we can</p>
+                </div>
+        
+                <form class="form-container">
+                    <div class="input-group-row">
+                        <input type="text" placeholder="Name*" required>
+                        <input type="email" placeholder="Email*" required>
+                    </div>
+        
+                    <div class="input-group-row">
+                        <input type="tel" placeholder="Phone">
+                        <input type="text" placeholder="Reason for contacting">
+                    </div>
+        
+                    <div class="textarea-wrapper">
+                        <textarea placeholder="Start typing your message here..." maxlength="500"></textarea>
+                        <span class="char-count">0 / 500</span>
+                    </div>
+        
+                    <div class="textarea-wrapper">
+                        <textarea placeholder="Additional Comments" maxlength="500"></textarea>
+                        <span class="char-count">0 / 500</span>
+                    </div>
+        
+                    <div class="form-footer">
+                        <p class="disclaimer">
+                            By submitting this form, I have read and accept the <a href="#">Cookie</a> and <a
+                                href="#">Privacy</a> Policies.
+                        </p>
+                        <button type="submit" class="send-btn">
+                            <span>&#8629;</span> SEND
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <footer class="main-footer">
+            <div class="footer-top">
+                <div class="footer-col subscribe">
+                    <p class="label">SUBSCRIBE TO STAY IN TOUCH.</p>
+                    <div class="input-wrap">
+                        <input type="email" placeholder="ENTER EMAIL ADDRESS..">
+                        <button type="submit">→</button>
+                    </div>
+                    <div class="social-links">
+                        <a href="#">LinkedIn <span>→</span></a>
+                        <a href="#">Instagram <span>→</span></a>
+                        <a href="#">Behance <span>→</span></a>
+                    </div>
+                </div>
+        
+                <div class="footer-col navigation">
+                    <p class="label">NAVIGATION</p>
+                    <div class="nav-grid">
+                        <div class="nav-sub-col">
+                            <a href="#" class="active">Home</a>
+                            <a href="#">Results</a>
+                            <a href="#">About</a>
+                            <a href="#">Contact</a>
+                            <a href="#">Blog</a>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="footer-col services">
+                    <p class="label">SERVICES</p>
+                    <div class="nav-grid">
+                        <div class="nav-sub-col">
+                            <a href="#" class="active">Custom Cutting Boards</a>
+                            <a href="#"><a href="#">Charcuterie & Cheese Slicers</a></a>
+                            <a href="#">Custom Furniture</a>
+                            <a href="#">Restoration</a>
+                            <a href="#">Consultation</a>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="footer-col info">
+                    <p class="label">©CASA DESIGNS 2026</p>
+                    <div class="info-content">
+                        <p>Residential</p>
+                        <p>Commercial</p>
+                        <p>Hospitality</p>
+                        <p>Golf</p>
+                        <p>Retail</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="footer-legal">
+                <a href="#">PRIVACY POLICY</a>
+                <a href="#">TERMS AND CONDITIONS</a>
+            </div>
+        
+            <div class="footer-branding">
+                <h1 class="text_reveal_text" data-anm-scroll-text-reveal data-anm-start="top 90%" data-anm-stagger="0.1">CASA
+                    DESIGNS</h1>
+            </div>
+        </footer>
+        </main>
+
+
+        <script>
+            const overlay = document.getElementById("stairs-overlay");
+                const page = document.getElementById("page");
+                const replayBtn = document.getElementById("replay");
+
+                function runTransition() {
+                    // Ensure a clean state
+                    gsap.set(overlay, { display: "none" });
+                    gsap.set(".stair", { clearProps: "all" }); // clears transforms/height from previous runs
+                    gsap.set(page, { clearProps: "all" });
+
+                    const tl = gsap.timeline();
+
+                    // Show overlay
+                    tl.to(overlay, { display: "block", duration: 0 });
+
+                    // Grow stairs (from height: 0 to 100%)
+                    tl.from(".stair", {
+                        height: 0,
+                        duration: 0.5,
+                        stagger: { amount: -0.2 }, // negative = right-to-left
+                        ease: "power2.out"
+                    });
+
+                    // Slide stairs down
+                    tl.to(".stair", {
+                        y: "100%",
+                        duration: 0.6,
+                        stagger: { amount: -0.25 },
+                        ease: "power3.inOut"
+                    });
+
+                    // Hide overlay + reset stairs y
+                    tl.set(overlay, { display: "none" });
+                    tl.set(".stair", { y: "0%" });
+
+                    // Fade/scale in page (timing matches your delay ~1.3s into the sequence)
+                    tl.from(
+                        page,
+                        {
+                            opacity: 0,
+                            scale: 1.2,
+                            duration: 0.6,
+                            ease: "power2.out"
+                        },
+                        1.3
+                    ); // start at 1.3s (like your delay)
+                }
+
+                // Auto-run on load
+                runTransition();
+        </script>
+        <script src="./js/animations.js"></script>
+        <script src="./js/gsap.js"></script>
+    </body>
+</html>
