@@ -1,3 +1,61 @@
+
+
+// Menu Logic
+(function() {
+  
+  var Menu = (function() {
+    var burger = document.querySelector('.dwk-burger');
+    var menu = document.querySelector('.dwk-menu');
+    var menuList = document.querySelector('.dwk-menu__list');
+    var brand = document.querySelector('.dwk-menu__brand');
+    var menuItems = document.querySelectorAll('.dwk-menu__item');
+    
+    var active = false;
+    
+    var toggleMenu = function() {
+      if (!active) {
+        menu.classList.add('dwk-menu--active');
+        menuList.classList.add('dwk-menu__list--active');
+        brand.classList.add('dwk-menu__brand--active');
+        burger.classList.add('dwk-burger--close');
+        for (var i = 0, ii = menuItems.length; i < ii; i++) {
+          menuItems[i].classList.add('dwk-menu__item--active');
+        }
+        
+        active = true;
+      } else {
+        menu.classList.remove('dwk-menu--active');
+        menuList.classList.remove('dwk-menu__list--active');
+        brand.classList.remove('dwk-menu__brand--active');
+        burger.classList.remove('dwk-burger--close');
+        for (var i = 0, ii = menuItems.length; i < ii; i++) {
+          menuItems[i].classList.remove('dwk-menu__item--active');
+        }
+        
+        active = false;
+      }
+    };
+    
+    var bindActions = function() {
+      if(burger) {
+          burger.addEventListener('click', toggleMenu, false);
+      }
+    };
+    
+    var init = function() {
+      bindActions();
+    };
+    
+    return {
+      init: init
+    };
+    
+  }());
+  
+  Menu.init();
+  
+}());
+
 const words = ["Hello!", "Ciao!", "Hola!", "你好", "Bonjour!", "Guten Tag!"];
 let currentIndex = 0;
 const textElement = document.getElementById("flip-text");
@@ -35,7 +93,7 @@ function flipText() {
 setInterval(flipText, 1500);
 
 
-const toggle = document.querySelector('.toggle-icon')
+const toggle = document.querySelector('.dwk-burger__patty')
 const logoBadge = document.querySelector('.logo-badge');
 const darkSections = document.querySelectorAll('.results, .stats');
 

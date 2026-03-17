@@ -47,15 +47,33 @@
             </div>
             <div class="nav-right">
                 <a href="contact.html" class="work-btn">Commission Us</a>
-                <div class="menu-toggle" id="menuToggle">
-                    <svg class="toggle-icon" width="60" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
-                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
-                        <line x1="3" y1="8" x2="32" y2="8"></line>
-                        <line x1="3" y1="12" x2="32" y2="12"></line>
-                        <line x1="3" y1="16" x2="32" y2="16"></line>
-                    </svg>
+                <div class="dwk-burger">
+                    <div class="dwk-burger__patty"></div>
+                    <div class="dwk-burger__patty"></div>
+                    <div class="dwk-burger__patty"></div>
                 </div>
             </div>
+            <nav class="dwk-menu">
+                <div class="dwk-menu__brand">
+                    <div class="dwk-logo">
+                        <img src="./img/contact-bg.jpg"
+                            style="width:100%;
+                            " />
+                    </div>
+                </div>
+                <ul class="dwk-menu__list">
+                    <li class="dwk-menu__item"><a href="index.html" class="dwk-menu__link">Home</a></li>
+                    <li class="dwk-menu__item"><a href="#" class="dwk-menu__link" target="_blank">About</a></li>
+                    <li class="dwk-menu__item"><a href="#" class="dwk-menu__link" target="_blank">Services</a></li>
+                    <li class="dwk-menu__item"><a href="#" class="dwk-menu__link" target="_blank">Portfolio</a></li>
+                    <li class="dwk-menu__item"><a href="contact.html" class="dwk-menu__link">Contact</a></li>
+                    <li class="dwk-menu__item">
+                        <a href="#" target="_blank" class="dwk-menu__link dwk-menu__link--social">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" viewBox="0 0 640 640"><path fill="#000000" d="M240 363.3V576h116V363.3h86.5l18-97.8H356v-34.6c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4.4 37 1.2V71.9C451.4 68 416.4 64 396.2 64C289.3 64 240 114.5 240 223.4v42.1h-66v97.8z" stroke-width="16" stroke="#ffffff"/></svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </header>
 
     <div class="hero-wrapper" id="hero">
@@ -772,6 +790,7 @@
     </div>
 </footer>
 </main>
+
 
     <script src="./js/gsap.js"></script> 
     <script src="./js/animations.js"></script>
