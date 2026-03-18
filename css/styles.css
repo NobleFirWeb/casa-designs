@@ -6,31 +6,14 @@ body, html {
             overflow-x: hidden;
         }
 
-        /* Overlay */
-.stairs-overlay {
-    display: none;
-    /* shown by GSAP */
-    position: fixed;
-    inset: 0;
-    z-index: 999;
-}
-
-.stairs-wrap {
-    height: 100%;
-    width: 100%;
-    display: flex;
-}
-
-.stair {
-    height: 100%;
-    width: 20%;
-    background: #000;
-}
 
 /* Page */
-.page {
-    min-height: 100vh;
-    width: 100%;
+main {
+    position: relative;
+    margin-bottom: 90vh;
+    z-index: 2;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
 }
 
         /* --- Navigation --- */
@@ -45,6 +28,7 @@ body, html {
             height: 100px;
             box-sizing: border-box;
             z-index: 100;
+            
         }
 
         .logo { 
@@ -85,21 +69,20 @@ body, html {
 
 
 .dwk-burger {
-    z-index: 10;
+    z-index: 999;
     cursor: pointer;
     transform: rotateY(0);
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.dwk-burger__patty .is-white {
-    background: #ffffff;
-}
+
 
 .dwk-burger__patty {
     width: 38px;
     height: 2px;
     margin: 0 0 5.5px 0;
     background: #000000;
+    mix-blend-mode: difference;
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .dwk-burger__patty:last-child { margin-bottom: 0;
@@ -699,8 +682,8 @@ body, html {
 
 
 .closing-header {
-    font-size: clamp(2rem, 6rem, 3vw);
-    font-weight: 500;
+    font-size: clamp(2rem, 6rem, 2.25vw);
+    font-weight: 300;
     line-height: 0.98;
     letter-spacing: -0.1vw;
     margin: 0 auto;
@@ -937,7 +920,7 @@ body, html {
   color: #000000;
   font-family: sans-serif; /* Replace with your site font */
   font-size: 2.5rem;
-  font-weight: 400;
+  font-weight: 300;
   margin-bottom: 3rem;
 }
 
@@ -1028,15 +1011,6 @@ body, html {
   }
 }
 
-.owner-section-container #quote {
-    font-size: clamp(2rem, 6rem, 2.25vw);
-    font-weight: 300;
-    margin: 7.5% auto;
-    line-height: 0.98;
-    letter-spacing: -0.1vw;
-    max-width: 85%;
-    text-align: center;
-}
 
 /* Stats Section Styles */
 .stats-section {
@@ -1393,8 +1367,6 @@ body, html {
 }
 */
 
-
-
 @media(max-width: 768px) {
 	.project-row {
 		gap: 6rem;
@@ -1406,7 +1378,95 @@ body, html {
 	}
 }
 
+/*-- Collage Styles --*/
+.collage-header {
+    margin: 0 auto;
+    padding-top: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
 
+.collage-title {
+    font-size: clamp(2rem, 6rem, 2.25vw);
+    font-weight: 300;
+}
+
+.collage-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  width: 80%;
+  height: 65vh;
+  grid-gap: 10px;
+  margin: 0 auto;
+  margin-bottom: 5%;
+}
+
+.grid-item1 {
+  background-image: url("https://images.unsplash.com/photo-1534719156993-f3c9448673bf?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f089cfa06eb1cd7c0f654b39d8fdfd07&auto=format&fit=crop&w=1350&q=80");
+  background-size: cover;
+  background-position: center;
+  grid-column: 1/4;
+  grid-row: 1/2;
+}
+
+.grid-item2 {
+  background-image: url("https://images.unsplash.com/photo-1534759846116-5799c33ce22a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=19c8355cd5aff72debf2f4720f4c7e09&auto=format&fit=crop&w=688&q=80");
+  background-size: cover;
+  background-position: center;
+  grid-column: 1/2;
+  grid-row: 2/5;
+}
+
+.grid-item3 {
+  background-image: url("https://images.unsplash.com/photo-1508097549463-97f74cb9a6aa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=52c257bf60c788a1332419c74c6a8a01&auto=format&fit=crop&w=1350&q=80");
+  background-size: cover;
+  background-position: center;
+  grid-column: 1/5;
+  grid-row: 5/5;
+}
+
+.grid-item4 {
+  background-image: url("https://images.unsplash.com/photo-1507562534834-42ebd36b00ea?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f712012a42c9e9d9163fd9a0c80fd66a&auto=format&fit=crop&w=1202&q=80");
+  background-size: cover;
+  background-position: center;
+  grid-column: 2/4;
+  grid-row: 2/5;
+}
+
+.grid-item5 {
+  background-image: url("https://images.unsplash.com/photo-1534714259038-764cb4cf1d58?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d07ea713fcf12221034dafd8f4ffe82b&auto=format&fit=crop&w=1350&q=80");
+  background-size: cover;
+  background-position: center;
+  grid-column: 4/6;
+  grid-row: 1/3;
+}
+
+.grid-item6 {
+  background-image: url("https://images.unsplash.com/photo-1515694581961-1fbdb6840a5f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4267be6fb944c94b672e0b3ddb458286&auto=format&fit=crop&w=634&q=80");
+  background-size: cover;
+  background-position: center;
+  grid-column: 4/5;
+  grid-row: 3/5;
+}
+
+.grid-item7 {
+  background-image: url("https://images.unsplash.com/photo-1534703580202-6123d4189ef6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5478b30dec2346f00a40ab259d162068&auto=format&fit=crop&w=634&q=80");
+  background-size: cover;
+  background-position: center;
+  grid-column: 5/6;
+  grid-row: 3/6;
+}
+
+.grid-item8 {
+  background-image: url("https://images.unsplash.com/photo-1534743901536-d184ed4194bc?ixlib=rb-0.3.5&s=21fd4555141d93425b8ee3f80f764e69&auto=format&fit=crop&w=634&q=80");
+  background-size: cover;
+  background-position: center;
+  grid-column: 6/8;
+  grid-row: 1/6;
+}
 
 /*-- Owner Styles --*/
 
@@ -1419,7 +1479,7 @@ body, html {
     max-height: 100vh;
     background: #fff;
     padding-top: 6vw;
-    margin: 0 4vw;
+    padding: 0 4vw;
     overflow: hidden;
 }
 
@@ -1472,9 +1532,21 @@ body, html {
     border-radius: 14px;
 }
 
+.owner-section-container #quote {
+    font-size: clamp(2rem, 6rem, 2.25vw);
+    font-weight: 300;
+    margin: 7.5% auto;
+    line-height: 0.98;
+    letter-spacing: -0.1vw;
+    max-width: 85%;
+    text-align: center;
+    background-color: #ffffff;
+}
+
 
 .contact {
     width: 100%;
+    background-color: #ffffff;
     min-height: 80vh;
     margin-top: 2.5%;
     height: auto;
@@ -1596,8 +1668,11 @@ body, html {
     justify-content: space-between;
     padding: 0;
     overflow: hidden;
-    position: relative;
+    position: fixed;
+    bottom: 0;
+    z-index: 0;
 }
+
 
 .footer-top {
     padding-top: 5vh;
