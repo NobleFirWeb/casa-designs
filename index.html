@@ -11,7 +11,6 @@
         <meta name="description" content="Casa Designs offers custom woodworking and creative furniture in Tualatin, Oregon." />
         <meta name="keywords" content="custom wood, furniture, cutting boards, woodworking, Tualatin, Oregon" />
         <link rel="stylesheet" href="css/styles.css" />
-        <link rel="stylesheet" href="css/loader.css" />
         <script defer src="js/main.js"></script>
         <script defer src="js/loader.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -63,9 +62,9 @@
                 </div>
                 <ul class="dwk-menu__list">
                     <li class="dwk-menu__item"><a href="index.html" class="dwk-menu__link">Home</a></li>
-                    <li class="dwk-menu__item"><a href="#" class="dwk-menu__link" target="_blank">About</a></li>
-                    <li class="dwk-menu__item"><a href="#" class="dwk-menu__link" target="_blank">Services</a></li>
-                    <li class="dwk-menu__item"><a href="#" class="dwk-menu__link" target="_blank">Portfolio</a></li>
+                    <li class="dwk-menu__item"><a href="#" class="dwk-menu__link">About</a></li>
+                    <li class="dwk-menu__item"><a href="#" class="dwk-menu__link">Products</a></li>
+                    <li class="dwk-menu__item"><a href="#" class="dwk-menu__link">Portfolio</a></li>
                     <li class="dwk-menu__item"><a href="contact.html" class="dwk-menu__link">Contact</a></li>
                     <li class="dwk-menu__item">
                         <a href="#" target="_blank" class="dwk-menu__link dwk-menu__link--social">
@@ -86,11 +85,11 @@
                 <mask id="heroMask">
                     <rect width="100%" height="100%" fill="white" />
                     
-                    <text x="49.5%" y="190" width="990" text-anchor="middle" 
+                    <text x="49.5%" y="170" width="990" text-anchor="middle" 
                     class="mask-text"
                     fill="black">CASA DESIGNS</text>
                     
-                    <rect class="video-mask" x="5" y="195" width="990" height="330" rx="5" fill="black" />
+                    <rect class="video-mask" x="5" y="175" width="990" height="360" rx="5" fill="black" />
                 </mask>
             </defs>
             
@@ -361,7 +360,7 @@
                 <div data-slider="list" class="slider-list">
                     <div data-slider="slide" class="slider-slide">
                         <div class="slide-inner"><img
-                                src="https://cdn.prod.website-files.com/674d847bf8e817966d307714/674d90f74ff2fe8b0b912b97_slide-1.avif"
+                                src="./img/chess-board.png"
                                 loading="lazy" sizes="(max-width: 479px) 100vw, 560px"
                                 alt="Abstract layout By FAKURIANDESIGN through Unsplash">
                             <div class="slide-caption">
@@ -372,7 +371,7 @@
                     </div>
                     <div data-slider="slide" class="slider-slide active">
                         <div class="slide-inner"><img
-                                src="https://images.pexels.com/photos/12958000/pexels-photo-12958000.jpeg"
+                                src="./img/chess-board.png"
                                 loading="lazy" alt="Abstract layout By FAKURIANDESIGN through Unsplash">
                             <div class="slide-caption">
                                 <div class="caption-dot"></div>
@@ -417,7 +416,7 @@
             <div class="services-grid">
                 <a href="#" class="service-card">
                     <div class="service-image-wrap">
-                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80"
+                        <img src="./img/olympic-cover.jpg"
                             alt="Entertainment" class="service-img">
                         <div class="service-overlay"></div>
                     </div>
@@ -434,7 +433,7 @@
     
                 <a href="#" class="service-card">
                     <div class="service-image-wrap">
-                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80"
+                        <img src="./img/board1.png"
                             alt="Gaming" class="service-img">
                         <div class="service-overlay"></div>
                     </div>
@@ -601,7 +600,7 @@
             </div>
         </div>
     
-        <div class="project-row">
+        <div class="project-row" id="row2">
             <div class="image-box">
                 <div class="controller project-media-wrapper">
                     <img src="https://picsum.photos/id/104/1080/1080" alt="Shop Process" />
