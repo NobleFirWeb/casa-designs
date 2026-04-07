@@ -27,7 +27,7 @@ main {
             position: fixed;
             top: 0;
             width: 100%;
-            height: 100px;
+            height: 85px;
             box-sizing: border-box;
             z-index: 100;
             
@@ -165,6 +165,13 @@ main {
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
+.dwk-menu__link span {
+    font-weight: 300;
+    opacity: 0.8;
+    margin-right: 15px;
+    font-size: 14px;
+}
+
 .dwk-menu__link:before {
     content: "";
     position: absolute;
@@ -236,50 +243,48 @@ main {
 
         /* --- The Masking Hero --- */
         .hero-wrapper {
-            position: relative;
-            width: 100%;
-            min-height: 100vh;
-            height: auto;
-            background-color: white;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 20px;
-            padding-top: 80px;
-        }
+    position: relative;
+    width: 100%;
+    /* Changed min-height to ensure it doesn't collapse, 
+       but allows the SVG to dictate the height */
+    min-height: 100vh; 
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        .mask-text {
-            font-family: 'Inter', sans-serif;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: -0.45vw; /* Adjusted for the new size */
-        
-        /* This allows the SVG text to respond to CSS font-size */
-        font-size: clamp(3.25vw, 8.75vw, 9.25rem);
-        line-height: 1.5;
-        }
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
 
-        /* The single video playing behind everything */
-        .bg-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-        }
+.mask-overlay {
+    position: relative; /* Changed from absolute */
+    width: 100%;
+    height: auto; /* Let it scale proportionally */
+    max-width: 100vw;
+    z-index: 2;
+    display: block;
+    pointer-events: none;
+}
 
-        
-
-        /* The SVG Mask that creates the "stencil" */
-        .mask-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
-            pointer-events: none; /* Allows clicking through to video if needed */
-        }
+.mask-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    /* Use a fixed font size or smaller clamp for SVG text 
+       since the SVG itself is scaling */
+    font-size: clamp(3.25vw, 8.75vw, 8.85rem);
+    letter-spacing: -5px;
+}
 
 
 
@@ -763,7 +768,6 @@ main {
   display: flex;
   position: relative;
   font-size: 1.1vw;
-  margin-top: 5%;
 }
 
 /* Updated Left Overlay: White Background */
@@ -772,8 +776,7 @@ main {
   background-image: linear-gradient(90deg, #ffffff 80%, #ffffff00);
   justify-content: center;
   align-items: center;
-  padding-top: 5em;
-  width: 39.5em;
+  width: 37em;
   height: 100%;
   display: flex;
   position: absolute;
@@ -847,47 +850,40 @@ main {
   align-items: stretch;
   display: flex;
   position: relative;
+  padding-left: 36em;
 }
 
 .slider-slide {
-  width: 41.25em;
-  height: 28em;
+  width: 37.25em;
+  height: 24em;
   padding: 0 1em;
   opacity: 0.3;
   transition: opacity 0.8s var(--cubic-default), filter 0.8s var(--cubic-default);
 }
 
-[data-slider="slide"]{ opacity: 0.2; }
-[data-slider="slide"].active { opacity: 1; } 
-[data-slider="slide"].active .slide-caption{ transition-delay:0.3s;}
+[data-slider="slide"]{ opacity: 0.3; }
+[data-slider="slide"].active { opacity: 1; }
 
 
-/* New Content Overlay (Title & Desc) */
-.slide-content-wrap {
-  position: absolute;
-  bottom: 10%;
-  left: 0;
-  right: 0;
-  text-align: center;
-  color: #fff; /* White text on image for contrast */
-  opacity: 1;
-  transform: translateY(20px);
-  transition: all 0.6s var(--cubic-default);
-  transition-delay: 0.5s; /* The .5s delay you requested */
+
+
+.slide-caption {
+    color: #000000;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    transition: none !important;
 }
 
-.slider-slide.active .slide-content-wrap {
-  opacity: 1;
-  transform: translateY(0);
+.slide-caption .caption {
+    font-size: 2.5rem;
 }
-
-.slide-title { font-size: 2em; margin: 0; text-transform: uppercase; font-weight: 500; }
-.slide-desc { font-size: 1em; margin-top: 0.5em; opacity: 0.8; }
 
 .slide-inner {
   border-radius: 14px;
-  width: 100%;
-  height: 100%;
+  width: 37.25em;
+  height: 24em;
   overflow: hidden;
   position: relative;
 }
@@ -895,7 +891,8 @@ main {
 .slide-inner img { 
     width: 100%; 
     height: 100%; 
-    object-fit: cover; 
+    object-fit: cover;
+    object-position: center;
 }
 
 .services-footer {
@@ -1413,19 +1410,19 @@ main {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  width: 80%;
-  height: 65vh;
+  width: 90%;
+  height: 80vh;
   grid-gap: 10px;
   margin: 0 auto;
   margin-bottom: 5%;
 }
 
 .grid-item1 {
-  background-image: url("https://images.unsplash.com/photo-1534719156993-f3c9448673bf?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f089cfa06eb1cd7c0f654b39d8fdfd07&auto=format&fit=crop&w=1350&q=80");
+  background-image: url("../img/face-grain-stacked.png");
   background-size: cover;
   background-position: center;
   grid-column: 1/4;
-  grid-row: 1/2;
+  grid-row: 1/3;
 }
 
 .grid-item2 {
@@ -1433,7 +1430,7 @@ main {
   background-size: cover;
   background-position: center;
   grid-column: 1/2;
-  grid-row: 2/5;
+  grid-row: 3/5;
 }
 
 .grid-item3 {
@@ -1445,15 +1442,15 @@ main {
 }
 
 .grid-item4 {
-  background-image: url("https://images.unsplash.com/photo-1507562534834-42ebd36b00ea?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f712012a42c9e9d9163fd9a0c80fd66a&auto=format&fit=crop&w=1202&q=80");
+  background-image: url("../img/boards-stacked.png");
   background-size: cover;
   background-position: center;
   grid-column: 2/4;
-  grid-row: 2/5;
+  grid-row: 3/5;
 }
 
 .grid-item5 {
-  background-image: url("https://images.unsplash.com/photo-1534714259038-764cb4cf1d58?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d07ea713fcf12221034dafd8f4ffe82b&auto=format&fit=crop&w=1350&q=80");
+  background-image: url("../img/cork-board.png");
   background-size: cover;
   background-position: center;
   grid-column: 4/6;
@@ -1477,11 +1474,63 @@ main {
 }
 
 .grid-item8 {
-  background-image: url("https://images.unsplash.com/photo-1534743901536-d184ed4194bc?ixlib=rb-0.3.5&s=21fd4555141d93425b8ee3f80f764e69&auto=format&fit=crop&w=634&q=80");
+  background-image: url("../img/board1.png");
   background-size: cover;
   background-position: center;
   grid-column: 6/8;
   grid-row: 1/6;
+}
+
+/* Container to give scrolling context */
+.scroll-reveal-section {
+    width: 100%;
+    min-height: 90vh; /* Ensures enough room to scroll past */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    overflow-x: hidden; /* Prevents horizontal scrollbar from the -250/250px offset */
+}
+
+.reveal-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reveal-heading {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(3rem, 9vw, 9rem); /* Responsive sizing */
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    white-space: nowrap;
+}
+
+/* Base styles for the lines before animation takes over */
+.reveal-line {
+    display: block;
+    will-change: transform, opacity;
+}
+
+.top-line {
+    color: #888888; /* Lighter gray to match the screenshot */
+    font-weight: 300;
+}
+
+.bottom-line {
+    color: #000000;
+    font-weight: 500;
+}
+
+.reveal-subtext {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /*-- Owner Styles --*/

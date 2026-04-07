@@ -56,7 +56,7 @@
   
 }());
 
-const words = ["Hello!", "Ciao!", "Hola!", "你好", "Bonjour!", "Guten Tag!"];
+const words = ["Hello!", "Ciao!", "Hola!", "你好!", "Bonjour!", "Guten Tag!"];
 let currentIndex = 0;
 const textElement = document.getElementById("flip-text");
 
@@ -132,3 +132,113 @@ const colorObserver = new IntersectionObserver((entries) => {
 }, colorObserverOptions);
 
 darkSections.forEach(section => colorObserver.observe(section));
+
+
+class CardSlider {
+    constructor() {
+        this.sliderList = document.querySelector('[data-slider="list"]');
+        this.slides = document.querySelectorAll('.slider-slide');
+        this.totalSlides = this.slides.length;
+        this.currentSlide = 0;
+        
+        this.overlayCountStep = document.querySelector('[data-slide-count="step"]');
+        this.overlayCountTotal = document.querySelector('[data-slide-count="total"]');
+        this.nextButton = document.querySelector('[data-slider="button-next"]');
+        this.prevButton = document.querySelector('[data-slider="button-prev"]');
+        
+        this.init();
+    }
+
+    init() {
+        this.updateOverlayCount();
+        this.nextButton?.addEventListener('click', () => this.nextSlide());
+        this.prevButton?.addEventListener('click', () => this.prevSlide());
+        
+        // Initial setup
+        this.updateActiveSlide();
+        // Animate the first caption on page load
+        this.animateCaption();
+    }
+
+    updateOverlayCount() {
+        if (this.overlayCountStep) {
+            this.overlayCountStep.textContent = (this.currentSlide + 1).toString().padStart(2, '0');
+        }
+        if (this.overlayCountTotal) {
+            this.overlayCountTotal.textContent = this.totalSlides.toString().padStart(2, '0');
+        }
+    }
+
+    updateActiveSlide() {
+        this.slides.forEach(slide => slide.classList.remove('active'));
+        this.slides[this.currentSlide]?.classList.add('active');
+    }
+
+    nextSlide() {
+        this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+        this.performTransition();
+    }
+
+    prevSlide() {
+        this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+        this.performTransition();
+    }
+
+    performTransition() {
+        this.updateOverlayCount();
+        this.updateActiveSlide();
+        this.animateSlideTransition();
+        this.animateCaption(); // Trigger caption animation
+    }
+
+    animateCaption() {
+        const activeCaption = this.slides[this.currentSlide].querySelector('.slide-caption');
+        
+        // 1. Immediately reset all captions to hidden/down state
+        gsap.set('.slide-caption', { 
+            opacity: 0, 
+            y: 30 
+        });
+
+        // 2. Animate the active caption with a 0.5s delay
+        if (activeCaption) {
+            gsap.to(activeCaption, {
+                opacity: 1,
+                y: 0,
+                duration: 0.7,
+                delay: 0.5, // The half-second wait you requested
+                ease: "power2.out"
+            });
+        }
+    }
+
+    animateSlideTransition() {
+        const slideWidth = this.slides[0].offsetWidth;
+        const moveDistance = -(this.currentSlide * slideWidth);
+
+        // Move the container
+        gsap.to(this.sliderList, {
+            x: moveDistance,
+            duration: 0.8,
+            ease: "power2.inOut"
+        });
+
+        // Dim non-active slides
+        gsap.to(this.slides, {
+            duration: 0.8,
+            opacity: 0.3,
+            ease: 'power2.out'
+        });
+
+        // Highlight active slide
+        gsap.to(this.slides[this.currentSlide], {
+            duration: 0.8,
+            opacity: 1,
+            ease: 'power2.out'
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    new CardSlider();
+});
