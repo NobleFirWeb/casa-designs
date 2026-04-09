@@ -108,6 +108,7 @@ window.addEventListener("load", () => {
     
 });
 
+
 /**
  * PROJECT SWAPPER COMPONENT LOGIC (Polyfill for CSS Scroll Timelines)
  */

@@ -177,7 +177,7 @@ main {
     position: absolute;
     bottom: 0;
     left: 50%;
-    width: 10px;
+    width: 0px;
     height: 2px;
     background: #000000;
     transform: translateX(-50%);
@@ -205,6 +205,9 @@ main {
 
 @media screen and (max-width: 768px) {
 
+    .header {
+        padding: 10px 5px;
+    }
     ul.dwk-menu__list,
     div.dwk-menu__brand {
         float: none;
@@ -238,11 +241,18 @@ main {
         width: 90px;
         height: 90px;
     }
+    .nav-right .work-btn {
+        display: none;
+    }
 }
 
+/* --- The Masking Hero --- */
+:root {
+    --text-y: 150;
+    --video-y: 155;
+}
 
-        /* --- The Masking Hero --- */
-        .hero-wrapper {
+.hero-wrapper {
     position: relative;
     width: 100%;
     /* Changed min-height to ensure it doesn't collapse, 
@@ -267,23 +277,72 @@ main {
 }
 
 .mask-overlay {
-    position: relative; /* Changed from absolute */
     width: 100%;
-    height: auto; /* Let it scale proportionally */
-    max-width: 100vw;
+    height: 100%;
+    aspect-ratio: 1000 / 700;
     z-index: 2;
     display: block;
-    pointer-events: none;
 }
 
 .mask-text {
     font-family: 'Inter', sans-serif;
     font-weight: 800;
     text-transform: uppercase;
-    /* Use a fixed font size or smaller clamp for SVG text 
-       since the SVG itself is scaling */
     font-size: clamp(3.25vw, 8.75vw, 8.85rem);
     letter-spacing: -5px;
+    transition: all 0.3s ease;
+}
+
+
+
+/*-- Hero Responsive styles --*/
+@media (max-width: 1024px) {
+    :root {
+        --text-y: 140;
+        --video-y: 150;
+    }
+    .mask-overlay {
+        aspect-ratio: 1000 / 1200;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .mask-text {
+        font-size: 77.5px;
+    }
+    .video-mask {
+        width: 500px;
+        x: 250px; /* Center it: (1000 - 900) / 2 */
+        height: 525px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mask-overly {
+        aspect-ratio: 1000 / 1200;
+    }
+    .mask-text {
+        font-size: 4.8rem;
+        letter-spacing: -5px;
+        y: 250px; /* Adjust vertical position for smaller screens */
+    }
+    
+    .video-mask {
+        width: 500px; /* Shrink width to add more side padding */
+        x: 250px;      /* Center it: (1000 - 900) / 2 */
+    }
+}
+@media (max-width: 480px) {
+    
+    .mask-text {
+        font-size: 2.75rem;
+        letter-spacing: -2px;
+        y: 350px; /* Adjust vertical position for smaller screens */
+    }
+    .video-mask {
+        width: 300px; /* Further shrink width for very small screens */
+        x: 350px;      /* Center it: (1000 - 900) / 2 */
+    }
 }
 
 
@@ -291,6 +350,7 @@ main {
 
 .about-intro {
     min-height: 80vh;
+    height: auto;
     margin: 0 auto;
     max-width: 70%;
     border-left: 1px solid #ddd;
@@ -319,6 +379,42 @@ main {
     align-self: flex-start;
     margin-top: 30px;
     font-size: 1.25rem;
+}
+
+@media (max-width: 1024px) {
+    .about-intro {
+        margin: 0 auto;
+        max-width: 80%;
+        min-height: 40vh;
+        padding: 5% 15%;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-intro {
+        margin: 0 auto;
+        max-width: 80%;
+        min-height: 40vh;
+        padding: 5% 10%;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-intro {
+        margin: 0 auto;
+        max-width: 90%;
+        min-height: 50vh;
+        padding: 5% 7.5%;
+    }
+    .about-intro h1 {
+        font-size: 5.5vw;
+    }
+    .about-intro p {
+        font-size: 3.5vw;
+    }
+    .about-intro .work-btn {
+        font-size: 3.5vw;
+    }
 }
 
 
@@ -681,6 +777,142 @@ main {
     border-radius: 14px;
     object-fit: cover;
     object-position: center;
+}
+
+@media (max-width: 1024px) {
+    .header-row .header-left {
+        padding: 3rem 0 1.5rem 5rem;
+    }
+     .header-left h2 {
+        font-size: 6vw;
+    }
+     .header-left p {
+        font-size: 2vw;
+    }
+     .item-row .row-right {
+        padding: 0 50px;
+    }
+     .item-row.row2 .row-left {
+        padding: 3rem 1.5rem 1.5rem 3%;
+    }
+     .item-row.row2 .row-left h3 {
+        font-size: 4vw;
+    }
+     .item-row.row2 .row-left p {
+        font-size: 1.5vw;
+    }
+     .item-row.row4 .row-right {
+        padding: 0 1.5%;
+    }
+     .item-row.row4 .row-right p {
+        font-size: 1.5vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-row .header-left {
+        padding: 3rem 0 1.5rem 3rem;
+    }
+     .header-left h2 {
+        font-size: 8vw;
+    }
+     .header-left p {
+        font-size: 3vw;
+    }
+    .badge-container {
+        width: 150px;
+        height: 150px;
+    }
+    .btn-red-static {
+        width: 100px;
+        height: 100px;
+    }
+    .spinning-text {
+        font-size: 12px;
+    }
+    .item-row {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 0;
+        height: auto;
+    }
+    .item-row .row-left {
+        width: 100%;
+        height: auto;
+        padding: 0;
+        border-right: none;
+    }
+     .item-row .row-left video,
+     .item-row .row-left img,
+     .item-row .row-right img,
+     .item-row .row-right video {
+        margin: 0 auto;
+        width: 100%;
+        height: auto;
+    }
+     .item-row .row-right {
+        padding: 0 20px;
+        width: 100%;
+    }
+     .item-row.row2 .row-left {
+        padding: 3rem 1.5rem 1.5rem 2%;
+        border-right: none;
+    }
+     .item-row.row2 .row-left h3 {
+        font-size: 6vw;
+    }
+     .item-row.row2 .row-left p {
+        font-size: 4vw;
+    }
+     .item-row.row4 .row-right {
+        padding: 0 1.5%;
+    }
+     .item-row.row4 .row-right p {
+        font-size: 4vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .header-row .header-left {
+        padding: 2rem 0;
+        border-right: none;
+        width: 90%;
+    }
+     .header-left h2 {
+        font-size: 10vw;
+        line-height: 1;
+    }
+     .header-left p {
+        font-size: 4vw;
+    }
+    .header-right {
+        width: 100%;
+    }
+     .item-row .row-right {
+        padding: 0 10px;
+    }
+     .item-row.row2 .row-left {
+        padding: 3rem 1.5rem 1.5rem 1%;
+    }
+     .item-row.row2 .row-left h3 {
+        font-size: 8vw;
+    }
+     .item-row.row2 .row-left p {
+        font-size: 6vw;
+    }
+     .item-row.row4 .row-right {
+        padding: 0 1.5%;
+    }
+     .item-row.row4 .row-right p {
+        font-size: 6vw;
+    }
+    .item-row h3 {
+        font-size: 6vw;
+    }
 }
 
 .about-closing {

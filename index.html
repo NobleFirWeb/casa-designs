@@ -76,26 +76,28 @@
         </header>
 
     <div class="hero-wrapper" id="hero">
-    <video class="bg-video" autoplay muted loop playsinline>
-        <source src="./media/hero-bg2.mp4" type="video/mp4">
-    </video>
-
-    <svg class="mask-overlay" viewBox="0 0 1000 700" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-            <mask id="heroMask">
-                <rect width="100%" height="100%" fill="white" />
-                
-                <text x="50%" y="155" text-anchor="middle" 
-                class="mask-text"
-                fill="black">CASA DESIGNS</text>
-                
-                <rect class="video-mask" x="5" y="160" width="990" height="410" rx="15" fill="black" />
-            </mask>
-        </defs>
-        
-        <rect width="100%" height="100%" fill="#ffffff" mask="url(#heroMask)" />
-    </svg>
-</div>
+        <video class="bg-video" autoplay muted loop playsinline>
+            <source src="./media/hero-bg2.mp4" type="video/mp4">
+        </video>
+    
+        <svg class="mask-overlay" 
+        viewBox="0 0 1000 700"
+        preserveAspectRatio="xMidYMid slice" 
+        fill="none"
+        style="width: 100%; height: 100%;">
+            <defs>
+                <mask id="heroMask">
+                    <rect width="100%" height="100%" fill="white" class="box1" />
+    
+                    <text x="50%" y="var(--text-y, 150)" text-anchor="middle" class="mask-text" fill="black">CASA DESIGNS</text>
+    
+                    <rect class="video-mask" x="5" y="var(--video-y, 155)" width="990" height="410" rx="15" fill="black" />
+                </mask>
+            </defs>
+    
+            <rect width="100%" height="100%" fill="#ffffff" mask="url(#heroMask)" />
+        </svg>
+    </div>
 
     <section class="about-intro">
         <div class="text-reveal_wrap">
