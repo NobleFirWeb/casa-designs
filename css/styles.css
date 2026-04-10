@@ -352,13 +352,13 @@ main {
 @media (max-width: 480px) {
     
     .mask-text {
-        font-size: 2.85rem;
+        font-size: 2.95rem;
         letter-spacing: -2px;
         y: 350px; /* Adjust vertical position for smaller screens */
     }
     .video-mask {
-        width: 310px;
-        x: 345px;
+        width: 320px;
+        x: 340px;
     }
 }
 
