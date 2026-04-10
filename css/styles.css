@@ -858,6 +858,7 @@ main {
         height: auto;
         padding: 0;
         border-right: none;
+        padding: 0 20px;
     }
      .item-row .row-left video,
      .item-row .row-left img,
