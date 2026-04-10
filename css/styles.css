@@ -539,7 +539,7 @@ main {
     position: relative;
     width: 100%;
     height: 100%;
-    border-radius: 14px;
+    border-radius: 6px;
     overflow: hidden;
     cursor: pointer;
 }
@@ -624,7 +624,7 @@ main {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    border-radius: 14px;
+    border-radius: 6px;
     inset: 0;
 }
 
@@ -696,7 +696,7 @@ main {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    border-radius: 14px;
+    border-radius: 6px;
 }
 
 .item-row.row3 {
@@ -709,10 +709,11 @@ main {
     flex-direction: row;
     gap: 20px;
     height: 40vh;
+    padding: 20px;
 }
 
 .item-row.row3 .row-left .col-left, .item-row.row3 .row-left .col-right {
-    height: 40vh;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -738,7 +739,7 @@ main {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    border-radius: 14px;
+    border-radius: 6px;
 }
 
 
@@ -755,6 +756,8 @@ main {
     min-height: 55vh;
     height: 55vh;
 }
+
+
 
 .item-row.row4 .row-left,
 .item-row.row4 .row-right {
@@ -791,7 +794,7 @@ main {
 .item-row.row4 .row-left img {
     width: 100%;
     height: 100%;
-    border-radius: 14px;
+    border-radius: 6px;
     object-fit: cover;
     object-position: center;
 }
@@ -829,12 +832,14 @@ main {
 @media (max-width: 768px) {
     .header-row .header-left {
         padding: 3rem 0 1.5rem 3rem;
+        border-right: none;
     }
-     .header-left h2 {
+    .header-left h2 {
         font-size: 6vw;
     }
-     .header-left p {
+    .header-left p {
         font-size: 3vw;
+        max-width: 90%;
     }
     .badge-container {
         width: 150px;
@@ -910,6 +915,9 @@ main {
         border-right: none;
         width: 90%;
     }
+    .header-left p {
+        max-width: 100%;
+    }
     .header-row .header-right {
         width: 100%;
         display: flex;
@@ -935,6 +943,7 @@ main {
     }
      .item-row .row-right {
         padding: 20px;
+        height: auto;
     }
      .item-row.row2 .row-left {
         padding: 20px;
@@ -942,8 +951,15 @@ main {
      .item-row.row2 .row-left h3 {
         font-size: 6vw;
     }
-     .item-row.row2 .row-left p {
-        font-size: 6vw;
+    .item-row.row2 .row-left p {
+        max-width: 100%;
+    }
+     .item-row.row2 .row-left p,
+     .item-row .row-right p,
+     .item-row.row3 .row-left .col-left p {
+        font-size: 4vw;
+        line-height: 1.1;
+        font-weight: 500;
     }
     .row2 .row-right {
         height: auto;
@@ -1173,7 +1189,7 @@ main {
 }
 
 .slide-inner {
-  border-radius: 14px;
+  border-radius: 6px;
   width: 37.25em;
   height: 24em;
   overflow: hidden;
@@ -1224,7 +1240,7 @@ main {
 
 .service-card {
   position: relative;
-  border-radius: 20px;
+  border-radius: 6px;
   overflow: hidden;
   text-decoration: none;
   display: block;
@@ -1288,13 +1304,126 @@ main {
   height: 0px;
 }
 
+/* --- 1024px Viewport (Tablets/Small Laptops) --- */
+@media (max-width: 1024px) {
+    #services .cloneable {
+        font-size: 1.5vw; /* Slightly larger base font to keep buttons clickable */
+        min-height: 50vh;
+    }
+
+    #services .overlay {
+        width: 30em; /* Narrower overlay */
+    }
+
+    .slider-list {
+        padding-left: 28em; /* Match overlay width change */
+    }
+
+    .slider-slide, .slide-inner {
+        width: 34em;
+        height: 26em;
+    }
+
+    .overlay-inner {
+        gap: 5vh; /* Tighten up spacing */
+    }
+}
+
+/* --- 768px Viewport (Tablets Portrait) --- */
+@media (max-width: 768px) {
+    #services .cloneable {
+        font-size: 16px; /* Switch to fixed units for stability */
+        flex-direction: column;
+        justify-content: flex-start;
+        min-height: auto;
+        margin-top: 2em;
+    }
+
+    /* Move the overlay to the bottom or keep as a floating bar */
+    #services .overlay {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 2em 0;
+        background-image: none; /* Remove side gradient */
+        order: 2; /* Put controls below the slider */
+    }
+
+    .overlay-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 2em;
+        gap: 0;
+    }
+
+    #services .main {
+        position: relative;
+        height: 410px; /* Fixed height for mobile slider */
+        order: 1;
+    }
+
+    .slider-list {
+        padding-left: 1em; /* Reset padding since overlay moved */
+    }
+
+    .slider-slide, .slide-inner {
+        width: 85vw; /* Occupy most of the screen width */
+        height: 410px;
+    }
+
+    .overlay-count-row {
+        font-size: 4vw;
+    }
+}
+
+/* --- 480px Viewport (Mobile) --- */
+@media (max-width: 480px) {
+    #services .cloneable {
+        padding: 1em 0;
+    }
+
+    #services .main {
+        height: 280px;
+    }
+    .slider-list {
+        padding-left: 0.5em; /* Reset padding since overlay moved */
+    }
+    .slider-slide {
+        padding-left: 0;
+    }
+
+    .slider-slide, .slide-inner {
+        width: 96vw;
+        height: 250px;
+        
+    }
+
+    .slide-caption .caption {
+        font-size: 1.8rem; /* Smaller typography */
+    }
+
+    .overlay-inner {
+        padding: 0 1.5em;
+    }
+
+    #services .button {
+        width: 3.5em;
+        height: 3.5em; /* Smaller touch targets */
+    }
+
+    #services .overlay-nav-row {
+        gap: 1em;
+    }
+}
+
 @media (max-width: 1024px) {
   .services-footer {
     padding: 0 5%;
     height: auto;
   }
   .service-card {
-    height: 60vh;
+    height: 40vh;
   }
 }
 
@@ -1307,7 +1436,9 @@ main {
     height: auto;
     padding: 8vw 4vw;
   }
-  .service-card {
+  .services-footer-heading {
+    font-size: 6vw;
+    line-height: 1;
   }
 }
 
@@ -1315,7 +1446,7 @@ main {
 /* Stats Section Styles */
 .stats-section {
     width: 100%;
-    height: 90vh;
+    height: 100vh;
     background-color: #000;
     color: #fff;
     overflow: hidden;
@@ -1428,6 +1559,97 @@ main {
 
 .quote-author {
     font-size: 0.85rem;
+}
+
+@media (max-width: 1024px) {
+    .stats-section {
+        height: 70vh; /* Allow section to grow with content */
+        overflow: visible;
+        margin-top: 120px;
+    }
+    .branding-text {
+        font-size: clamp(2rem, 5vw, 6.25rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-section {
+        height: auto; /* Allow section to grow with content */
+        overflow: visible;
+        margin-top: 60px;
+    }
+
+    .stats-precision-grid {
+        /* Switch to a simple 2-column grid for mobile */
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        display: grid;
+    }
+
+    .stat-box {
+        padding: 1.5rem; /* Reduce padding for smaller screens */
+        grid-column: span 1 !important; /* Default most boxes to half-width */
+        grid-row: span 1 !important;    /* Reset desktop row spans */
+        border-right: 0.5px solid #999 !important;
+        border-bottom: 0.5px solid #999 !important;
+    }
+
+    /* 1. Header: Full width at the top like the image */
+    #header-box {
+        grid-column: span 2 !important;
+        order: 1;
+        padding: 2.5rem 1.5rem;
+    }
+
+    #header-box #stat-main-header {
+        max-width: 100%;
+        font-size: 2.5rem;
+    }
+
+    /* 2. Branding/Logo: In the example, branding usually follows header */
+    #logo-box {
+        order: 2;
+    }
+
+    /* 3. The Stats: Displayed in pairs */
+    #growth-box { order: 3; }
+    .stat-box.cell:not(#counter-box):not(#growth-box) { order: 4;
+        border-right: 0.5px solid #999 !important; /* Add right border for mobile */
+    }
+    #counter-box { order: 5; }
+    .stat-box.cell:last-of-type { order: 6; }
+
+    /* 4. The Requested Bottom Layout: Empty box and Quote */
+    .stat-box.buffer {
+        display: flex; /* Ensure it shows as a black square */
+        order: 7;
+        min-height: 150px;
+    }
+    #logo-box {
+        border-left: 0.5px solid #999 !important; /* Add left border for mobile */
+    }
+    #quote-box {
+        grid-column: span 2 !important; /* Make it a square like the others */
+        order: 8;
+        padding: 1.5rem;
+        border-right: none !important; /* Clean edge */
+    }
+
+    /* Typography Adjustments */
+    .stat-val {
+        font-size: 2.2rem;
+    }
+
+    .quote p {
+        font-size: 4vw; /* Make quote text readable on mobile */
+        margin-bottom: 1rem;
+    }
+
+    .quote-author {
+        font-size: 4vw;
+    }
+
+    /* Remove specific side borders that might clash in 2-col layout */
 }
 
 
@@ -1782,6 +2004,78 @@ main {
   grid-row: 1/6;
 }
 
+/* --- 1024px Viewport (Tablets/Laptops) --- */
+@media (max-width: 1024px) {
+    .collage-grid {
+        height: 60vh; /* Reduce height slightly to keep items proportional */
+        grid-template-columns: repeat(6, 1fr); /* Slightly tighter grid */
+    }
+
+    /* Adjust the large vertical board (Item 8) to not be so dominant */
+    .grid-item8 {
+        grid-column: 5 / 7;
+    }
+    
+    .grid-item5 {
+        grid-column: 4 / 7; /* Expand middle-top image */
+    }
+}
+
+/* --- 768px Viewport (Mobile Landscape / Large Phones) --- */
+@media (max-width: 768px) {
+    .collage-grid {
+        height: auto;
+        min-height: 1000px; /* Allow grid to grow vertically */
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        grid-gap: 8px;
+    }
+
+    /* Redefining layout for a vertical orientation */
+    .grid-item1 { grid-column: 1 / 5; grid-row: 1 / 2; }
+    .grid-item2 { grid-column: 1 / 3; grid-row: 2 / 4; }
+    .grid-item3 { grid-column: 1 / 5; grid-row: 8 / 9; } /* Mountain/Landscape at bottom */
+    .grid-item4 { grid-column: 3 / 5; grid-row: 2 / 4; }
+    .grid-item5 { grid-column: 1 / 3; grid-row: 4 / 6; }
+    .grid-item6 { grid-column: 3 / 4; grid-row: 4 / 5; }
+    .grid-item7 { grid-column: 3 / 4; grid-row: 5 / 6; }
+    .grid-item8 { grid-column: 4 / 5; grid-row: 4 / 8; }
+}
+
+/* --- 480px Viewport (Mobile Portrait) --- */
+@media (max-width: 480px) {
+    .collage-header {
+        padding: 10% 5% 5% 5%;
+    }
+
+    .collage-grid {
+        grid-template-columns: repeat(2, 1fr); /* Simple 2-column layout */
+        grid-template-rows: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column; /* Stack them for maximum detail visibility */
+        width: 95%;
+    }
+
+    .collage-grid > div {
+        height: 250px; /* Give every image a standard height when stacked */
+        width: 100%;
+        margin-bottom: 5px;
+        /* Remove specific grid placements to let flexbox handle stacking */
+        grid-column: auto !important;
+        grid-row: auto !important;
+        border-radius: 6px;
+    }
+    
+    .grid-item3 {
+        height: 150px; /* Keep the thin landscape image thin */
+    }
+
+    .grid-item8 {
+        height: 400px; /* Keep the tall board taller than the others */
+    }
+}
+
 /* Container to give scrolling context */
 .scroll-reveal-section {
     width: 100%;
@@ -1910,6 +2204,12 @@ main {
     background-color: #ffffff;
 }
 
+@media (max-width: 768px) {
+    .owner-section-container #quote {
+        padding-top: 7.5%;
+    }
+}
+
 
 .contact {
     width: 100%;
@@ -1988,7 +2288,7 @@ main {
 /* Mosaic Grid Area */
 .conversion-mosaic {
     display: grid;
-    grid-template-columns: 1fr 1.2fr 2.5fr 1fr 1fr 1.2fr 1.5fr; /* 7 columns of varying widths */
+    grid-template-columns: 1fr 1.2fr 2.5fr 1fr 1fr 1.2fr; /* 7 columns of varying widths */
     gap: 0.75rem;
     flex: 1; /* Fills remaining height */
     min-height: 0; /* Important for grid items inside flex containers */
@@ -2008,18 +2308,50 @@ main {
     object-fit: cover;
     display: block;
 }
+
+@media (max-width: 1024px) {
+    .conversion-title {
+        font-size: 6vw;
+    }
+    .conversion-cta {
+        padding: 1.5rem 6rem;
+    }
+}
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .conversion-footer {
         height: auto; /* Allow growth on small screens */
         min-height: 40vh;
     }
+    .conversion-title {
+        font-size: 8vw;
+        padding-top: 2rem;
+    }
     .conversion-mosaic {
         grid-template-columns: repeat(3, 1fr); /* Simpler grid for mobile */
         grid-auto-rows: 100px;
     }
     .conversion-cta {
-        padding: 1rem 2rem;
+        padding: 3rem 5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .conversion-header {
+        padding: 0;
+    }
+    .conversion-title {
+        font-size: 8vw;
+        padding-top: 2rem;
+    }
+    .conversion-cta {
+        padding: 2rem 1rem;
+        font-size: 1rem;
+    }
+    .conversion-mosaic {
+        grid-template-columns: repeat(2, 1fr); /* Stack items in 2 columns */
+        grid-auto-rows: 150px;
     }
 }
 
@@ -2157,6 +2489,110 @@ main {
     margin: 0;
     letter-spacing: -0.06em;
     white-space: nowrap;
+}
+
+/* --- 1024px Viewport (Tablets/Laptops) --- */
+@media (max-width: 1024px) {
+    .footer-top {
+        grid-template-columns: 1fr 1fr; /* 2x2 Grid */
+    }
+
+    .footer-col {
+        padding: 3rem 0;
+    }
+    .footer-col.subscribe {
+        padding-left: 3rem;
+    }
+
+    /* Remove right border on the second and fourth items to maintain grid look */
+    .footer-col.navigation, 
+    .footer-col.info {
+        border-right: none;
+    }
+
+    .footer-col.services, 
+    .footer-col.info {
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .footer-branding h1 {
+        font-size: 15vw;
+    }
+}
+
+/* --- 768px Viewport (Tablets Portrait) --- */
+@media (max-width: 768px) {
+    .main-footer {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr 1fr; /* Single column stack */
+    }
+
+    .footer-col {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 3rem 2rem;
+    }
+
+    .subscribe, .navigation .label, .services .label, .info .label, .nav-grid, .info-content {
+        padding-left: 0; /* Reset desktop indent */
+    }
+
+    .input-wrap {
+        max-width: 100%; /* Full width input for mobile thumbs */
+    }
+
+    .footer-legal {
+        gap: 1rem;
+        padding: 2rem;
+    }
+
+    .footer-branding {
+        padding-left: 0;
+        margin: 0;
+    }
+}
+
+/* --- 480px Viewport (Mobile) --- */
+@media (max-width: 480px) {
+    main {
+        margin-bottom: 0;
+    }
+    .main-footer {
+        height: auto; /* Allow footer to grow */
+        position: relative;
+    }
+    .label {
+        font-size: 1rem;
+    }
+    .footer-top {
+        grid-template-columns: 1fr; /* Single column stack */
+    }
+
+    .footer-col {
+        padding: 2rem 1.5rem;
+    }
+
+    .footer-legal a {
+        font-size: 0.9rem;
+    }
+
+
+    .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .social-links a {
+        margin-bottom: 0;
+        background: rgba(255,255,255,0.1);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+    }
 }
 
 /* ============================================
