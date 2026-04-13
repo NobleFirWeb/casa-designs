@@ -243,3 +243,35 @@ function initScrollTextReveal() {
     });
 }
 
+
+
+const titles = gsap.utils.toArray('.slider .title');
+const imgs = gsap.utils.toArray('.slider-img');
+
+const handleImageAnimation = () => {
+    
+  titles.forEach((title, i) => {
+    const img = imgs[i];
+    
+    const imgTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: title,
+        scrub: true,
+        start: 'top 95%',
+        end: 'top 5%',
+      }
+    });
+
+    imgTl
+      .fromTo(img, 
+        { opacity: 0, scale: 0.7 }, 
+        { opacity: 1, scale: 1, ease: 'none' }
+      )
+      .to(img, 
+        { opacity: 0, scale: 1.05, ease: 'none' }
+      );
+  });
+};
+
+handleImageAnimation();
+
