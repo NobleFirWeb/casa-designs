@@ -8,8 +8,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
  */
 window.addEventListener("load", () => {
     
-    // 1. PROJECT GRID (SWAPPER) INITIALIZATION
-    initProjectSwappers();
+
 
     // 2. CLOSING HEADER TEXT FILL
     const el = document.querySelector(".closing-header span");
@@ -109,57 +108,7 @@ window.addEventListener("load", () => {
 });
 
 
-/**
- * PROJECT SWAPPER COMPONENT LOGIC (Polyfill for CSS Scroll Timelines)
- */
-function initProjectSwappers() {
-    const projectRows = document.querySelectorAll('.project-row');
-    if (!projectRows.length) return;
 
-    projectRows.forEach((row) => {
-        const swapper = row.querySelector('.swapper');
-        const controller = row.querySelector('.controller');
-        const imageBox = row.querySelector('.image-box');
-        const caption = row.querySelector('.caption');
-        const pinImg = row.querySelector('.pin-img');
-        
-        if (!swapper || !controller) return;
-
-        // Create a Timeline for this specific row
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: pinImg,        // Use the row as the trigger
-                start: "top 40%",    // Start when the row hits the top of the viewport
-                end: "+=100%",       // Stay pinned for the duration of one viewport height
-                scrub: true,         // Link animation to scroll
-                pin: true,           // PIN the row so it stays on screen
-                invalidateOnRefresh: true
-            }
-        });
-
-        // 1. Slide the swapper
-        tl.to(swapper, {
-            y: () => controller.offsetHeight - swapper.offsetHeight,
-            ease: "none"
-        }, 0);
-
-        // 2. Cross-fade the images
-        const imgs = swapper.querySelectorAll('img');
-        if (imgs.length >= 2) {
-            tl.to(imgs[0], { opacity: 0, ease: "none" }, 0);
-            tl.fromTo(imgs[1], { opacity: 0 }, { opacity: 1, ease: "none" }, 0);
-        }
-
-        // 3. Update Progress Bars
-        const markers = swapper.querySelectorAll('.progress > div div');
-        markers.forEach((marker, index) => {
-            tl.to(marker, {
-                height: '100%',
-                ease: "none"
-            }, index === 0 ? 0 : 0.5); // Stagger the progress bars
-        });
-    });
-}
 
 /**
  * HELPER FUNCTION: Seamless Horizontal Loop

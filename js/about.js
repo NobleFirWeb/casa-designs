@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. Cursor Setup
     gsap.set(titleElement, { 
         borderRight: "4px solid #000", 
-        paddingRight: "10px" 
+        paddingRight: "0px" 
     }); 
     
     gsap.to(titleElement, {
