@@ -93,46 +93,38 @@ function flipText() {
 setInterval(flipText, 1500);
 
 
-const toggle = document.querySelector('.dwk-burger__patty')
-const logoBadge = document.querySelector('.logo-badge');
-const darkSections = document.querySelectorAll('.results, .stats');
+// Remove your old toggle, logoBadge, and darkSections variables and replace with:
+const header = document.querySelector('header');
+// Ensure we use .stats-section, which matches your HTML
+const darkSections = document.querySelectorAll('.results, .stats-section'); 
 
-// 1. Handle the Reveal Animation on Scroll
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 25) {
-        logoBadge.classList.add('revealed');
-    } else {
-        logoBadge.classList.remove('revealed');
-    }
-});
-
-// 2. Handle Color Switching (Red to White)
+// Handle Color Switching (Dark to Light)
 const colorObserverOptions = {
     root: null,
-    threshold: 0.1, // Trigger when 10% of the section is visible
-    rootMargin: "-10% 0px -90% 0px" // Adjusted to trigger when section hits the top
+    threshold: 0,
+    // Triggers when the section hits the top 10% of the viewport
+    rootMargin: "-10% 0px -90% 0px" 
 };
 
 const colorObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            logoBadge.classList.add('is-white');
-            toggle.classList.add('.is-white');
+            header.classList.add('theme-light');
         } else {
             // Only remove if we aren't currently inside another dark section
             const stillInDark = Array.from(darkSections).some(section => {
                 const rect = section.getBoundingClientRect();
-                return rect.top <= 100 && rect.bottom >= 0;
+                const triggerLine = window.innerHeight * 0.1; // 10% from the top
+                return rect.top <= triggerLine && rect.bottom >= triggerLine;
             });
             if (!stillInDark) {
-                logoBadge.classList.remove('is-white');
+                header.classList.remove('theme-light');
             }
         }
     });
 }, colorObserverOptions);
 
 darkSections.forEach(section => colorObserver.observe(section));
-
 
 class CardSlider {
     constructor() {
@@ -241,4 +233,18 @@ class CardSlider {
 
 document.addEventListener('DOMContentLoaded', () => {
     new CardSlider();
+});
+
+// --- Logo Text Scroll Reveal ---
+const logoBadge = document.querySelector('.logo-badge');
+
+window.addEventListener('scroll', () => {
+    // If the user scrolls down more than 20 pixels, reveal the text
+    if (window.scrollY > 20) {
+        logoBadge.classList.add('revealed');
+    } 
+    // If they return to the top, hide it again
+    else {
+        logoBadge.classList.remove('revealed');
+    }
 });

@@ -88,16 +88,25 @@ window.addEventListener("load", () => {
 
 
     // 7. MEET THE OWNER PINNING ANIMATION
-    const ownerContainer = document.querySelector(".owner-container");
+    const ownerContainer = document.querySelector(".owner-container"); 
+    
     if (ownerContainer) {
-        ScrollTrigger.create({
-            trigger: ownerContainer,
-            start: "top 75%",      // Pins when the container hits the top of the viewport
-            end: "bottom 98%",  // Unpins when the bottom of the container hits the viewport bottom
-            pin: ".owner-text-col",
-            pinSpacing: false,     // Allows the right column images to scroll past naturally
-            invalidateOnRefresh: true // Recalculates positions if the window is resized
+        // Initialize GSAP matchMedia
+        let mm = gsap.matchMedia();
+
+        // Only run the pin on screens larger than 1024px (Desktops)
+        mm.add("(min-width: 1025px)", () => {
+            ScrollTrigger.create({
+                trigger: ownerContainer,
+                start: "top 75%",     
+                end: "bottom 98%",  
+                pin: ".owner-text-col", // Pin the text column
+                pinSpacing: false,     
+                invalidateOnRefresh: true 
+            });
         });
+        
+        // On screens smaller than 1024px, the pin is automatically killed!
     }
 
 

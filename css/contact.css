@@ -42,7 +42,7 @@ main {
     box-shadow: 0px 15px 20px -10px rgba(0, 0, 0, 0.15);
 }
 
-/* --- Navigation --- */
+        /* --- Navigation --- */
         header {
             display: flex;
             justify-content: space-between;
@@ -51,7 +51,7 @@ main {
             position: fixed;
             top: 0;
             width: 100%;
-            height: 100px;
+            height: 85px;
             box-sizing: border-box;
             z-index: 100;
             
@@ -59,7 +59,7 @@ main {
 
         .logo { 
             width: 70px;
-            height:70px;
+            height: 70px;
             display: inline-flex;
             align-items: center;
         }
@@ -68,7 +68,7 @@ main {
             height: 100%;
         }
         .logo-badge { 
-            padding-left: 0.2rem;
+            padding-left: 0;
             clip-path: inset(0 100% 0 0); 
             transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
         }
@@ -77,12 +77,12 @@ main {
         }
         .logo-badge span {
             display: block;
-            font-size: 1.75rem;
+            font-size: 1.2rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: -0.055em;
-            color: #ff0000;
-            line-height: 0.8;
+            color: #000000;
+            line-height: 0.75;
             transition: color 0.3s ease;
         }
         .logo-badge .is-white span {
@@ -95,21 +95,20 @@ main {
 
 
 .dwk-burger {
-    z-index: 10;
+    z-index: 999;
     cursor: pointer;
     transform: rotateY(0);
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.dwk-burger__patty .is-white {
-    background: #ffffff;
-}
+
 
 .dwk-burger__patty {
     width: 38px;
     height: 2px;
     margin: 0 0 5.5px 0;
     background: #000000;
+    mix-blend-mode: difference;
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .dwk-burger__patty:last-child { margin-bottom: 0;
@@ -150,7 +149,7 @@ main {
     background: #ffffff;
     list-style-type: none;
     transform: translate3d(0, -100%, 0);
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .dwk-menu__list--active {
@@ -158,10 +157,12 @@ main {
 }
 
 .dwk-menu__brand {
-    background: black;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    background: #888888;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     transform: translate3d(0, 100%, 0);
 }
+
+
 
 .dwk-menu__brand--active {
     transform: translate3d(0, 0, 0);
@@ -169,7 +170,7 @@ main {
 
 .dwk-menu__item {
     transform: translate3d(500px, 0, 0);
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     text-transform: uppercase;
 }
 
@@ -185,7 +186,14 @@ main {
     font-weight: 300;
     text-decoration: none;
     color: #000000;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.dwk-menu__link span {
+    font-weight: 300;
+    opacity: 0.8;
+    margin-right: 15px;
+    font-size: 14px;
 }
 
 .dwk-menu__link:before {
@@ -193,11 +201,11 @@ main {
     position: absolute;
     bottom: 0;
     left: 50%;
-    width: 10px;
+    width: 0px;
     height: 2px;
     background: #000000;
     transform: translateX(-50%);
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .dwk-menu__link:hover:before {
@@ -221,6 +229,9 @@ main {
 
 @media screen and (max-width: 768px) {
 
+    header {
+        padding: 15px 10px;
+    }
     ul.dwk-menu__list,
     div.dwk-menu__brand {
         float: none;
@@ -253,6 +264,26 @@ main {
     .dwk-menu__brand .dwk-logo {
         width: 90px;
         height: 90px;
+    }
+    .nav-right .work-btn {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+    .logo-badge span {
+        font-size: 1.25rem;
     }
 }
 

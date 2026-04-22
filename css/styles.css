@@ -34,8 +34,8 @@ main {
         }
 
         .logo { 
-            width: 70px;
-            height: 70px;
+            width: 8ch;
+            height: 85px;
             display: inline-flex;
             align-items: center;
         }
@@ -53,12 +53,12 @@ main {
         }
         .logo-badge span {
             display: block;
-            font-size: 1.2rem;
+            font-size: 1.35rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: -0.055em;
             color: #000000;
-            line-height: 0.75;
+            line-height: 0.8;
             transition: color 0.3s ease;
         }
         .logo-badge .is-white span {
@@ -203,6 +203,31 @@ main {
 .dwk-menu .dwk-menu__item:nth-child(6) { transition-delay: 0.6s; }
 
 
+/* Ensure the elements smoothly fade between colors */
+.logo-badge span,
+.dwk-burger__patty,
+.logo img {
+    transition: all 0.4s ease; 
+}
+
+/* --- LIGHT THEME OVERRIDES --- */
+/* Makes the logo image pure white */
+header.theme-light .logo img {
+    filter: brightness(0) invert(1);
+}
+
+/* Makes the logo text pure white */
+header.theme-light .logo-badge span {
+    color: #ffffff !important;
+    mix-blend-mode: normal; /* Prevents blending conflicts over photos */
+}
+
+/* Makes all 3 burger patties pure white */
+header.theme-light .dwk-burger__patty {
+    background: #ffffff !important;
+    mix-blend-mode: normal; /* Prevents blending conflicts over photos */
+}
+
 @media screen and (max-width: 768px) {
 
     header {
@@ -221,7 +246,7 @@ main {
     }
 
     .dwk-menu__list {
-        height: 75vh;
+        height: 70vh;
         transform: translate3d(-100%, 0, 0);
     }
 
@@ -230,7 +255,7 @@ main {
     }
 
     .dwk-menu__brand {
-        height: 25vh;
+        height: 30vh;
         transform: translate3d(100%, 0, 0);
     }
     .dwk-burger--close .dwk-burger__patty {
@@ -238,8 +263,8 @@ main {
     }
 
     .dwk-menu__brand .dwk-logo {
-        width: 90px;
-        height: 90px;
+        width: 200px;
+        height: 200px;
     }
     .nav-right .work-btn {
         display: none;
@@ -254,10 +279,7 @@ main {
 }
 
 @media screen and (max-width: 480px) {
-    .logo {
-        width: 50px;
-        height: 50px;
-    }
+    
     .logo-badge span {
         font-size: 1.25rem;
     }
@@ -1317,7 +1339,7 @@ main {
 
 .service-arrow-btn svg {
   width: 120px;
-  height: 0px;
+  height: 120px;
 }
 
 /* --- 1024px Viewport (Tablets/Small Laptops) --- */
@@ -1430,6 +1452,12 @@ main {
 
     #services .overlay-nav-row {
         gap: 1em;
+    }
+    .service-content {
+        padding: 20px;
+    }
+    .service-title {
+        font-size: 1.8rem;
     }
 }
 
@@ -2179,8 +2207,11 @@ main {
 }
 
 .collage-title {
-    font-size: clamp(2rem, 6rem, 8vw);
-    font-weight: 300;
+    font-size: clamp(2rem, 8.5rem, 6vw);
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    letter-spacing: -0.25vw
 }
 
 .collage-grid {
@@ -2188,7 +2219,7 @@ main {
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(5, 1fr);
   width: 90%;
-  height: 80vh;
+  height: 70vh;
   grid-gap: 10px;
   margin: 0 auto;
   margin-bottom: 5%;
@@ -2299,7 +2330,13 @@ main {
 /* --- 480px Viewport (Mobile Portrait) --- */
 @media (max-width: 480px) {
     .collage-header {
-        padding: 10% 5% 5% 5%;
+        padding: 0;
+        width: 98%;
+        margin: o auto;
+    }
+    .collage-title {
+        text-align: center;
+        margin-bottom: 10px;
     }
 
     .collage-grid {
@@ -2458,11 +2495,90 @@ main {
     background-color: #ffffff;
 }
 
-@media (max-width: 768px) {
+/* --- Responsive Styles for Owner Section --- */
+
+/* 1024px - Tablets (Landscape) / Smaller Laptops */
+@media screen and (max-width: 1024px) {
+    .owner-section-container,
+    .owner-container {
+        display: flex;
+        flex-direction: column; /* Stacks text on top of images */
+        gap: 3rem; /* Adds breathing room between the text and images */
+        padding: 0 auto;
+    }
+
+    .owner-reveal-section {
+        padding: 0;
+        width: 100%;
+    }
+    .owner-text-col {
+        max-width: 90%;
+        width: 90%;
+    }
+    .owner-text-col,
+    .owner-media-col {
+        margin: 0 auto;
+        width: 90%;
+        max-width: 90%;
+        position: relative !important; /* Ensures the pin is fully overridden */
+    }
+    .owner-image-grid {
+        width: 90%;
+        height: auto;
+        max-height: none;
+    }
+}
+
+/* 768px - Tablets (Portrait) */
+@media screen and (max-width: 768px) {
+    .owner-section-container,
+    .owner-container {
+        gap: 2rem;
+    }
+
+    /* Soften the typography size for medium screens */
+    .owner-reveal-section h2, 
+    .owner-text-col h2 {
+        font-size: 2.5rem; 
+    }
     .owner-section-container #quote {
         padding-top: 7.5%;
     }
 }
+
+/* 480px - Mobile Phones */
+@media screen and (max-width: 480px) {
+    .owner-section-container,
+    .owner-container {
+        gap: 1.5rem;
+    }
+
+    .owner-text-col,
+    .owner-media-col {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 100%;
+        position: relative !important; /* Ensures the pin is fully overridden */
+    }
+    .owner-image-grid {
+        width: 98%;
+        height: auto;
+        max-height: none;
+    }
+
+    /* Further scale down typography for small phones */
+    .owner-reveal-section h2,
+    .owner-text-col h2 {
+        font-size: 2rem;
+    }
+    
+    .owner-reveal-section p,
+    .owner-text-col p {
+        font-size: 1rem;
+    }
+}
+
+
 
 
 .contact {

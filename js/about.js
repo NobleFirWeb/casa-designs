@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 1. Typewriter effect
     tl.to(titleElement, {
-        duration: 1.2, 
+        duration: 2.2, 
         text: originalText,
         ease: "none", 
     }, 0); // '0' ensures this starts at the beginning of the timeline
@@ -26,20 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         delay: 1.1, // Slight delay to sync with the text animation
         x: 0,
         ease: "power2.out"
-    }, 0); // '0' matches this to the start of the typewriter effect
-
-    // 3. Cursor Setup
-    gsap.set(titleElement, { 
-        borderRight: "4px solid #000", 
-        paddingRight: "0px" 
-    }); 
-    
-    gsap.to(titleElement, {
-        borderRightColor: "transparent",
-        duration: 0.8,
-        ease: "steps(1)", 
-        repeat: -1 
-    });
+    }, 0);
 });
 
 
