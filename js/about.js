@@ -1,14 +1,11 @@
 gsap.registerPlugin(TextPlugin);
 
 document.addEventListener("DOMContentLoaded", () => {
-    const titleElement = document.querySelector(".hero-title");
-    const imageWrapper = document.querySelector(".hero-image-wrapper");
+    const titleElement = document.querySelector(".hero-subtext");
     
     const originalText = titleElement.textContent;
     titleElement.textContent = "";
 
-    // Set initial state for the image so it starts invisible and offset
-    gsap.set(imageWrapper, { opacity: 0, x: 150 });
 
     const tl = gsap.timeline({ delay: 0.2 });
 
@@ -17,15 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
         duration: 2.2, 
         text: originalText,
         ease: "none", 
-    }, 0); // '0' ensures this starts at the beginning of the timeline
-
-    // 2. Image Slide & Fade (Runs simultaneously with the text)
-    tl.to(imageWrapper, {
-        duration: 1.25,
-        opacity: 1,
-        delay: 1.1, // Slight delay to sync with the text animation
-        x: 0,
-        ease: "power2.out"
     }, 0);
 });
 

@@ -1881,7 +1881,7 @@ header.theme-light .dwk-burger__patty {
     }
 }
 
-/*
+
 .projects-container, .project-row { 
     width: 100%;
     margin: 7.5% 0; 
@@ -2608,7 +2608,8 @@ header.theme-light .dwk-burger__patty {
 
 .conversion-footer {
     width: 100%;
-    height: 45vh;
+    min-height: 70vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -2644,7 +2645,7 @@ header.theme-light .dwk-burger__patty {
     height: 100%;
     color: #fff;
     text-decoration: none;
-    padding: 2rem 12rem;
+    padding: 6rem 12rem;
     font-size: 1.15rem;
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -2658,10 +2659,12 @@ header.theme-light .dwk-burger__patty {
 /* Mosaic Grid Area */
 .conversion-mosaic {
     display: grid;
-    grid-template-columns: 1fr 1.2fr 2.5fr 1fr 1fr 1.2fr; /* 7 columns of varying widths */
+    /* Create 24 equal micro-columns instead of 6 specific ones */
+    grid-template-columns: repeat(24, 1fr); 
+    grid-auto-rows: 250px; 
     gap: 0.75rem;
-    flex: 1; /* Fills remaining height */
-    min-height: 0; /* Important for grid items inside flex containers */
+    flex: 1; 
+    min-height: 0; 
     height: 100%;
 }
 
@@ -2672,12 +2675,49 @@ header.theme-light .dwk-burger__patty {
     position: relative;
 }
 
-.mosaic-item img {
+.conversion-mosaic {
+    display: grid;
+    /* Create 24 equal micro-columns instead of 6 specific ones */
+    grid-template-columns: repeat(24, 1fr); 
+    grid-auto-rows: 250px; 
+    gap: 0.75rem;
+    flex: 1; 
+    min-height: 0; 
+    height: 100%;
+}
+
+/* Base item styles remain exactly the same */
+.mosaic-item {
+    border-radius: 6px;
+    overflow: hidden;
+    background: #f4f4f4;
+    position: relative;
+}
+
+.mosaic-item img,
+.mosaic-item video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
+
+/* --- ROW 1 (Items 1 through 6) --- */
+/* These values add up to 24, mimicking your original fractional widths */
+.mosaic-item:nth-child(1) { grid-column: span 3; }  /* roughly 1fr */
+.mosaic-item:nth-child(2) { grid-column: span 4; }  /* roughly 1.2fr */
+.mosaic-item:nth-child(3) { grid-column: span 7; }  /* roughly 2.5fr */
+.mosaic-item:nth-child(4) { grid-column: span 3; }  /* roughly 1fr */
+.mosaic-item:nth-child(5) { grid-column: span 3; }  /* roughly 1fr */
+.mosaic-item:nth-child(6) { grid-column: span 4; }  /* roughly 1.2fr */
+
+/* --- ROW 2 (Items 7 through 12) --- */
+/* Completely different widths! Just ensure these also add up to 24 */
+.mosaic-item:nth-child(7) { grid-column: span 5; }  
+.mosaic-item:nth-child(8) { grid-column: span 4; }  
+.mosaic-item:nth-child(9) { grid-column: span 8; }  /* Makes the video nicely wide! */
+.mosaic-item:nth-child(10) { grid-column: span 3; } 
+.mosaic-item:nth-child(11) { grid-column: span 4; }
 
 @media (max-width: 1024px) {
     .conversion-title {
@@ -2698,13 +2738,32 @@ header.theme-light .dwk-burger__patty {
         padding-top: 2rem;
     }
     .conversion-mosaic {
-        grid-template-columns: repeat(3, 1fr); /* Simpler grid for mobile */
-        grid-auto-rows: 100px;
+        grid-auto-rows: 200px; /* Reduce row height for smaller screens */
     }
     .conversion-cta {
         padding: 3rem 5rem;
         font-size: 1rem;
     }
+    /* Row 1 */
+    .mosaic-item:nth-child(1) { grid-column: span 10; }
+    .mosaic-item:nth-child(2) { grid-column: span 6; }
+    .mosaic-item:nth-child(3) { grid-column: span 8; }
+    
+    /* Row 2 */
+    .mosaic-item:nth-child(4) { grid-column: span 8; }
+    .mosaic-item:nth-child(5) { grid-column: span 8; }
+    .mosaic-item:nth-child(6) { grid-column: span 8; }
+    
+    /* Row 3 */
+    .mosaic-item:nth-child(7) { grid-column: span 14; }
+    .mosaic-item:nth-child(8) { grid-column: span 10; }
+    
+    /* Row 4 (Make the video take up the full width for impact!) */
+    .mosaic-item:nth-child(9) { grid-column: span 24; } 
+    
+    /* Row 5 */
+    .mosaic-item:nth-child(10) { grid-column: span 12; }
+    .mosaic-item:nth-child(11) { grid-column: span 12; }
 }
 
 @media (max-width: 480px) {
@@ -2720,9 +2779,33 @@ header.theme-light .dwk-burger__patty {
         font-size: 1rem;
     }
     .conversion-mosaic {
-        grid-template-columns: repeat(2, 1fr); /* Stack items in 2 columns */
-        grid-auto-rows: 150px;
+        /* Reduce row height again for smaller screens */
+        grid-auto-rows: 160px; 
+        gap: 0.5rem; /* Slightly smaller gap to save space */
     }
+
+    /* Switch to a mix of full-width (span 24) and half-width (span 12) items */
+    /* A crucial rule for CSS Grid: To avoid empty gaps, sequential items 
+       that share a row must perfectly add up to 24! */
+    
+    .mosaic-item:nth-child(1) { grid-column: span 24; } /* Full width */
+    
+    .mosaic-item:nth-child(2) { grid-column: span 12; } /* Half width */
+    .mosaic-item:nth-child(3) { grid-column: span 12; } /* Half width */
+    
+    .mosaic-item:nth-child(4) { grid-column: span 24; } /* Full width */
+    
+    .mosaic-item:nth-child(5) { grid-column: span 12; } /* Half width */
+    .mosaic-item:nth-child(6) { grid-column: span 12; } /* Half width */
+    
+    .mosaic-item:nth-child(7) { grid-column: span 24; } /* Full width */
+    .mosaic-item:nth-child(8) { grid-column: span 24; } /* Full width */
+    .mosaic-item:nth-child(9) { grid-column: span 24; } /* Video Full width */
+    
+    .mosaic-item:nth-child(10) { grid-column: span 12; } /* Half width */
+    .mosaic-item:nth-child(11) { grid-column: span 12; } /* Half width */
+    
+    .mosaic-item:nth-child(12) { grid-column: span 24; }
 }
 
 

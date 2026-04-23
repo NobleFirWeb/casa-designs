@@ -248,3 +248,14 @@ window.addEventListener('scroll', () => {
         logoBadge.classList.remove('revealed');
     }
 });
+
+// --- Accordion Logic ---
+// --- Modern, Simplified Accordion Logic ---
+const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+accordionHeaders.forEach(header => {
+    header.addEventListener('click', function() {
+        // Just toggle the active class. CSS handles the animation!
+        this.classList.toggle('active');
+    });
+});

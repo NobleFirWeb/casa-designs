@@ -203,6 +203,31 @@ main {
 .dwk-menu .dwk-menu__item:nth-child(6) { transition-delay: 0.6s; }
 
 
+/* Ensure the elements smoothly fade between colors */
+.logo-badge span,
+.dwk-burger__patty,
+.logo img {
+    transition: all 0.4s ease; 
+}
+
+/* --- LIGHT THEME OVERRIDES --- */
+/* Makes the logo image pure white */
+header.theme-light .logo img {
+    filter: brightness(0) invert(1);
+}
+
+/* Makes the logo text pure white */
+header.theme-light .logo-badge span {
+    color: #ffffff !important;
+    mix-blend-mode: normal; /* Prevents blending conflicts over photos */
+}
+
+/* Makes all 3 burger patties pure white */
+header.theme-light .dwk-burger__patty {
+    background: #ffffff !important;
+    mix-blend-mode: normal; /* Prevents blending conflicts over photos */
+}
+
 @media screen and (max-width: 768px) {
 
     header {
@@ -221,7 +246,7 @@ main {
     }
 
     .dwk-menu__list {
-        height: 75vh;
+        height: 70vh;
         transform: translate3d(-100%, 0, 0);
     }
 
@@ -230,7 +255,7 @@ main {
     }
 
     .dwk-menu__brand {
-        height: 25vh;
+        height: 30vh;
         transform: translate3d(100%, 0, 0);
     }
     .dwk-burger--close .dwk-burger__patty {
@@ -238,8 +263,8 @@ main {
     }
 
     .dwk-menu__brand .dwk-logo {
-        width: 90px;
-        height: 90px;
+        width: 200px;
+        height: 200px;
     }
     .nav-right .work-btn {
         display: none;
@@ -254,10 +279,7 @@ main {
 }
 
 @media screen and (max-width: 480px) {
-    .logo {
-        width: 50px;
-        height: 50px;
-    }
+    
     .logo-badge span {
         font-size: 1.25rem;
     }
@@ -278,7 +300,7 @@ main {
     width: 100%;
     height: 100vh;
     margin: 0 auto;
-    background-image: url('../img/face-grain-stacked.png');
+    background-image: url('../img/about-hero.png');
     background-size: cover;
     background-position: center;
     inset: 0;
@@ -300,13 +322,14 @@ main {
     text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 .hero-subtext {
-    font-size: clamp(1.25rem, 2vw, 2rem);
+    font-size: clamp(1.25rem, 3.5vw, 4rem);
     line-height: 1.4;
     font-weight: 400;
     color: #ffffff;
-    opacity: 0.8;
+    opacity: 1;
     letter-spacing: 0.05em;
     text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    padding-top: 3rem;
 }
 
 .about-intro {
@@ -396,7 +419,13 @@ main {
     align-items: center;
     min-height: 25vh;
     height: auto;
+    border-bottom: 1px solid #ddd;
 }
+
+#top-header {
+    border-top: 1px solid #ddd;
+}
+
 
 .header-row .header-left {
     width: 75%;
@@ -555,13 +584,296 @@ main {
 }
 
 
+/* --- PRODUCTS TIMELINE SECTION (EXACT DESIGN) --- */
+.products-timeline {
+    background-color: #ffffff; 
+    color: #000000;
+    padding: 0 5%;
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-container {
+    max-width: 80%; /* Wider container for premium feel */
+    margin: 0 auto;
+}
+
+/* Header & Pill Button */
+
+
+/* The Track Layout */
+.timeline-track {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 8rem;
+}
+
+/* The central vertical line */
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #ddd;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+/* Individual product rows */
+.timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10rem;
+    width: 100%;
+    margin-bottom: 10rem; /* Generous vertical breathing room */
+    position: relative;
+    z-index: 2;
+}
+
+/* Remove margin from the very last item */
+.timeline-item:last-child {
+    margin-bottom: 4rem;
+}
 
 
 
+/* Bulletproof spacing: 40% width prevents overlap with center line */
+
+.timeline-text-wrapper {
+    width: 85%; 
+    padding: 2rem 0;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.timeline-image-wrapper {
+    width: 900px;
+    height: auto;
+    max-height: 540px;
+    padding: 3.5rem 0;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+/* Typography & Image Styling */
+.timeline-image-wrapper img {
+    width: 100%;
+    height: auto;
+    max-height: 540px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.timeline-text-wrapper h2 {
+    font-size: 4.75vw;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 0.85;
+    letter-spacing: -0.25vw;
+    text-transform: uppercase;
+    background-color: #ffffff;
+}
 
 
+.timeline-text-wrapper p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+}
+
+/* Small text with arrow link */
+.arrow-link {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.arrow-link::after {
+    content: '→';
+    margin-left: 10px;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.arrow-link:hover {
+    border-bottom-color: #ffffff;
+}
+
+.arrow-link:hover::after {
+    transform: translateX(6px);
+}
+
+/* --- RESPONSIVE DESIGN (Tablets and Mobile) --- */
+@media screen and (max-width: 900px) {
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .timeline-line,
+    .timeline-dot {
+        display: none; /* Hide timeline elements on small screens */
+    }
+
+    .timeline-item, 
+    .timeline-item:nth-child(even) {
+        flex-direction: column;
+        text-align: left; /* Keep text left-aligned on mobile */
+        gap: 3rem;
+        margin-bottom: 6rem;
+    }
+
+    .timeline-image-wrapper, 
+    .timeline-text-wrapper {
+        width: 100%;
+    }
+}
 
 
+/* --- ACCORDION STYLES --- */
+.accordion-section {
+    background-color: #0b0b0b; /* Matches your dark sections */
+    padding: 5rem 0;
+    margin: 5% 0;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+}
+
+.accordion-section .header-row {
+    border-bottom: none;
+}
+
+.accordion-section .header-row .header-left {
+    color: #ffffff;
+}
+
+.accordion-section .header-row .header-left p {
+    color: #ffffff;
+}
+
+.accordion-section .spinning-text {
+    fill: #ffffff;
+}
+
+.accordion-container {
+    max-width: 85%;
+    margin: 0 auto;
+    min-height: 70vh; /* Achieves the 70vh requirement */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically centers the accordion inside the 70vh space */
+    padding-top: 5%;
+}
+
+.accordion-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Thin dividing line */
+}
+
+.accordion-header {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #ffffff;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+}
+
+.accordion-title {
+    font-size: 4vw;
+    font-weight: 400;
+}
+
+.accordion-icon {
+    color: #ff0000;
+    font-size: 3.5rem;
+    font-weight: 100;
+    line-height: 1;
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1); /* Smooth rotation */
+}
+
+/* Active State: Rotates the + icon counter-clockwise to form an x */
+.accordion-header.active .accordion-icon {
+    transform: rotate(-45deg); 
+}
+
+/* The Content Panel */
+.accordion-content {
+    display: grid;
+    grid-template-rows: 0fr; /* Collapses the container */
+    transition: grid-template-rows 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* When the header is active, expand the row to its natural auto height (1fr) */
+.accordion-header.active + .accordion-content {
+    grid-template-rows: 1fr; 
+}
+
+/* The Inner Wrapper */
+.accordion-inner {
+    overflow: hidden; /* Crucial: Hides content when the grid row is 0fr */
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    padding: 0 1.5rem;
+}
+
+/* We use a pseudo-element for bottom padding so it doesn't break the 0fr collapse */
+.accordion-inner::after {
+    content: '';
+    display: block;
+    height: 2rem; 
+}
+
+.accordion-inner p {
+    font-size: 1.65rem;
+    line-height: 1.4;
+    max-width: 70%;
+}
+
+.accordion-grid {
+    display: grid;
+    grid-template-columns: 9fr 3fr 3fr;
+    gap: 2rem;
+}
+
+.accordion-grid-item {
+    border-radius: 6px;
+    overflow: hidden;
+    max-height: 350px;
+    width: 100%;
+}
+
+.accordion-grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+    .accordion-title { font-size: 1.4rem; }
+    .accordion-inner { padding-right: 0; }
+}
 
 
 
@@ -601,7 +913,8 @@ main {
 
 .conversion-footer {
     width: 100%;
-    height: 45vh;
+    min-height: 70vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -637,7 +950,7 @@ main {
     height: 100%;
     color: #fff;
     text-decoration: none;
-    padding: 2rem 12rem;
+    padding: 6rem 12rem;
     font-size: 1.15rem;
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -651,10 +964,12 @@ main {
 /* Mosaic Grid Area */
 .conversion-mosaic {
     display: grid;
-    grid-template-columns: 1fr 1.2fr 2.5fr 1fr 1fr 1.2fr; /* 7 columns of varying widths */
+    /* Create 24 equal micro-columns instead of 6 specific ones */
+    grid-template-columns: repeat(24, 1fr); 
+    grid-auto-rows: 250px; 
     gap: 0.75rem;
-    flex: 1; /* Fills remaining height */
-    min-height: 0; /* Important for grid items inside flex containers */
+    flex: 1; 
+    min-height: 0; 
     height: 100%;
 }
 
@@ -665,12 +980,49 @@ main {
     position: relative;
 }
 
-.mosaic-item img {
+.conversion-mosaic {
+    display: grid;
+    /* Create 24 equal micro-columns instead of 6 specific ones */
+    grid-template-columns: repeat(24, 1fr); 
+    grid-auto-rows: 250px; 
+    gap: 0.75rem;
+    flex: 1; 
+    min-height: 0; 
+    height: 100%;
+}
+
+/* Base item styles remain exactly the same */
+.mosaic-item {
+    border-radius: 6px;
+    overflow: hidden;
+    background: #f4f4f4;
+    position: relative;
+}
+
+.mosaic-item img,
+.mosaic-item video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
+
+/* --- ROW 1 (Items 1 through 6) --- */
+/* These values add up to 24, mimicking your original fractional widths */
+.mosaic-item:nth-child(1) { grid-column: span 3; }  /* roughly 1fr */
+.mosaic-item:nth-child(2) { grid-column: span 4; }  /* roughly 1.2fr */
+.mosaic-item:nth-child(3) { grid-column: span 7; }  /* roughly 2.5fr */
+.mosaic-item:nth-child(4) { grid-column: span 3; }  /* roughly 1fr */
+.mosaic-item:nth-child(5) { grid-column: span 3; }  /* roughly 1fr */
+.mosaic-item:nth-child(6) { grid-column: span 4; }  /* roughly 1.2fr */
+
+/* --- ROW 2 (Items 7 through 12) --- */
+/* Completely different widths! Just ensure these also add up to 24 */
+.mosaic-item:nth-child(7) { grid-column: span 5; }  
+.mosaic-item:nth-child(8) { grid-column: span 4; }  
+.mosaic-item:nth-child(9) { grid-column: span 8; }  /* Makes the video nicely wide! */
+.mosaic-item:nth-child(10) { grid-column: span 3; } 
+.mosaic-item:nth-child(11) { grid-column: span 4; }
 
 @media (max-width: 1024px) {
     .conversion-title {
@@ -691,22 +1043,37 @@ main {
         padding-top: 2rem;
     }
     .conversion-mosaic {
-        grid-template-columns: repeat(3, 1fr); /* Simpler grid for mobile */
-        grid-auto-rows: 100px;
+        grid-auto-rows: 200px; /* Reduce row height for smaller screens */
     }
     .conversion-cta {
         padding: 3rem 5rem;
         font-size: 1rem;
     }
+    /* Row 1 */
+    .mosaic-item:nth-child(1) { grid-column: span 10; }
+    .mosaic-item:nth-child(2) { grid-column: span 6; }
+    .mosaic-item:nth-child(3) { grid-column: span 8; }
+    
+    /* Row 2 */
+    .mosaic-item:nth-child(4) { grid-column: span 8; }
+    .mosaic-item:nth-child(5) { grid-column: span 8; }
+    .mosaic-item:nth-child(6) { grid-column: span 8; }
+    
+    /* Row 3 */
+    .mosaic-item:nth-child(7) { grid-column: span 14; }
+    .mosaic-item:nth-child(8) { grid-column: span 10; }
+    
+    /* Row 4 (Make the video take up the full width for impact!) */
+    .mosaic-item:nth-child(9) { grid-column: span 24; } 
+    
+    /* Row 5 */
+    .mosaic-item:nth-child(10) { grid-column: span 12; }
+    .mosaic-item:nth-child(11) { grid-column: span 12; }
 }
 
 @media (max-width: 480px) {
     .conversion-header {
         padding: 0;
-    }
-    .header-left h2 {
-        font-size: 6vw;
-        line-height: 1;
     }
     .conversion-title {
         font-size: 8vw;
@@ -717,10 +1084,38 @@ main {
         font-size: 1rem;
     }
     .conversion-mosaic {
-        grid-template-columns: repeat(2, 1fr); /* Stack items in 2 columns */
-        grid-auto-rows: 150px;
+        /* Reduce row height again for smaller screens */
+        grid-auto-rows: 160px; 
+        gap: 0.5rem; /* Slightly smaller gap to save space */
     }
+
+    /* Switch to a mix of full-width (span 24) and half-width (span 12) items */
+    /* A crucial rule for CSS Grid: To avoid empty gaps, sequential items 
+       that share a row must perfectly add up to 24! */
+    
+    .mosaic-item:nth-child(1) { grid-column: span 24; } /* Full width */
+    
+    .mosaic-item:nth-child(2) { grid-column: span 12; } /* Half width */
+    .mosaic-item:nth-child(3) { grid-column: span 12; } /* Half width */
+    
+    .mosaic-item:nth-child(4) { grid-column: span 24; } /* Full width */
+    
+    .mosaic-item:nth-child(5) { grid-column: span 12; } /* Half width */
+    .mosaic-item:nth-child(6) { grid-column: span 12; } /* Half width */
+    
+    .mosaic-item:nth-child(7) { grid-column: span 24; } /* Full width */
+    .mosaic-item:nth-child(8) { grid-column: span 24; } /* Full width */
+    .mosaic-item:nth-child(9) { grid-column: span 24; } /* Video Full width */
+    
+    .mosaic-item:nth-child(10) { grid-column: span 12; } /* Half width */
+    .mosaic-item:nth-child(11) { grid-column: span 12; } /* Half width */
+    
+    .mosaic-item:nth-child(12) { grid-column: span 24; }
 }
+
+
+
+
 
 
 /*-- Footer Section styles --*/
