@@ -416,7 +416,6 @@ header.theme-light .dwk-burger__patty {
 .about-intro p {
     font-size: 1.2vw;
     line-height: 1.3;
-    color: #555;
 }
 
 .about-intro .work-btn {
@@ -558,7 +557,7 @@ header.theme-light .dwk-burger__patty {
 .header-left p {
     font-size: 1.2vw;
     line-height: 1.1;
-    color: #aaa;
+    color: #ffffff;
     max-width: 80%;
 }
 
@@ -673,9 +672,9 @@ header.theme-light .dwk-burger__patty {
 }
 
 .item-row .row-right p {
-    font-size: 1.2rem;
+    font-size: 1vw;
     line-height: 1.1;
-    color: #aaa;
+    color: #ffffff;
     font-weight: 500;
 }
 
@@ -703,9 +702,9 @@ header.theme-light .dwk-burger__patty {
 }
 
 .row2 .row-left p {
-    font-size: 1.2rem;
+    font-size: 1vw;
     line-height: 1.1;
-    color: #aaa;
+    color: #ffffff;
     max-width: 90%;
     font-weight: 500;
 }
@@ -750,9 +749,9 @@ header.theme-light .dwk-burger__patty {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1vw;
     line-height: 1.1;
-    color: #aaa;
+    color: #ffffff;
     font-weight: 500;
 }
 
@@ -799,9 +798,9 @@ header.theme-light .dwk-burger__patty {
 
 .item-row.row4 .row-right p {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1vw;
     line-height: 1.1;
-    color: #aaa;
+    color: #ffffff;
     font-weight: 500;
 
 }
@@ -1110,7 +1109,7 @@ header.theme-light .dwk-burger__patty {
   padding: 1em;
   justify-content: center;
   align-items: center;
-  min-height: 70vh;
+  min-height: 60vh;
   display: flex;
   position: relative;
   font-size: 1.1vw;
@@ -1243,7 +1242,7 @@ header.theme-light .dwk-burger__patty {
 
 .services-footer {
   width: 100%;
-  height: 70vh;
+  height: 80vh;
   background-color: #ffffff;
   display: flex;
   align-items: center;
@@ -1251,7 +1250,7 @@ header.theme-light .dwk-burger__patty {
   box-sizing: border-box;
   padding: 0 5%;
   padding-top: 2.5%;
-  margin: 60px 0;
+  margin-bottom: 60px;
 }
 
 .services-container {
@@ -1478,7 +1477,7 @@ header.theme-light .dwk-burger__patty {
   }
   .services-footer {
     height: auto;
-    padding: 8vw 4vw;
+    padding: 8vw 2vw;
   }
   .services-footer-heading {
     font-size: 6vw;
@@ -2345,7 +2344,7 @@ header.theme-light .dwk-burger__patty {
         height: auto;
         display: flex;
         flex-direction: column; /* Stack them for maximum detail visibility */
-        width: 95%;
+        width: 96%;
     }
 
     .collage-grid > div {
@@ -2553,17 +2552,31 @@ header.theme-light .dwk-burger__patty {
         gap: 1.5rem;
     }
 
-    .owner-text-col,
+    .owner-section-container {
+        margin-bottom: 4rem;
+    }
+
     .owner-media-col {
         margin: 0 auto;
         width: 100%;
         max-width: 100%;
         position: relative !important; /* Ensures the pin is fully overridden */
     }
+
+    .owner-text-col {
+        margin: 0 auto;
+        width: 90%;
+        max-width: 90%;
+        position: relative !important; /* Ensures the pin is fully overridden */
+    }
     .owner-image-grid {
         width: 98%;
         height: auto;
         max-height: none;
+    }
+
+    .owner-reveal-section {
+        max-height: 80vh;
     }
 
     /* Further scale down typography for small phones */
@@ -2638,6 +2651,7 @@ header.theme-light .dwk-burger__patty {
     letter-spacing: -0.15vw;
     line-height: 1;
     padding-top: 4rem;
+    text-transform: uppercase;
 }
 
 .conversion-cta {
@@ -2767,11 +2781,14 @@ header.theme-light .dwk-burger__patty {
 }
 
 @media (max-width: 480px) {
+    .contact {
+        margin-top: 4rem;
+    }
     .conversion-header {
         padding: 0;
     }
     .conversion-title {
-        font-size: 8vw;
+        font-size: 6vw;
         padding-top: 2rem;
     }
     .conversion-cta {
