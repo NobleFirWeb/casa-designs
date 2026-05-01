@@ -110,7 +110,9 @@ function initOwnerSectionAnimation() {
         ease: "power2.inOut",
         duration: 0.25
     }, "-=0.25"
-    )
+    );
+
+    tl.to({}, { duration: 1 }); 
 }
 
 window.addEventListener('load', () => {
