@@ -232,6 +232,11 @@ header.theme-light .dwk-burger__patty {
 
     header {
         padding: 15px 10px;
+        height: 70px;
+    }
+    .logo {
+        width: 60px;
+        height: 60px;
     }
     ul.dwk-menu__list,
     div.dwk-menu__brand {
@@ -271,17 +276,14 @@ header.theme-light .dwk-burger__patty {
     }
 }
 
-@media screen and (max-width: 768px) {
-    .logo {
-        width: 60px;
-        height: 60px;
-    }
-}
 
 @media screen and (max-width: 480px) {
-    
+    .header {
+        padding: 5px 10px;
+        height: 60px;
+    }
     .logo-badge span {
-        font-size: 1.25rem;
+        font-size: 1.05rem;
     }
 }
 
@@ -319,16 +321,15 @@ header.theme-light .dwk-burger__patty {
     color: #ffffff;
     max-width: 23ch;
     text-align: center;
-    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 .hero-subtext {
     font-size: clamp(1.25rem, 3.5vw, 4rem);
     line-height: 1.4;
-    font-weight: 400;
+    font-weight: 500;
     color: #ffffff;
     opacity: 1;
     letter-spacing: 0.05em;
-    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
     padding-top: 3rem;
 }
 
@@ -883,8 +884,8 @@ header.theme-light .dwk-burger__patty {
 
 .accordion-inner p {
     font-size: 1.65rem;
-    line-height: 1.4;
-    max-width: 70%;
+    line-height: 1.2;
+    max-width: 75%;
 }
 
 .accordion-grid {
@@ -894,22 +895,41 @@ header.theme-light .dwk-burger__patty {
 }
 
 .accordion-grid-item {
-    border-radius: 6px;
     overflow: hidden;
-    max-height: 350px;
+    height: auto;
+    max-height: 700px;
     width: 100%;
 }
 
 .accordion-grid-item img {
     width: 100%;
-    height: 100%;
+    height: 90%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 6px;
+}
+
+.accordion-grid-item video {
+    width: 100%;
+    height: 90%;
     object-fit: cover;
     display: block;
+    border-radius: 6px;
+}
+
+.accordion-grid-item p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1;
+    color: #ffffff;
+    text-align: center;
 }
 
 @media screen and (max-width: 1024px) {
     .accordion-container {
         max-width: 90%; /* slightly wider container to give content room */
+        min-height: 50vh;
     }
     
     .accordion-title {
@@ -926,18 +946,274 @@ header.theme-light .dwk-burger__patty {
         grid-template-columns: repeat(3, 1fr); 
         gap: 1.5rem;
     }
+    .accordion-grid-item p {
+        display: none;
+    }
 }
 
 /* Mobile adjustments */
 @media screen and (max-width: 768px) {
-    .accordion-title { 
-        font-size: 1.4rem; 
+    .accordion-section {
+        padding: 3rem 0;
     }
-    .accordion-inner { 
-        padding-right: 0; 
+    
+    .accordion-container {
+        max-width: 90%;
+        padding-top: 2rem;
+    }
+    
+    .accordion-header {
+        padding: 1.5rem 0;
+    }
+    
+    .accordion-title {
+        font-size: 2.25rem; /* Switch from vw to rem for stability on smaller screens */
+    }
+    
+    .accordion-icon {
+        font-size: 2.5rem; /* Scale down the plus icon */
+    }
+    
+    .accordion-inner {
+        padding: 0 1rem;
+    }
+    
+    .accordion-inner p {
+        font-size: 1.25rem;
+        max-width: 100%; /* Let the text use the full width */
+    }
+    
+    .accordion-grid {
+        /* Make the first image span the top, stack the other two side-by-side underneath */
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    
+    .accordion-grid-item:first-child {
+        grid-column: span 2;
+        max-height: 250px;
+    }
+    .accordion-grid-item {
+        max-height: 300px;
     }
 }
 
+@media screen and (max-width: 480px) {
+    .accordion-section {
+        padding: 3rem 0;
+    }
+    
+    .accordion-container {
+        max-width: 95%; /* Maximize screen real estate for small devices */
+    }
+    
+    .accordion-header {
+        padding: 1.25rem 0;
+    }
+
+    .accordion-container {
+        padding-top: 0;
+    }
+    
+    .accordion-title {
+        font-size: 1.5rem;
+    }
+    
+    .accordion-icon {
+        font-size: 2rem;
+    }
+    
+    .accordion-inner {
+        padding: 0; /* Remove inner padding entirely to give text max space */
+    }
+    
+    .accordion-inner p {
+        font-size: 1.1rem;
+    }
+    
+    .accordion-grid {
+        grid-template-columns: 1fr; /* Stack all images vertically */
+        gap: 1rem;
+    }
+    
+    .accordion-grid-item:first-child {
+        grid-column: span 1; /* Reset the span from the tablet breakpoint */
+        max-height: 200px;
+    }
+    .accordion-grid-item {
+        max-height: 250px;
+    }
+}
+
+.image-carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    height: 100%;
+    margin-top: 15.5rem;
+}
+
+.images {
+    position: relative;
+    white-space: nowrap;
+    will-change: transform;
+    display: flex;
+    gap: 10px;
+}
+
+.image-carousel:hover {
+    cursor: pointer;
+}
+
+.image {
+    display: inline-block;
+}
+
+.image img {
+    height: 40vh;
+    width: auto;
+}
+
+
+.owner {
+    width: 100%;
+    margin-top: 12.2rem;
+}
+
+.animation-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; 
+  background: #ffffff;
+}
+
+/* Background text sizing fixed to prevent horizontal overflow */
+.bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  text-align: center;
+  font-size: 13.5vw; 
+  font-weight: bold;
+  color: #000000;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* Image mask starts in the centre */
+.image-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  clip-path: inset(25vh 30vw); 
+}
+
+.image-mask img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Products overlay container */
+.products-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3vw;
+  width: 100%;
+  max-width: 1800px;
+  height: 80vh; 
+}
+
+.product-item {
+  width: 100%;
+  transform: translateY(100vh); 
+  pointer-events: auto; 
+}
+
+
+.align-top { align-self: start; }
+
+.card-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: #f4f4f4;
+  margin-bottom: 15px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.tag {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.card-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+}
+
+.price-current { font-weight: bold; font-size: 1.1rem; }
+.price-old { text-decoration: line-through; color: #888; font-size: 0.9em; margin-left: 8px; }
+
+.card-title {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  mix-blend-mode: difference;
+}
+
+.white-footer {
+  height: 100vh;
+  background: #ffffff;
+  position: relative;
+  z-index: 10;
+}
 
 
 

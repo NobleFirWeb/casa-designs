@@ -67,3 +67,52 @@ function initTimelineImageReveals() {
 window.addEventListener('load', () => {
     initTimelineImageReveals();
 });
+
+
+function initOwnerSectionAnimation() {
+
+    const tl = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".animation-wrapper",
+        start: "top top",
+        end: "+=250%", // Determines how much scroll distance is required to complete the animation
+        scrub: 1, 
+        pin: true, 
+    }
+    });
+
+    // Phase 1: Expand the image from the centre to full screen
+    tl.to('.image-mask', {
+    clipPath: 'inset(0vh 0vw)',
+    ease: "power2.inOut",
+    duration: 1
+    });
+
+    tl.to('.bg-text', {
+        color: "#ffffff",
+        ease: "power2.inOut",
+        duration: 0
+    });
+
+    // Optional tiny buffer so the image settles before the products arrive
+    tl.to({}, { duration: 0.1 }); 
+
+    // Phase 2: Slide the products up from below the screen without fading
+    tl.to('.product-item', {
+    y: 0, // This translates them from 100vh back to their natural grid position
+    stagger: 0.1,
+    ease: "power3.out",
+    duration: 0.7
+    });
+
+    tl.to('.bg-text', {
+        y: 150,
+        ease: "power2.inOut",
+        duration: 0.25
+    }, "-=0.25"
+    )
+}
+
+window.addEventListener('load', () => {
+    initOwnerSectionAnimation();
+});

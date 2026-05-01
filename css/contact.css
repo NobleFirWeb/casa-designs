@@ -231,6 +231,11 @@ main {
 
     header {
         padding: 15px 10px;
+        height: 70px;
+    }
+    .logo {
+        width: 60px;
+        height: 60px;
     }
     ul.dwk-menu__list,
     div.dwk-menu__brand {
@@ -245,7 +250,7 @@ main {
     }
 
     .dwk-menu__list {
-        height: 75vh;
+        height: 70vh;
         transform: translate3d(-100%, 0, 0);
     }
 
@@ -254,7 +259,7 @@ main {
     }
 
     .dwk-menu__brand {
-        height: 25vh;
+        height: 30vh;
         transform: translate3d(100%, 0, 0);
     }
     .dwk-burger--close .dwk-burger__patty {
@@ -262,28 +267,22 @@ main {
     }
 
     .dwk-menu__brand .dwk-logo {
-        width: 90px;
-        height: 90px;
+        width: 200px;
+        height: 200px;
     }
     .nav-right .work-btn {
         display: none;
     }
 }
 
-@media screen and (max-width: 768px) {
-    .logo {
-        width: 60px;
-        height: 60px;
-    }
-}
 
 @media screen and (max-width: 480px) {
-    .logo {
-        width: 50px;
-        height: 50px;
+    .header {
+        padding: 5px 10px;
+        height: 60px;
     }
     .logo-badge span {
-        font-size: 1.25rem;
+        font-size: 1.05rem;
     }
 }
 
