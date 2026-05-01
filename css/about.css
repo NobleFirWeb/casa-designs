@@ -1216,7 +1216,10 @@ header.theme-light .dwk-burger__patty {
 }
 
 
-
+.faq {
+    width: 100%;
+    height: 100vh;
+}
 
 
 
