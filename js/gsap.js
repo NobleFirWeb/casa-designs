@@ -223,7 +223,7 @@ const handleImageAnimation = () => {
     imgTl
       .fromTo(img, 
         { opacity: 0, scale: 0.5 }, 
-        { opacity: 1, scale: 1, ease: 'none' }
+        { opacity: 1, scale: 1, ease: 'none', }
       )
       .to(img, 
         { opacity: 0, scale: 1.05, ease: 'none' }

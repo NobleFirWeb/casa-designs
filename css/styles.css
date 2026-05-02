@@ -379,15 +379,20 @@ header.theme-light .dwk-burger__patty {
     }
 }
 @media (max-width: 480px) {
-    
+    .hero-wrapper {
+        min-height: 65vh;
+    }
     .mask-text {
-        font-size: 2.95rem;
+        font-size: 3.95rem;
         letter-spacing: -2px;
         y: 350px; /* Adjust vertical position for smaller screens */
     }
     .video-mask {
-        width: 320px;
-        x: 340px;
+        width: 460px;
+        x: 270px;
+    }
+    .bg-video {
+        margin-top: 60px;
     }
 }
 

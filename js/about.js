@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     titleElement.textContent = "";
 
 
-    const tl = gsap.timeline({ delay: 0.8 });
+    const tl = gsap.timeline({ delay: 1 });
 
     // 1. Typewriter effect
     tl.to(titleElement, {
@@ -75,7 +75,7 @@ function initOwnerSectionAnimation() {
     scrollTrigger: {
         trigger: ".animation-wrapper",
         start: "top top",
-        end: "+=250%", // Determines how much scroll distance is required to complete the animation
+        end: "+=300%", // Determines how much scroll distance is required to complete the animation
         scrub: 1, 
         pin: true, 
     }
@@ -95,26 +95,41 @@ function initOwnerSectionAnimation() {
     });
 
     // Optional tiny buffer so the image settles before the products arrive
-    tl.to({}, { duration: 0.1 }); 
+    tl.to({}, { duration: 2 }); 
 
     // Phase 2: Slide the products up from below the screen without fading
     tl.to('.product-item', {
-    y: 0, // This translates them from 100vh back to their natural grid position
-    stagger: 0.1,
+    y: 0,
+    stagger: 0.2,
     ease: "power3.out",
-    duration: 0.7
+    duration: 1
+    });
+
+    tl.to('.image-mask', {
+        filter: 'brightness(0.8)',
+        ease: "power2.inOut",
+        duration: 0
     });
 
     tl.to('.bg-text', {
-        y: 150,
+        y: 30,
         ease: "power2.inOut",
-        duration: 0.25
-    }, "-=0.25"
+        duration: 1
+    }, "-=0.30"
     );
 
-    tl.to({}, { duration: 1 }); 
+    tl.to('.bg-subtext', {
+        y: -100,
+        opacity: 1,
+        ease: "power2.inOut",
+        duration: 1
+    }, "-=0.30");
+
+    tl.to({}, { duration: 2 }); 
 }
 
 window.addEventListener('load', () => {
     initOwnerSectionAnimation();
 });
+
+// Initialize the sticky pin for the testimonials section
