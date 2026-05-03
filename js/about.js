@@ -70,62 +70,54 @@ window.addEventListener('load', () => {
 
 
 function initOwnerSectionAnimation() {
-
     const tl = gsap.timeline({
-    scrollTrigger: {
-        trigger: ".animation-wrapper",
-        start: "top top",
-        end: "+=300%", // Determines how much scroll distance is required to complete the animation
-        scrub: 1, 
-        pin: true, 
-    }
+        scrollTrigger: {
+            trigger: ".animation-wrapper",
+            start: "top 10%", // Triggers just as the section enters full view
+            once: true, // CRITICAL: This ensures the trigger fires only once and never reverses
+            toggleActions: "play none none none" 
+        }
     });
 
     // Phase 1: Expand the image from the centre to full screen
     tl.to('.image-mask', {
-    clipPath: 'inset(0vh 0vw)',
-    ease: "power2.inOut",
-    duration: 1
-    });
-
-    tl.to('.bg-text', {
-        color: "#ffffff",
-        ease: "power2.inOut",
-        duration: 0
-    });
-
-    // Optional tiny buffer so the image settles before the products arrive
-    tl.to({}, { duration: 2 }); 
-
-    // Phase 2: Slide the products up from below the screen without fading
-    tl.to('.product-item', {
-    y: 0,
-    stagger: 0.2,
-    ease: "power3.out",
-    duration: 1
-    });
-
-    tl.to('.image-mask', {
+        clipPath: 'inset(0vh 0vw)',
         filter: 'brightness(0.8)',
         ease: "power2.inOut",
-        duration: 0
+        duration: 0.5
     });
 
+    // Color snap (Syncs exactly at the end of the image expansion)
+    tl.to('.bg-text', {
+        color: "#ffffff",
+        ease: "none",
+        duration: 0.1
+    }, "-=0.1");
+
+    // Phase 2: Slide the products up from below the screen
+    // Note the "+=0.5" - This waits half a second before starting, replacing your empty buffer!
+    tl.to('.product-item', {
+        y: 0,
+        stagger: 0.2,
+        ease: "power3.out",
+        duration: 0.75
+    }, "+=0.5"); 
+
+    // Phase 3: Text moving up and subtext fading in
+    // Note the "+=0.5" to create a small pause before this final phase
     tl.to('.bg-text', {
         y: 30,
         ease: "power2.inOut",
-        duration: 1
-    }, "-=0.30"
-    );
+        duration: 0.5
+    }, "+=0.5");
 
+    // Note the "<" - This tells GSAP to play this animation at the exact same time as the previous one
     tl.to('.bg-subtext', {
         y: -100,
         opacity: 1,
         ease: "power2.inOut",
-        duration: 1
-    }, "-=0.30");
-
-    tl.to({}, { duration: 2 }); 
+        duration: 0.5
+    }, "<"); 
 }
 
 window.addEventListener('load', () => {
