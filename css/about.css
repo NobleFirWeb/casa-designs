@@ -438,8 +438,8 @@ header.theme-light .dwk-burger__patty {
 
 
 .header-row .header-left {
-    width: 75%;
-    padding: 3rem 0 1.5rem 12rem;
+    width: 70%;
+    padding: 3rem 0 1.5rem 10rem;
 }
 
 .header-left h2 {
@@ -454,7 +454,7 @@ header.theme-light .dwk-burger__patty {
 }
 
 .header-row .header-right {
-    width: 25%;
+    width: 30%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -822,7 +822,6 @@ header.theme-light .dwk-burger__patty {
     display: flex;
     flex-direction: column;
     justify-content: center; /* Vertically centers the accordion inside the 70vh space */
-    padding-top: 5%;
 }
 
 .accordion-item {
@@ -1269,12 +1268,30 @@ header.theme-light .dwk-burger__patty {
     padding-top: 7.5vh;
 }
 
+@media screen and (max-width: 1024px) {
+    .faq .accordion-container {
+        max-width: 90%;
+        min-height: 50vh;
+        margin-left: 0;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 480px) {
+
+}
+
 .testimonials-split {
     width: 100%;
     height: auto;
     background-color: #ffffff;
     color: #000000;
-    padding: 7.5vh 0;
+    padding: 5vh 0;
+    margin-top: 7.5vh;
 }
 
 .split-container {
@@ -1292,7 +1309,8 @@ header.theme-light .dwk-burger__patty {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; 
+    justify-content: flex-start;
+    padding: 3rem 0px 1.5rem 10rem; 
 }
 
 .sticky-review-content h2 {
@@ -1302,18 +1320,15 @@ header.theme-light .dwk-burger__patty {
     line-height: 0.85;
     letter-spacing: -0.25vw;
     margin: 0;
-    max-width: 80%;
 }
 
 .sticky-review-content p {
     font-size: 1.25rem;
     color: #000000;
-    max-width: 80%;
 }
 
 .split-right {
     width: 55%;
-    padding-right: 2.5vw;
 }
 
 .review-item {
@@ -1355,13 +1370,47 @@ header.theme-light .dwk-burger__patty {
         flex-direction: column;
         gap: 4rem;
     }
-    .split-left, .split-right {
+    .split-left {
+        margin: 0 auto;
         width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .split-right {
+        padding-right: 0;
+        margin: 0 auto;
+        width: 90%;
     }
     .sticky-review-content {
         position: relative !important; /* Disables pinning on mobile */
+        padding: 3rem 0 1.5rem 5rem;
+        width: 70%;
+        align-items:start;
+    }
+    .sticky-review-content h2 {
+        max-width: 100%;
+        font-size: 6vw;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .sticky-review-content {
+        padding: 3rem 0 1.5rem 3rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .sticky-review-content {
+        margin: 0 auto;
+        padding: 2rem 0;
+        width: 90%;
+    }
+    .sticky-review-content h2,
+    .sticky-review-content p {
+        width: 100%
+    }
+}
+
 
 
 .contact {

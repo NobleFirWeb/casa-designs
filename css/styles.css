@@ -383,21 +383,14 @@ header.theme-light .dwk-burger__patty {
 @media (max-width: 480px) {
     .hero-wrapper {
         min-height: 65vh;
-        padding-top: 60px;
-    }
-    #heroMask {
-        padding-top: 20vh;
     }
     .mask-text {
         font-size: 4.15rem;
         letter-spacing: -2px;
     }
     .video-mask {
-        width: 480px;
-        x: 260px;
-    }
-    .bg-video {
-        margin-top: 70px;
+        width: 470px;
+        x: 265px;
     }
 }
 
