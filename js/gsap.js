@@ -44,11 +44,11 @@ window.addEventListener("load", () => {
         });
 
         imagesContainer.addEventListener("mouseenter", () => {
-            gsap.to(loop, { timeScale: 0, duration: 0.3, overwrite: true });
+            gsap.to(loop, { timeScale: 0, duration: 0.2, overwrite: true });
         });
 
         imagesContainer.addEventListener("mouseleave", () => {
-            gsap.to(loop, { timeScale: 1, duration: 0.3, overwrite: true });
+            gsap.to(loop, { timeScale: 1, duration: 0.2, overwrite: true });
         });
     }
 
@@ -59,9 +59,9 @@ window.addEventListener("load", () => {
         let mySplitText = new SplitText(quoteEl, { type: "chars, words" });
 
         gsap.from(mySplitText.chars, {
-            duration: 2,
+            duration: 1,
             opacity: 0,
-            stagger: { from: "random", each: 0.01 },
+            stagger: { from: "random", each: 0.005 },
             scrollTrigger: {
                 trigger: quoteEl,
                 start: "top 80%",

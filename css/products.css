@@ -1,0 +1,501 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk&family=Syne:wght@400..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: "Inter";
+    background-color: #fff;
+}
+
+/* --- Navigation --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 85px;
+            box-sizing: border-box;
+            z-index: 999;
+            
+        }
+
+        .logo { 
+            width: 8ch;
+            height: 85px;
+            display: inline-flex;
+            align-items: center;
+        }
+        .logo img {
+            width: 100%;
+            height: 100%;
+        }
+        .logo-badge { 
+            padding-left: 0;
+            clip-path: inset(0 100% 0 0); 
+            transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .logo-badge.revealed {
+            clip-path: inset(0 0% 0 0);
+        }
+        .logo-badge span {
+            display: block;
+            font-size: 1.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.055em;
+            color: #000000;
+            line-height: 0.8;
+            transition: color 0.3s ease;
+        }
+        .logo-badge .is-white span {
+            color: #ffffff !important;
+        }
+
+        .nav-right { display: flex; gap: 20px; align-items: center; }
+        .work-btn { background: #ff0000; color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-size: 16px; font-weight: 500; text-transform: uppercase; }
+        
+
+
+.dwk-burger {
+    z-index: 999;
+    cursor: pointer;
+    transform: rotateY(0);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+
+
+.dwk-burger__patty {
+    width: 38px;
+    height: 2px;
+    margin: 0 0 5.5px 0;
+    background: #000000;
+    mix-blend-mode: difference;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.dwk-burger__patty:last-child { margin-bottom: 0;
+} 
+
+.dwk-burger--close { transform: rotate(180deg); }
+.dwk-burger--close .dwk-burger__patty:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.dwk-burger--close .dwk-burger__patty:nth-child(2) { opacity: 0; }
+.dwk-burger--close .dwk-burger__patty:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Menu Overlay */
+.dwk-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    visibility: hidden;
+}
+
+.dwk-menu--active { visibility: visible; }
+
+.dwk-menu__brand,
+.dwk-menu__list {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width: 50%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Blue to Pink Gradient for Menu */
+.dwk-menu__list {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    list-style-type: none;
+    transform: translate3d(0, -100%, 0);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.dwk-menu__list--active {
+    transform: translate3d(0, 0, 0);
+}
+
+.dwk-menu__brand {
+    background: #888888;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    transform: translate3d(0, 100%, 0);
+}
+
+
+
+.dwk-menu__brand--active {
+    transform: translate3d(0, 0, 0);
+}
+
+.dwk-menu__item {
+    transform: translate3d(500px, 0, 0);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    text-transform: uppercase;
+}
+
+.dwk-menu__item--active {
+    transform: translate3d(0, 0, 0);
+}
+
+.dwk-menu__link {
+    display: inline-block;
+    position: relative;
+    font-size: 42px;
+    padding: 15px 0;
+    font-weight: 300;
+    text-decoration: none;
+    color: #000000;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.dwk-menu__link span {
+    font-weight: 300;
+    opacity: 0.8;
+    margin-right: 15px;
+    font-size: 14px;
+}
+
+.dwk-menu__link:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0px;
+    height: 2px;
+    background: #000000;
+    transform: translateX(-50%);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.dwk-menu__link:hover:before {
+    width: 100%;
+}
+
+.dwk-menu a.dwk-menu__link:hover {
+    color: #000000 !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+}
+
+/* Staggered Delay */
+.dwk-menu .dwk-menu__item:nth-child(1) { transition-delay: 0.1s; }
+.dwk-menu .dwk-menu__item:nth-child(2) { transition-delay: 0.2s; }
+.dwk-menu .dwk-menu__item:nth-child(3) { transition-delay: 0.3s; }
+.dwk-menu .dwk-menu__item:nth-child(4) { transition-delay: 0.4s; }
+.dwk-menu .dwk-menu__item:nth-child(5) { transition-delay: 0.5s; }
+.dwk-menu .dwk-menu__item:nth-child(6) { transition-delay: 0.6s; }
+
+
+/* Ensure the elements smoothly fade between colors */
+.logo-badge span,
+.dwk-burger__patty,
+.logo img {
+    transition: all 0.4s ease; 
+}
+
+/* --- LIGHT THEME OVERRIDES --- */
+/* Makes the logo image pure white */
+header.theme-light .logo img {
+    filter: brightness(0) invert(1);
+}
+
+/* Makes the logo text pure white */
+header.theme-light .logo-badge span {
+    color: #ffffff !important;
+    mix-blend-mode: normal; /* Prevents blending conflicts over photos */
+}
+
+/* Makes all 3 burger patties pure white */
+header.theme-light .dwk-burger__patty {
+    background: #ffffff !important;
+    mix-blend-mode: normal; /* Prevents blending conflicts over photos */
+}
+
+@media screen and (max-width: 768px) {
+
+    header {
+        padding: 15px 10px;
+        height: 70px;
+    }
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+    ul.dwk-menu__list,
+    div.dwk-menu__brand {
+        float: none;
+        width: 100%;
+        min-height: 0;
+    }
+
+    ul.dwk-menu__list--active,
+    div.dwk-menu__brand--active {
+        transform: translate3d(0, 0, 0);
+    }
+
+    .dwk-menu__list {
+        height: 70vh;
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    .dwk-menu__link {
+        font-size: 24px;
+    }
+
+    .dwk-menu__brand {
+        height: 30vh;
+        transform: translate3d(100%, 0, 0);
+    }
+    .dwk-burger--close .dwk-burger__patty {
+        color: #ffffff;
+    }
+
+    .dwk-menu__brand .dwk-logo {
+        width: 200px;
+        height: 200px;
+    }
+    .nav-right .work-btn {
+        display: none;
+    }
+    .logo-badge {
+        clip-path: inset(0 0% 0 0);
+    }
+    .logo-badge.hidden-mobile {
+        clip-path: inset(0 100% 0 0);
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    .header {
+        padding: 5px 10px;
+        height: 60px;
+    }
+    .logo-badge span {
+        font-size: 1.25rem;
+    }
+}
+
+.images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.revealers {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+    /*   opacity: 0; */
+}
+
+.revealer {
+    flex: 1;
+    width: 100%;
+    background-color: #fff;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.images {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    transform-origin: center center;
+    will-change: transform;
+}
+
+.img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.5);
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+    will-change: transform;
+    opacity: 0;
+}
+
+.img:first-child {
+    opacity: 1;
+}
+
+.images.stacked-container {
+    position: absolute;
+    left: 2em;
+    bottom: 2em;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 1em;
+    transform: none;
+    will-change: transform;
+}
+
+.img.stacked {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    transform: none;
+    top: auto;
+    left: auto;
+    opacity: 1;
+    will-change: transform;
+}
+
+.hero-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.site-logo {
+  position: absolute;
+  top: 12em;
+  left: 2em;
+  display: flex;
+  gap: 1em;
+}
+
+.site-logo h1 {
+  color:#000;
+  font-family: "PP Neue Montreal";
+  font-size: 5vw;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.site-logo h1 sup {
+  position: absolute;
+  top: -0.125em;
+  font-size: 2rem;
+}
+
+.cover-img {
+    position: absolute;
+    right: 2em;
+    bottom: 2em;
+    width: 40%;
+    height: 50%;
+    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+}
+
+.cover-img img {
+    filter: saturate(0);
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.site-info {
+    position: absolute;
+    bottom: 2em;
+    left: 2em;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.site-info .row {
+    display: flex;
+    gap: 2em;
+}
+
+.site-info .row .col {
+    flex: 1;
+}
+
+.site-info h2 {
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 1.25;
+}
+
+.site-info p {
+    text-transform: uppercase;
+    font-family: "Inter";
+    font-size: 11px;
+    font-weight: 500;
+    color: #000;
+}
+
+.site-info .row:nth-child(2) .col:nth-child(2) {
+    display: flex;
+}
+
+.address,
+.socials {
+    flex: 1;
+}
+
+.address p,
+.socials p {
+    line-height: 1.25;
+}
+
+.word,
+.nav-item,
+.line {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.word h1,
+.nav-item p,
+.site-info h2 .line span,
+.line p {
+    position: relative;
+    will-change: transform;
+}
+
+.site-info h2 .line span {
+    display: flex;
+    transform: translateY(100%);
+}
+
+.word h1,
+.nav-item p,
+.line p {
+    transform: translateY(100%);
+}
+
+
+.next {
+    width: 100%;
+    min-height: 100vh;
+}
+
+

@@ -53,7 +53,7 @@ main {
         }
         .logo-badge span {
             display: block;
-            font-size: 1.35rem;
+            font-size: 1.85rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: -0.055em;
@@ -274,6 +274,12 @@ header.theme-light .dwk-burger__patty {
     .nav-right .work-btn {
         display: none;
     }
+    .logo-badge {
+        clip-path: inset(0 0% 0 0);
+    }
+    .logo-badge.hidden-mobile {
+        clip-path: inset(0 100% 0 0);
+    }
 }
 
 
@@ -283,7 +289,7 @@ header.theme-light .dwk-burger__patty {
         height: 60px;
     }
     .logo-badge span {
-        font-size: 1.05rem;
+        font-size: 1.25rem;
     }
 }
 
@@ -302,7 +308,7 @@ header.theme-light .dwk-burger__patty {
     width: 100%;
     height: 100vh;
     margin: 0 auto;
-    background-image: url('../img/about-hero.png');
+    background-image: url('../img/about-hero.jpg');
     background-size: cover;
     background-position: center;
     inset: 0;
@@ -310,7 +316,7 @@ header.theme-light .dwk-burger__patty {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 32px;
+    border-radius: 16px;
 }
 .hero-content h1 {
     font-size: clamp(2.5rem, 7.5vw, 10rem);
@@ -386,12 +392,16 @@ header.theme-light .dwk-burger__patty {
 
 @media (max-width: 480px) {
     .about-hero {
-        min-height: 65vh;
+        min-height: 52vh;
         padding-bottom: 0;
-        padding-top: 80px;
+        padding-top: 85px;
+        padding-bottom: 20px;
     }
     .hero-content {
-        height: 65vh;
+        height: 52vh;
+        display: flex;
+        justify-content: space-between;
+        padding: 2.5vh 0;
     }
     .about-intro {
         margin: 0 auto;
@@ -818,7 +828,7 @@ header.theme-light .dwk-burger__patty {
 .accordion-container {
     max-width: 85%;
     margin: 0 auto;
-    min-height: 70vh; /* Achieves the 70vh requirement */
+    min-height: 60vh; /* Achieves the 70vh requirement */
     display: flex;
     flex-direction: column;
     justify-content: center; /* Vertically centers the accordion inside the 70vh space */
@@ -1011,15 +1021,12 @@ header.theme-light .dwk-burger__patty {
     }
     
     .accordion-container {
-        max-width: 95%; /* Maximize screen real estate for small devices */
+        max-width: 95%;
+        padding-top: 0;
     }
     
     .accordion-header {
         padding: 1.25rem 0;
-    }
-
-    .accordion-container {
-        padding-top: 0;
     }
     
     .accordion-title {
@@ -1353,7 +1360,7 @@ header.theme-light .dwk-burger__patty {
 .review-text {
     font-size: 1.8rem;
     line-height: 1.4;
-    font-weight: 400;
+    font-weight: 500;
     margin-bottom: 2rem;
 }
 
@@ -1369,6 +1376,8 @@ header.theme-light .dwk-burger__patty {
     .split-container {
         flex-direction: column;
         gap: 4rem;
+        width: 100%;
+        margin: 0;
     }
     .split-left {
         margin: 0 auto;
@@ -1408,6 +1417,12 @@ header.theme-light .dwk-burger__patty {
     .sticky-review-content h2,
     .sticky-review-content p {
         width: 100%
+    }
+    .sticky-review-content p {
+        font-size: 3.5vw;
+    }
+    .review-text {
+        font-size: 3.5vw;
     }
 }
 

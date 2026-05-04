@@ -235,19 +235,41 @@ document.addEventListener('DOMContentLoaded', () => {
     new CardSlider();
 });
 
-// --- Logo Text Scroll Reveal ---
+
+
+// --- Navbar Logo Text Scroll Reveal ---
 const logoBadge = document.querySelector('.logo-badge');
+let lastScrollTop = 0;
 
 window.addEventListener('scroll', () => {
-    // If the user scrolls down more than 20 pixels, reveal the text
-    if (window.scrollY > 20) {
-        logoBadge.classList.add('revealed');
-    } 
-    // If they return to the top, hide it again
-    else {
-        logoBadge.classList.remove('revealed');
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+        // MOBILE LOGIC:
+        // Hide if scrolling down and away from the very top
+        if (scrollTop > lastScrollTop && scrollTop > 50) {
+            logoBadge.classList.add('hidden-mobile');
+        } 
+        // Reveal if scrolling up
+        else {
+            logoBadge.classList.remove('hidden-mobile');
+        }
+    } else {
+        // DESKTOP LOGIC (Your original logic):
+        if (scrollTop > 20) {
+            logoBadge.classList.add('revealed');
+        } else {
+            logoBadge.classList.remove('revealed');
+        }
     }
+
+    // Update lastScrollTop, ensuring it doesn't go negative
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 });
+
+
+
 
 // --- Accordion Logic ---
 // --- Modern, Simplified Accordion Logic ---
