@@ -53,13 +53,16 @@ main {
         }
         .logo-badge span {
             display: block;
-            font-size: 1.85rem;
+            font-size: 1.75rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: -0.055em;
             color: #000000;
-            line-height: 0.8;
+            line-height: 0.75;
             transition: color 0.3s ease;
+        }
+        .logo-badge #span2 {
+            padding-left: 0.5ch;
         }
         .logo-badge .is-white span {
             color: #ffffff !important;
