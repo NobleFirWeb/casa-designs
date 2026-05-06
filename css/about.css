@@ -18,25 +18,26 @@ main {
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
 }
 
-        /* --- Navigation --- */
+/* --- Navigation --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 25px;
+            padding: 5px 15px;
             position: fixed;
             top: 0;
             width: 100%;
             height: 85px;
             box-sizing: border-box;
-            z-index: 100;
+            z-index: 999;
+            font-family: "Inter", sans-serif;
             
         }
 
         .logo { 
-            width: 8ch;
-            height: 85px;
-            display: inline-flex;
+            width: 7ch;
+            height: 70px;
+            display: flex;
             align-items: center;
         }
         .logo img {
@@ -53,7 +54,7 @@ main {
         }
         .logo-badge span {
             display: block;
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: -0.055em;
@@ -69,7 +70,7 @@ main {
         }
 
         .nav-right { display: flex; gap: 20px; align-items: center; }
-        .work-btn { background: #ff0000; color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-size: 16px; font-weight: 500; text-transform: uppercase; }
+        .work-btn { background: #ff0000; color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-size: 14px; font-weight: 500; text-transform: uppercase; }
         
 
 
@@ -293,6 +294,7 @@ header.theme-light .dwk-burger__patty {
     }
     .logo-badge span {
         font-size: 1.25rem;
+        line-height: 0.85;
     }
 }
 
@@ -863,7 +865,8 @@ header.theme-light .dwk-burger__patty {
 
 .accordion-icon {
     color: #ff0000;
-    font-size: 3.5rem;
+    font-size: 3rem;
+    font-weight: 100;
     line-height: 1;
     display: inline-block;
     transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1); /* Smooth rotation */
@@ -1253,46 +1256,130 @@ header.theme-light .dwk-burger__patty {
 
 .faq {
     width: 100%;
-    min-height: 50vh;
+    min-height: 100vh;
     height: auto;
-    margin-top: 7.5vh;
     background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgb(221, 221, 221);
 }
 
 .faq .header-row {
     border-bottom: none;
+    height: auto;
+
+}
+
+.faq .header-row .header-left {
+    padding: 3rem 0 1.5rem 8rem;
+}
+
+.faq .accordion-container {
+    width: auto;
+    max-width: 50%;
+    margin-left: 20%;
+    margin-right: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 3rem;
+}
+
+.faq .accordion-item {
+    border-bottom: 1px solid rgb(221, 221, 221);
+    width: auto;
+}
+
+.faq .accordion-header {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #000000;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5vw;
+    cursor: pointer;
 }
 
 .faq .accordion-title {
     color: #000000;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: -0.05vw;
+    text-transform: none;
 }
 
-.faq .accordion-container {
-    max-width: 67%;
-    margin-left: 33%;
-    margin-right: 2.5vw;
+.faq .accordion-icon {
+    line-height: 1;
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1); /* Smooth rotation */
+}
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 7.5vh;
+
+/* The Inner Wrapper */
+.faq .accordion-inner {
+    overflow: hidden; /* Crucial: Hides content when the grid row is 0fr */
+    color: #000000;
+    font-size: 1.1rem;
+    line-height: 1;
+    padding: 0 2.25rem;
+}
+
+/* We use a pseudo-element for bottom padding so it doesn't break the 0fr collapse */
+.faq .accordion-inner::after {
+    content: '';
+    display: block;
+    height: 2rem; 
+}
+
+.faq .accordion-inner p {
+    font-size: 1.05rem;
+    line-height: 1.2;
+    max-width: 75%;
 }
 
 @media screen and (max-width: 1024px) {
+    .faq {
+        display: flex;
+        flex-direction: column;
+    }
     .faq .accordion-container {
         max-width: 90%;
         min-height: 50vh;
         margin-left: 0;
         margin: 0 auto;
     }
+    .faq .header-row {
+        min-height: 0;
+    }
+    .faq .header-row .header-left {
+        padding: 3rem 0 1.5rem 5rem;
+    }
 }
 
 @media screen and (max-width: 768px) {
-
+    .faq .header-row .header-left {
+        padding: 3rem 0 1.5rem 3rem;
+    }
+    .faq .accordion-inner p {
+    font-size: 1.05rem;
+    line-height: 1.1;
+    max-width: 100%;
+}
 }
 
 @media screen and (max-width: 480px) {
-
+    .faq .header-row .header-left {
+        padding: 2rem 0;
+        width: 90%;
+    }
+    .faq .accordion-icon svg {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
 }
 
 .testimonials-split {
@@ -1307,7 +1394,7 @@ header.theme-light .dwk-burger__patty {
 .split-container {
     display: flex;
     gap: 5%;
-    width: 98%;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -1318,9 +1405,8 @@ header.theme-light .dwk-burger__patty {
 .sticky-review-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: flex-start;
-    padding: 3rem 0px 1.5rem 10rem; 
+    padding: 3rem 0px 1.5rem 6rem; 
 }
 
 .sticky-review-content h2 {
@@ -1339,15 +1425,16 @@ header.theme-light .dwk-burger__patty {
 
 .split-right {
     width: 55%;
+    padding-right: 1.5rem;
 }
 
 .review-item {
     border-bottom: 0.5px solid #999;
-    padding: 3rem 0;
+    padding: 3rem 0.5rem;
 }
 
 .review-item:first-child {
-    padding-top: 0;
+    padding-top: 1rem;
 }
 
 .review-item:last-child {
