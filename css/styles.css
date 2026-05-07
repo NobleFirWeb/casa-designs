@@ -1922,18 +1922,19 @@ header.theme-light .dwk-burger__patty {
 /*-- Collage Styles --*/
 .collage-header {
     margin: 0 auto;
+    width: 90%;
+    max-width: 100%;
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
 }
 
 .collage-title {
-    font-size: clamp(2rem, 8.5rem, 6vw);
+    font-size: clamp(2rem, 5.95rem, 7vw);
     font-weight: 500;
     text-transform: uppercase;
     margin-bottom: 0;
-    letter-spacing: -0.25vw
+    line-height: 1;
+    letter-spacing: -0.25vw;
 }
 
 .collage-grid {
