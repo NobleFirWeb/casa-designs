@@ -19,6 +19,7 @@
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/Flip.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/CustomEase.min.js"></script>
         <script src="https://unpkg.com/split-type"></script>
+        <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
     </head>
     <body>
 
@@ -139,15 +140,11 @@
                                 <div class="line">
                                     <p>OREGON</p>
                                 </div>
-                                <div class="line">
-                                    <p>N1 4DX</p>
-                                </div>
                             </div>
                             <div class="socials">
                                 <div class="line">
                                     <p>info@casadesigns.net</p>
                                 </div>
-                                <br />
                                 <div class="line">
                                     <p>Facebook</p>
                                 </div>
@@ -161,13 +158,20 @@
             </div>
         </div>
 
+        <div class="about-closing">
+                <h2 class="closing-header">
+                    <span>
+                        Our hardwood cutting boards are a seamless blend of function and beauty. They showcase the rich, deep tones of dark walnut, elegantly contrasted with maple and cherry, while select boards feature vibrant streaks of exotic Purpleheart or Padauk. To ensure a completely food-safe surface, every board is meticulously conditioned with multiple coats of cutting board oils and natural beeswax.
+                    </span>
+                </h2>
+            </div>
+
         <section class="face-grain">
             <div class="face-grain-hero">
-                <h1 class="board-heading">FACE-GRAIN BOARDS</h1>
+                <h1 class="board-heading text_reveal_text" data-anm-scroll-text-reveal data-anm-start="top 85%" data-anm-stagger="0.1">FACE-GRAIN BOARDS</h1>
                 <div class="hero-description">
-                    <p class="description-title"><span class="highlight-timber">TRUE</span> CRAFTSMANSHIP IS:</p>
-                    <p class="description-text">The careful selection and arrangement of premium hardwoods to highlight their
-                        natural, flowing arches and beautiful grain patterns.</p>
+                    <p class="description-title"><span class="highlight-timber">LIGHT</span> & VERSATILE:</p>
+                    <p class="description-text">Characterized by a sleeker profile than professional blocks, the Face-Grain board is easy to maneuver, store, and bring to the table. It is the ideal companion for slicing fruit, preparing garnishes, or serving artisanal cheeses.</p>
                 </div>
             </div>
         
@@ -176,7 +180,7 @@
                 <div class="board-card feature-card">
                     <div class="card-inner split-display">
                         <div class="image-placeholder main-board-img">
-                            <span>[Placeholder: Wide Walnut Face-Grain Board]</span>
+                            <img src="./img/finished-boards1.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -185,16 +189,448 @@
         
                     <div class="board-card detail-card">
                         <div class="image-placeholder grain-texture-img">
-                            <span>[Placeholder: Close-up of Natural Wood Grain]</span>
+                            <img src="./img/fg1.png" alt="">
                         </div>
                     </div>
         
                     <div class="board-card detail-card">
                         <div class="image-placeholder lifestyle-img">
-                            <span>[Placeholder: Face-Grain Charcuterie Setup]</span>
+                            <img src="./img/item-row-img.jpg" alt="">
                         </div>
                     </div>
         
+                </div>
+            </div>
+            
+            <div class="split-slider-section">
+            
+                <div class="split-left-col">
+                    <div class="slider-wrapper">
+            
+                        <div class="slider-track">
+            
+                            <div class="slide">
+                                <div class="image-placeholder"><img src="./img/portfolio2.jpg" alt="" ></div>
+                                <div class="slide-caption">Standard Size Face-Grain Boards</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder"><img src="./img/slider-fg2.png" alt="" ></div>
+                                <div class="slide-caption">Various Wood Types Available</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-dark"><img src="./img/slider-fg3.png" alt="" ></div>
+                                <div class="slide-caption">With Feet Added</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-light"><img src="./img/slider-fg4.jpg" alt="" ></div>
+                                <div class="slide-caption">Custom InSink</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-dark"><img src="./img/slider-fg5.jpg" alt="" ></div>
+                                <div class="slide-caption">Large Face-grain with Handles</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-light"><img src="./img/slider-fg6.png" alt="" ></div>
+                                <div class="slide-caption">Juice Canal Added</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-dark"><img src="./img/slider-fg7.png" alt="" ></div>
+                                <div class="slide-caption">Versatile Stovetop Cover Board & Charcuterie Display</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-light"><img src="./img/Carousel-images/undercounter.jpg" alt=""></div>
+                                <div class="slide-caption">Custom Counter Inserts</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-dark"><img src="./img/slider-fg9.png" alt=""></div>
+                                <div class="slide-caption">Elegant Paddle Boards</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-light"><img src="./img/loader5.jpg"></div>
+                                <div class="slide-caption">Custom Sizing Options</div>
+                            </div>
+            
+                        </div>
+            
+                        <button class="slider-btn prev-btn" aria-label="Previous Slide">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg>
+                        </button>
+                        <button class="slider-btn next-btn" aria-label="Next Slide">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg>
+                        </button>
+            
+                    </div>
+                </div>
+            
+                <div class="split-right-col">
+                    <div class="header-row">
+                        <div class="header-left">
+                            <h2 class="text_reveal_text" data-anm-scroll-text-reveal data-anm-start="top 75%" data-anm-stagger="0.1">
+                                <span>
+                                    The
+                                </span>
+                                <span>
+                                    Face-Grain Board
+                                </span>
+                            </h2>
+                        </div>
+                    </div>
+                    <p class="agency-description text_reveal_text" data-anm-scroll-text-reveal data-anm-start="top 85%" data-anm-stagger="0.1">
+                        Handcrafted from the finest materials, these boards offer a perfectly smooth surface that is gentle on your knives while proudly displaying the premium timber's natural grain. Built to last a lifetime, we strictly use dense, kiln-dried hardwoods that naturally resist warping, cracking, and staining. With proper care, your cutting board will retain its striking beauty and remain a treasured staple in your kitchen. We also craft custom boards in a variety of sizes and thicknesses tailored to your specific needs—whether for heavy-duty food preparation, serving as an elegant charcuterie tray, or simply acting as a beautiful piece of kitchen décor.
+                    </p>
+                </div>
+            
+            </div>
+        </section>
+
+
+
+        <section class="face-grain">
+            <div class="face-grain-hero">
+                <h1 class="board-heading text_reveal_text" data-anm-scroll-text-reveal data-anm-start="top 85%" data-anm-stagger="0.1">EDGE-GRAIN Blocks</h1>
+                <div class="hero-description">
+                    <p class="description-title"><span class="highlight-timber">STRUCTURAL</span> INTEGRITY:</p>
+                    <p class="description-text">Edge-grain surfaces are less prone to the expansion and contraction that can lead to cracking in humid kitchen environments.</p>
+                </div>
+            </div>
+        
+            <div class="board-showcase-grid">
+        
+                <div class="board-card feature-card">
+                    <div class="card-inner split-display">
+                        <div class="image-placeholder main-board-img">
+                            <img src="./img/blocks/loader3.jpg" alt="edge-grain block">
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="stacked-details-column">
+        
+                    <div class="board-card detail-card">
+                        <div class="image-placeholder grain-texture-img">
+                            <img src="./img/blocks/block1.jpg" alt="edge-grain-block">
+                        </div>
+                    </div>
+        
+                    <div class="board-card detail-card">
+                        <div class="image-placeholder lifestyle-img">
+                            <img src="./img/blocks/block2.jpg" alt="edge-grain-block">
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+
+            <div class="split-slider-section">
+            
+                <div class="split-left-col">
+                    <div class="slider-wrapper">
+            
+                        <div class="slider-track">
+            
+                            <div class="slide">
+                                <div class="image-placeholder"><img src="./img/blocks/portfolio1.jpg" alt="" ></div>
+                                <div class="slide-caption">Standard Size Face-Grain Boards</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder"><img src="./img/slider-fg2.png" alt="" ></div>
+                                <div class="slide-caption">Various Wood Types Available</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-dark"><img src="./img/slider-fg3.png" alt="" ></div>
+                                <div class="slide-caption">With Feet Added</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-light"><img src="./img/slider-fg4.jpg" alt="" ></div>
+                                <div class="slide-caption">Custom InSink</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-dark"><img src="./img/slider-fg5.jpg" alt="" ></div>
+                                <div class="slide-caption">Large Face-grain with Handles</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-light"><img src="./img/slider-fg6.png" alt="" ></div>
+                                <div class="slide-caption">Juice Canal Added</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-dark"><img src="./img/slider-fg7.png" alt="" ></div>
+                                <div class="slide-caption">Versatile Stovetop Cover Board & Charcuterie Display</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-light"><img src="./img/Carousel-images/undercounter.jpg" alt=""></div>
+                                <div class="slide-caption">Custom Counter Inserts</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-dark"><img src="./img/slider-fg9.png" alt=""></div>
+                                <div class="slide-caption">Elegant Paddle Boards</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-light"><img src="./img/loader5.jpg"></div>
+                                <div class="slide-caption">Custom Sizing Options</div>
+                            </div>
+            
+                        </div>
+            
+                        <button class="slider-btn prev-btn" aria-label="Previous Slide">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg>
+                        </button>
+                        <button class="slider-btn next-btn" aria-label="Next Slide">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg>
+                        </button>
+            
+                    </div>
+                </div>
+            
+                <div class="split-right-col">
+                    <div class="header-row">
+                        <div class="header-left">
+                            <h2 class="text_reveal_text" data-anm-scroll-text-reveal data-anm-start="top 75%" data-anm-stagger="0.1">
+                                <span>
+                                    The Professional
+                                </span>
+                                <span>
+                                    Edge-Grain Block
+                                </span>
+                            </h2>
+                        </div>
+                    </div>
+                    <p class="agency-description text_reveal_text" data-anm-scroll-text-reveal data-anm-start="top 85%" data-anm-stagger="0.1">
+                        Elevate your culinary workspace with the Professional Edge-Grain Butcher Block, a centerpiece of craftsmanship designed for both rigorous prep work and elegant presentation. Measuring a substantial 23” x 16” with a commanding 2” thickness, this board offers the expansive surface area and rock-solid stability of a permanent countertop installation while maintaining the versatility of a portable tool.
+                    </p>
+                </div>
+            
+            </div>
+        </section>
+
+        <section class="face-grain slicer-section">
+            <div class="face-grain-hero">
+                <h1 class="board-heading text_reveal_text" data-anm-scroll-text-reveal data-anm-start="top 85%" data-anm-stagger="0.1">CHEESE SLICERS & CHARCUTERIE</h1>
+                <div class="hero-description">
+                    <p class="description-title"><span class="highlight-timber">PRECISION</span> MEETS PRESENTATION:</p>
+                    <p class="description-text">By combining the natural warmth of premium hardwoods with precision hardware, we’ve created the ultimate stage for your favorite cheeses, cured meats, and accompaniments.</p>
+                </div>
+            </div>
+        
+            <div class="board-showcase-grid">
+        
+                <div class="board-card feature-card">
+                    <div class="card-inner split-display">
+                        <div class="image-placeholder main-board-img">
+                            <img src="./img/charcuterie/slicers2.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="stacked-details-column">
+        
+                    <div class="board-card detail-card">
+                        <div class="image-placeholder grain-texture-img">
+                            <img src="./img/charcuterie/slicers3.JPG" alt="">
+                        </div>
+                    </div>
+        
+                    <div class="board-card detail-card">
+                        <div class="image-placeholder lifestyle-img">
+                            <img src="./img/charcuterie/slicers4.JPG" alt="">
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+            
+            <div class="split-slider-section">
+            
+                <div class="split-left-col">
+                    <div class="slider-wrapper">
+            
+                        <div class="slider-track">
+            
+                            <div class="slide">
+                                <div class="image-placeholder"><img src="./img/charcuterie/slicers10.jpg" alt="" ></div>
+                                <div class="slide-caption">Standard Size Slicers</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder"><img src="./img/slider-fg2.png" alt="" ></div>
+                                <div class="slide-caption">Various Wood Types Available</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-dark"><img src="./img/slider-fg3.png" alt="" ></div>
+                                <div class="slide-caption">With Feet Added</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-light"><img src="./img/slider-fg4.jpg" alt="" ></div>
+                                <div class="slide-caption">Custom InSink</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-dark"><img src="./img/slider-fg5.jpg" alt="" ></div>
+                                <div class="slide-caption">Large Face-grain with Handles</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-light"><img src="./img/slider-fg6.png" alt="" ></div>
+                                <div class="slide-caption">Juice Canal Added</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-dark"><img src="./img/slider-fg7.png" alt="" ></div>
+                                <div class="slide-caption">Versatile Stovetop Cover Board & Charcuterie Display</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-light"><img src="./img/Carousel-images/undercounter.jpg" alt=""></div>
+                                <div class="slide-caption">Custom Counter Inserts</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-dark"><img src="./img/slider-fg9.png" alt=""></div>
+                                <div class="slide-caption">Elegant Paddle Boards</div>
+                            </div>
+                            <div class="slide">
+                                <div class="image-placeholder bg-light"><img src="./img/loader5.jpg"></div>
+                                <div class="slide-caption">Custom Sizing Options</div>
+                            </div>
+            
+                        </div>
+            
+                        <button class="slider-btn prev-btn" aria-label="Previous Slide">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg>
+                        </button>
+                        <button class="slider-btn next-btn" aria-label="Next Slide">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg>
+                        </button>
+            
+                    </div>
+                </div>
+            
+                <div class="split-right-col">
+                    <div class="header-row">
+                        <div class="header-left">
+                            <h2 class="text_reveal_text" data-anm-scroll-text-reveal data-anm-start="top 75%" data-anm-stagger="0.1">
+                                <span>
+                                    The
+                                </span>
+                                <span>
+                                    Integrated Slicer
+                                </span>
+                            </h2>
+                        </div>
+                    </div>
+                    <p class="agency-description text_reveal_text" data-anm-scroll-text-reveal data-anm-start="top 85%" data-anm-stagger="0.1">
+                        Our custom cheese slicers bridge the gap between convenience and elegance. Featuring a built-in, high-tension stainless steel wire, these boards allow you to achieve uniform, deli-style slices—from paper-thin ribbons of Gruyère to thick wedges of Sharp Cheddar—without the struggle of a traditional knife.
+                    </p>
+                </div>
+            
+            </div>
+        </section>
+
+        <section class="faq">
+            <div class="header-row">
+                <div class="header-left">
+                    <h2 class="text_reveal_text" data-anm-scroll-text-reveal data-anm-start="top 85%" data-anm-stagger="0.1">
+                        <span>
+                            Common Inquiries
+                        </span>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="accordion-container">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="accordion-title">What types of products does Casa Designs specialize in?</span>
+                        <span class="accordion-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="3rem" viewBox="0 0 24 24"><path fill="#ff0000" d="M12 5.5a.5.5 0 0 1 .5.5v5.5H18a.5.5 0 0 1 0 1h-5.5V18a.5.5 0 0 1-1 0v-5.5H6a.5.5 0 0 1 0-1h5.5V6a.5.5 0 0 1 .5-.5"/></svg>
+                        </span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>We specialize in premium,
+                                professional-grade custom cutting
+                                boards, cheese-slicers and charcuterie displays, and
+                                edge-grain butcher blocks.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="accordion-title">What kind of woods do you use?</span>
+                        <span class="accordion-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="3rem" viewBox="0 0 24 24"><path fill="#ff0000" d="M12 5.5a.5.5 0 0 1 .5.5v5.5H18a.5.5 0 0 1 0 1h-5.5V18a.5.5 0 0 1-1 0v-5.5H6a.5.5 0 0 1 0-1h5.5V6a.5.5 0 0 1 .5-.5"/></svg>
+                        </span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>Casa Designs uses food-safe, non-toxic oils to finish pieces that come into contact with food or skin. These finishes enhance the natural beauty of the wood while providing a protective barrier against moisture and wear, ensuring that your cutting boards and charcuterie pieces remain safe and stunning for years to come.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="accordion-title">How should I care for my custom board?</span>
+                        <span class="accordion-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="3rem" viewBox="0 0 24 24"><path fill="#ff0000" d="M12 5.5a.5.5 0 0 1 .5.5v5.5H18a.5.5 0 0 1 0 1h-5.5V18a.5.5 0 0 1-1 0v-5.5H6a.5.5 0 0 1 0-1h5.5V6a.5.5 0 0 1 .5-.5"/></svg>
+                        </span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>Hand wash with soapy warm water, Dry thoroughly.  DO NOT soak in water, or put into dishwasher. Periodically rub with food safe mineral oil to keep the wood from drying out and allow to dry completely before storing.  
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="accordion-title">Do you take custom orders or just sell pre-made boards?</span>
+                        <span class="accordion-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="3rem" viewBox="0 0 24 24"><path fill="#ff0000" d="M12 5.5a.5.5 0 0 1 .5.5v5.5H18a.5.5 0 0 1 0 1h-5.5V18a.5.5 0 0 1-1 0v-5.5H6a.5.5 0 0 1 0-1h5.5V6a.5.5 0 0 1 .5-.5"/></svg>
+                        </span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>Enter the description for your fourth item here. If this is one of the items crossed out in red ink, simply delete this entire .accordion-item block!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="accordion-title">Ordering Process</span>
+                        <span class="accordion-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="3rem" viewBox="0 0 24 24"><path fill="#ff0000" d="M12 5.5a.5.5 0 0 1 .5.5v5.5H18a.5.5 0 0 1 0 1h-5.5V18a.5.5 0 0 1-1 0v-5.5H6a.5.5 0 0 1 0-1h5.5V6a.5.5 0 0 1 .5-.5"/></svg>
+                        </span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>Enter the description for your fourth item here. If this is one of the items crossed out in red ink, simply delete this entire .accordion-item block!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="accordion-title">Ordering Process</span>
+                        <span class="accordion-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="3rem" viewBox="0 0 24 24"><path fill="#ff0000" d="M12 5.5a.5.5 0 0 1 .5.5v5.5H18a.5.5 0 0 1 0 1h-5.5V18a.5.5 0 0 1-1 0v-5.5H6a.5.5 0 0 1 0-1h5.5V6a.5.5 0 0 1 .5-.5"/></svg>
+                        </span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>Enter the description for your fourth item here. If this is one of the items crossed out in red ink, simply delete this entire .accordion-item block!</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -204,7 +640,7 @@
         <section class="contact" id="contact">
             <div class="header-row">
                 <div class="header-left">
-                    <h2>
+                    <h2 class="text_reveal_text" data-anm-scroll-text-reveal data-anm-start="top 75%" data-anm-stagger="0.1">
                         <span>
                             Have a
                         </span>
@@ -216,7 +652,8 @@
             </div>
             <div class="conversion-footer">
                 <div class="conversion-header">
-                    <h2 class="conversion-title">Let's Talk</h2>
+                    <h2 class="conversion-title text_reveal_text" data-anm-scroll-text-reveal data-anm-start="top 85%"
+                        data-anm-stagger="0.1">Let's Talk</h2>
                     <a href="contact.html" class="conversion-cta ">COMMISSION US</a>
                 </div>
         

@@ -109,15 +109,33 @@ window.addEventListener("load", () => {
         // On screens smaller than 1024px, the pin is automatically killed!
     }
 
+    
 
+    initSmoothScroll();
     // 6. TEXT REVEAL (Professional masking logic)
     initScrollTextReveal();
-
-    
 });
 
 
+/** * SMOOTH SCROLL INITIALIZATION (Lenis)
+ */
+function initSmoothScroll() {
+    const lenis = new Lenis({
+        duration: 1.2,        // Speed of the scroll (higher = smoother/slower)
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing function
+        smoothWheel: true,    // Enable smooth scrolling for mouse wheel
+        wheelMultiplier: 1,   // Adjust this to decrease/increase scroll speed
+    });
 
+    // Synchronize Lenis with GSAP's ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
+}
 
 /**
  * HELPER FUNCTION: Seamless Horizontal Loop

@@ -63,10 +63,6 @@ function initTimelineImageReveals() {
     });
 }
 
-// 5. Initialize the animation when the page loads
-window.addEventListener('load', () => {
-    initTimelineImageReveals();
-});
 
 
 function initOwnerSectionAnimation() {
@@ -120,8 +116,30 @@ function initOwnerSectionAnimation() {
     }, "<"); 
 }
 
+/** * SMOOTH SCROLL INITIALIZATION (Lenis)
+ */
+function initSmoothScroll() {
+    const lenis = new Lenis({
+        duration: 1.2,        // Speed of the scroll (higher = smoother/slower)
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing function
+        smoothWheel: true,    // Enable smooth scrolling for mouse wheel
+        wheelMultiplier: 1,   // Adjust this to decrease/increase scroll speed
+    });
+
+    // Synchronize Lenis with GSAP's ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
+}
+
 window.addEventListener('load', () => {
+    initTimelineImageReveals();
     initOwnerSectionAnimation();
+    initSmoothScroll();
 });
 
 // Initialize the sticky pin for the testimonials section

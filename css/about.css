@@ -300,10 +300,10 @@ header.theme-light .dwk-burger__patty {
 
 .about-hero {
     width: 100%;
-    min-height: 100vh; /* Changed from height: 100vh to allow growth */
+    min-height: 90vh; /* Changed from height: 100vh to allow growth */
     background-color: #ffffff;
     color: #ffffff;
-    padding-top: 120px;
+    padding-top: 80px;
     padding-bottom: 40px;
     border-bottom: 1px solid #ddd;
 }
@@ -311,7 +311,7 @@ header.theme-light .dwk-burger__patty {
 .hero-content {
     max-width: 99%;
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     margin: 0 auto;
     background-image: url('../img/about-hero.jpg');
     background-size: cover;
@@ -320,18 +320,8 @@ header.theme-light .dwk-burger__patty {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     border-radius: 16px;
-}
-.hero-content h1 {
-    font-size: clamp(2.5rem, 7.5vw, 10rem);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
-    line-height: 1;
-    color: #ffffff;
-    max-width: 23ch;
-    text-align: center;
 }
 .hero-subtext {
     font-size: clamp(1.25rem, 3.5vw, 4rem);
@@ -340,8 +330,6 @@ header.theme-light .dwk-burger__patty {
     color: #ffffff;
     opacity: 1;
     letter-spacing: 0.05em;
-    margin-top: 20px;
-    padding-top: 3rem;
 }
 
 .about-intro {
@@ -404,8 +392,6 @@ header.theme-light .dwk-burger__patty {
     }
     .hero-content {
         height: 52vh;
-        display: flex;
-        justify-content: space-between;
         padding: 2.5vh 0;
     }
     .about-intro {
@@ -808,10 +794,11 @@ header.theme-light .dwk-burger__patty {
 .accordion-section {
     background-color: #0b0b0b; /* Matches your dark sections */
     padding: 5rem 0;
-    margin: 0;
-    width: 100%;
+    margin: 0 auto;
+    width: 98%;
     min-height: 100vh;
     height: auto;
+    border-radius: 8px;
 }
 
 .accordion-section .header-row {
@@ -831,7 +818,7 @@ header.theme-light .dwk-burger__patty {
 }
 
 .accordion-container {
-    max-width: 85%;
+    max-width: 80%;
     margin: 0 auto;
     min-height: 60vh; /* Achieves the 70vh requirement */
     display: flex;
@@ -857,9 +844,9 @@ header.theme-light .dwk-burger__patty {
 }
 
 .accordion-title {
-    font-size: 3vw;
+    font-size: 2vw;
     font-weight: 400;
-    letter-spacing: -0.25vw;
+    letter-spacing: -0.2vw;
     text-transform: uppercase;
 }
 
@@ -895,7 +882,7 @@ header.theme-light .dwk-burger__patty {
     color: #ffffff;
     font-size: 1.1rem;
     line-height: 1.7;
-    padding: 0 1.5rem;
+    padding: 0 2rem;
 }
 
 /* We use a pseudo-element for bottom padding so it doesn't break the 0fr collapse */
@@ -906,9 +893,9 @@ header.theme-light .dwk-burger__patty {
 }
 
 .accordion-inner p {
-    font-size: 1.65rem;
-    line-height: 1.2;
-    max-width: 75%;
+    font-size: 1.2vw;
+    line-height: 1.1;
+    max-width: 100%;
 }
 
 .accordion-grid {
@@ -956,7 +943,7 @@ header.theme-light .dwk-burger__patty {
     }
     
     .accordion-title {
-        font-size: 4.5vw;
+        font-size: 3.25vw;
     }
     
     .accordion-inner p {
@@ -990,7 +977,7 @@ header.theme-light .dwk-burger__patty {
     }
     
     .accordion-title {
-        font-size: 2.25rem; /* Switch from vw to rem for stability on smaller screens */
+        font-size: 2rem; /* Switch from vw to rem for stability on smaller screens */
     }
     
     .accordion-icon {
@@ -1024,6 +1011,8 @@ header.theme-light .dwk-burger__patty {
 @media screen and (max-width: 480px) {
     .accordion-section {
         padding: 3rem 0;
+        margin: 0;
+        width: 100%;
     }
     
     .accordion-container {
@@ -1318,6 +1307,9 @@ header.theme-light .dwk-burger__patty {
     transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1); /* Smooth rotation */
 }
 
+.faq .accordion-content {
+    padding-left: 2rem;
+}
 
 /* The Inner Wrapper */
 .faq .accordion-inner {
@@ -1338,7 +1330,7 @@ header.theme-light .dwk-burger__patty {
 .faq .accordion-inner p {
     font-size: 1.05rem;
     line-height: 1.2;
-    max-width: 75%;
+    max-width: 95%;
 }
 
 @media screen and (max-width: 1024px) {
@@ -1448,8 +1440,8 @@ header.theme-light .dwk-burger__patty {
 }
 
 .review-text {
-    font-size: 1.8rem;
-    line-height: 1.4;
+    font-size: 1.25vw;
+    line-height: 1.1;
     font-weight: 500;
     margin-bottom: 2rem;
 }

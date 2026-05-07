@@ -512,6 +512,102 @@ header.theme-light .dwk-burger__patty {
     transform: translateY(100%);
 }
 
+/* Hero Responsive styles */
+@media screen and (max-width: 1024px) {
+    .site-logo h1 {
+        font-size: 8vw; /* Scale up slightly as screen narrows for impact */
+    }
+    .site-info {
+        width: 60%; /* Give text more room */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .site-info .row:nth-child(2) {
+        display: none;
+    }
+
+    /* 2. Adjust Layout Spacing */
+    .site-logo {
+        top: 8em; /* Bring logo up to avoid center overlap */
+    }
+
+    .site-info {
+        width: 90%; /* Expand to nearly full width */
+        height: auto;
+        bottom: 15%; /* Lift it off the very bottom */
+    }
+
+    .site-info h2 {
+        font-size: 20px; /* Smaller heading for smaller screens */
+    }
+
+    /* 3. Adjust Cover Image */
+    .cover-img {
+        width: 50%;
+        height: 40%;
+        right: 1em;
+        bottom: 1em;
+    }
+    
+    /* 4. Adjust Stacked Image Thumbnails (Bottom Left) */
+    .images.stacked-container {
+        left: 1em;
+        bottom: 1em;
+        gap: 0.5em;
+    }
+    
+    .img.stacked {
+        width: 120px; /* Scale down the thumbnails significantly */
+        height: 70px;
+        border-radius: 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .site-logo {
+        top: 6em;
+        left: 1em;
+        flex-direction: column; /* Stack "Casa" and "Designs" */
+        gap: 0;
+    }
+
+    .site-logo h1 {
+        font-size: 12vw;
+        line-height: 1;
+    }
+
+    /* 2. Reposition Site Info */
+    .site-info {
+        left: 1em;
+        bottom: 1.5em;
+        width: calc(100% - 2em);
+    }
+
+    .site-info h2 {
+        font-size: 18px;
+        line-height: 1.3;
+    }
+
+    .site-info .row {
+        flex-direction: column; /* Stack "Featured Works" above the H2 */
+        gap: 0.5em;
+    }
+
+    /* 3. Hero Image - Move to Background/Subtle position */
+    .cover-img {
+        width: 80%; /* Make it a prominent background element */
+        height: 35%;
+        opacity: 0.8;
+        z-index: -1; /* Place behind text if necessary for legibility */
+    }
+
+    /* 4. Thumbnails - Hide or minimize to prevent clutter */
+    .images.stacked-container {
+        display: none; /* Recommended: Hide thumbnails on mobile to focus on the story */
+    }
+}
+
 /* Section header styles */
 .header-row {
     width: 100%;
@@ -610,10 +706,10 @@ header.theme-light .dwk-burger__patty {
     .header-row .header-left {
         padding: 3rem 0 1.5rem 5rem;
     }
-     .header-left h2 {
+    .header-left h2 {
         font-size: 6vw;
     }
-     .header-left p {
+    .header-left p {
         font-size: 2vw;
     }
 }
@@ -738,6 +834,7 @@ header.theme-light .dwk-burger__patty {
     /* Asymmetrical roughly 2/3 and 1/3 */
     gap: 20px;
     min-height: 70vh;
+    max-height: 100vh;
     border-bottom: 1px solid #d4cdc3;
     padding-left: 2rem;
     padding-right: 2rem;
@@ -753,16 +850,20 @@ header.theme-light .dwk-burger__patty {
     display: flex;
 }
 
-.image-placeholder {
+.board-card .image-placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #d1cbc1;
-    font-size: 0.9rem;
-    text-align: center;
-    padding: 20px;
     width: 100%;
     height: 100%;
+}
+
+.board-card .image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center !important;
 }
 
 /* Large Card (Left Feature) */
@@ -792,9 +893,23 @@ header.theme-light .dwk-burger__patty {
     background-color: #b5a999;
 }
 
-.lifestyle-img {
-    background-color: #9d8f7e;
-    color: #fff;
+.about-closing {
+    padding: 15.5rem 0 12.2rem 0;
+}
+
+
+.closing-header {
+    font-size: clamp(2rem, 6rem, 2.25vw);
+    font-weight: 300;
+    line-height: 0.98;
+    letter-spacing: -0.1vw;
+    margin: 0 auto;
+    max-width: 80%;
+    color: #ccc; /* Initial light gray color */
+    background: linear-gradient(to right, #000, #000) no-repeat;
+    background-size: 0% 100%; /* Start with 0% fill */
+    background-clip: text;
+    -webkit-background-clip: text;
 }
 
 /* Responsiveness */
@@ -808,12 +923,18 @@ header.theme-light .dwk-burger__patty {
     .hero-description {
         max-width: 85%;
         padding-left: 0;
+        text-align: left;
     }
 
     .board-showcase-grid {
         grid-template-columns: 1fr;
         /* Stack grid vertically on smaller screens */
     }
+    .stacked-details-column {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
 
     .feature-card .card-inner {
         flex-direction: column;
@@ -824,17 +945,446 @@ header.theme-light .dwk-burger__patty {
     }
 }
 
+@media (max-width: 768px) {
+    .face-grain {
+        margin-top: 12.5vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .face-grain-hero {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+    .hero-description {
+        max-width: 100%;
+    }
+    .board-showcase-grid {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        gap: 10px;
+    }
+    .stacked-details-column {
+        gap: 10px;
+    }
+}
+
+/* --- Split Slider Section --- */
+.split-slider-section {
+  display: flex;
+  min-height: 80vh;
+  background-color: #ffffff;
+  border-bottom: 1px solid #d4cdc3;
+}
+
+/* Left Column (Slider) */
+.split-left-col {
+  flex: 1;
+  border-right: 1px solid #d4cdc3; /* Subtle center divider line */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* Slider Architecture */
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px; /* Adjust based on your preferred image width */
+  aspect-ratio: 4 / 5; /* Keeps images uniform */
+  border-radius: 8px; /* Requested border radius */
+  overflow: hidden; /* Hides off-screen slides */
+  background: #f4f4f4;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.slider-track {
+  display: flex;
+  height: 100%;
+  width: 1000%; /* 10 slides = 1000% width */
+  transition: none !important;
+  will-change: transform;
+}
+
+.slide {
+  position: relative;
+  width: 10%; /* 1/10th of the track */
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Image Placeholders */
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  color: #fff;
+  padding: 0;
+}
+
+.image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center !important;
+}
+
+/* Slide Caption */
+.slide-caption {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  /* The Y position is handled natively by GSAP below */
+}
+
+/* Slider Controls */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.9);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s ease;
+}
+.slider-btn:hover { 
+    background: #ffffff;
+    cursor: pointer;
+}
+.slider-btn svg { width: 20px; height: 20px; color: #000; }
+.prev-btn { left: 5px; }
+.next-btn { right: 5px; }
+
+/* Right Column (Text) */
+.split-right-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 10% 10%; /* Lots of whitespace breathing room */
+}
+
+.split-right-col .header-row {
+    border-bottom: none;
+}
+
+.split-right-col .header-row .header-left {
+    width: 100%;
+    padding: 0px 0px 1.5rem 0px;
+}
+
+.agency-description {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  color: #000000;
+}
+
+section.face-grain.slicer-section {
+    margin-bottom: 0;
+}
+
+@media (max-width: 1024px) {
+    .split-slider-section {
+        min-height: 50vh
+    }
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .split-slider-section {
+    flex-direction: column-reverse;
+  }
+  .split-left-col {
+    border-right: none;
+  }
+}
+
+@media (max-width: 480px) {
+    .split-left-col {
+        padding: 10px;
+    }
+    .split-right-col {
+        padding: 40px 20px;
+    }
+    .split-right-col .header-row {
+        min-height: auto;
+    }
+}
 
 
 
 
 
+/* Accordio styles */
+.accordion-container {
+    max-width: 80%;
+    margin: 0 auto;
+    min-height: 60vh; /* Achieves the 70vh requirement */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically centers the accordion inside the 70vh space */
+}
 
+.accordion-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Thin dividing line */
+}
 
+.accordion-header {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #ffffff;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+}
 
+.accordion-title {
+    font-size: 2vw;
+    font-weight: 400;
+    letter-spacing: -0.2vw;
+    text-transform: uppercase;
+}
 
+.accordion-icon {
+    color: #ff0000;
+    font-size: 3rem;
+    font-weight: 100;
+    line-height: 1;
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1); /* Smooth rotation */
+}
 
+/* Active State: Rotates the + icon counter-clockwise to form an x */
+.accordion-header.active .accordion-icon {
+    transform: rotate(-225deg); 
+}
 
+/* The Content Panel */
+.accordion-content {
+    display: grid;
+    grid-template-rows: 0fr; /* Collapses the container */
+    transition: grid-template-rows 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* When the header is active, expand the row to its natural auto height (1fr) */
+.accordion-header.active + .accordion-content {
+    grid-template-rows: 1fr; 
+}
+
+/* The Inner Wrapper */
+.accordion-inner {
+    overflow: hidden; /* Crucial: Hides content when the grid row is 0fr */
+    color: #ffffff;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    padding: 0 2rem;
+}
+
+/* We use a pseudo-element for bottom padding so it doesn't break the 0fr collapse */
+.accordion-inner::after {
+    content: '';
+    display: block;
+    height: 2rem; 
+}
+
+.accordion-inner p {
+    font-size: 1.2vw;
+    line-height: 1.1;
+    max-width: 100%;
+}
+
+.accordion-grid {
+    display: grid;
+    grid-template-columns: 6fr 5fr 4fr;
+    gap: 2rem;
+}
+
+.accordion-grid-item {
+    overflow: hidden;
+    height: auto;
+    max-height: 500px;
+    width: 100%;
+}
+
+.accordion-grid-item img {
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    border-radius: 6px;
+}
+
+.accordion-grid-item video {
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+    display: block;
+    border-radius: 6px;
+}
+
+.accordion-grid-item p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1;
+    color: #ffffff;
+    text-align: center;
+}
+
+.faq {
+    width: 100%;
+    min-height: 90vh;
+    height: auto;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.faq .header-row {
+    border-bottom: none;
+    height: auto;
+
+}
+
+.faq .header-row .header-left {
+    padding: 3rem 0 1.5rem 8rem;
+    width: 100%;
+}
+
+.faq .accordion-container {
+    width: auto;
+    max-width: 50%;
+    margin-left: 20%;
+    margin-right: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 3rem;
+}
+
+.faq .accordion-item {
+    border-bottom: 1px solid rgb(221, 221, 221);
+    width: auto;
+}
+
+.faq .accordion-header {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #000000;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5vw;
+    cursor: pointer;
+}
+
+.faq .accordion-title {
+    color: #000000;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: -0.05vw;
+    text-transform: none;
+}
+
+.faq .accordion-icon {
+    line-height: 1;
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1); /* Smooth rotation */
+}
+
+.faq .accordion-content {
+    padding-left: 2rem;
+}
+
+/* The Inner Wrapper */
+.faq .accordion-inner {
+    overflow: hidden; /* Crucial: Hides content when the grid row is 0fr */
+    color: #000000;
+    font-size: 1.1rem;
+    line-height: 1;
+    padding: 0 2.25rem;
+}
+
+/* We use a pseudo-element for bottom padding so it doesn't break the 0fr collapse */
+.faq .accordion-inner::after {
+    content: '';
+    display: block;
+    height: 2rem; 
+}
+
+.faq .accordion-inner p {
+    font-size: 1.05rem;
+    line-height: 1.2;
+    max-width: 95%;
+}
+
+@media screen and (max-width: 1024px) {
+    .faq {
+        display: flex;
+        flex-direction: column;
+    }
+    .faq .accordion-container {
+        max-width: 90%;
+        min-height: 50vh;
+        margin-left: 0;
+        margin: 0 auto;
+    }
+    .faq .header-row {
+        min-height: 0;
+    }
+    .faq .header-row .header-left {
+        padding: 3rem 0 1.5rem 5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .faq .header-row .header-left {
+        padding: 3rem 0 1.5rem 3rem;
+    }
+    .faq .accordion-inner p {
+    font-size: 1.05rem;
+    line-height: 1.1;
+    max-width: 100%;
+}
+}
+
+@media screen and (max-width: 480px) {
+    .faq .header-row .header-left {
+        padding: 2rem 0;
+        width: 90%;
+    }
+    .faq .accordion-icon svg {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
 
 
 
