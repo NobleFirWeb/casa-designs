@@ -1250,7 +1250,6 @@ header.theme-light .dwk-burger__patty {
     background-color: #ffffff;
     display: flex;
     justify-content: center;
-    border-bottom: 1px solid rgb(221, 221, 221);
 }
 
 .faq .header-row {
@@ -1567,6 +1566,7 @@ header.theme-light .dwk-burger__patty {
     letter-spacing: -0.15vw;
     line-height: 1;
     padding-top: 4rem;
+    text-transform: uppercase;
 }
 
 .conversion-cta {

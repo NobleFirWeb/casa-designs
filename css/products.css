@@ -426,7 +426,6 @@ header.theme-light .dwk-burger__patty {
     position: absolute;
     right: 2em;
     bottom: 2em;
-    width: 42%;
     height: 50%;
     clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
 }
@@ -1261,7 +1260,6 @@ section.face-grain.slicer-section {
     background-color: #ffffff;
     display: flex;
     justify-content: center;
-    border-bottom: 1px solid rgb(221, 221, 221);
 }
 
 .faq .header-row {
@@ -1446,6 +1444,7 @@ section.face-grain.slicer-section {
     letter-spacing: -0.15vw;
     line-height: 1;
     padding-top: 4rem;
+    text-transform: uppercase;
 }
 
 .conversion-cta {

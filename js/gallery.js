@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             ScrollTrigger.create({
                 trigger: section,
-                start: "top top 10%", // Adjust this to sit right below your fixed header
-                end: () => `bottom 50%`, // Unpins when the bottom of the section hits the bottom of the viewport
+                start: "top top 2.5%", // Adjust this to sit right below your fixed header
+                end: () => `bottom 65%`, // Unpins when the bottom of the section hits the bottom of the viewport
                 pin: leftContent,
                 pinSpacing: false, // Prevents GSAP from adding extra padding
                 invalidateOnRefresh: true, // Recalculates on window resize

@@ -324,24 +324,45 @@ header.theme-light .dwk-burger__patty {
     letter-spacing: -0.25vw;
 }
 
+/* Hero section styles */
+.gallery-hero {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+
+.gallery-title {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.gallery-title span {
+    font-size: clamp(5.5rem, 15vw, 16rem);
+    font-weight: 600;
+    line-height: 0.75;
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+@media screen and (max-width: 480px) {
+    .gallery-title span {
+        line-height: 0.85;
+    }
+}
 
 /* Gallery Container Setup */
 .gallery-section {
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    max-width: 1600px;
+    width: 96%;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 10vh 2.5vw;
-}
-
-.buffer {
-    width: 100%;
-    height: 15vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 20vh 0;
 }
 
 /* --- THE CSS NATIVE PINNING METHOD --- */
@@ -361,18 +382,19 @@ header.theme-light .dwk-burger__patty {
 
 /* Typography matching the mockup */
 .gallery-left h2 {
-    font-size: clamp(3rem, 4vw, 5rem);
-    font-weight: 500;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
+    font-size: 2.5vw;
+    font-weight: 600;
+    text-transform: uppercase;
     color: #000000;
-    margin: 0;
+    line-height: 0.85;
+    letter-spacing: -0.2vw;
 }
 
 .gallery-left p {
-    font-size: 1.1rem;
-    line-height: 1.5;
-    color: #666666;
+    font-size: 1.2vw;
+    font-weight: 500;
+    line-height: 1.1;
+    color: #000000;
     max-width: 90%;
     margin: 0;
 }
@@ -446,7 +468,7 @@ header.theme-light .dwk-burger__patty {
     .gallery-section {
         flex-direction: column;
         gap: 4rem;
-        padding: 5vh 5vw;
+        padding: 5vh 0;
     }
     .gallery-left, .gallery-right {
         width: 100%;
@@ -455,6 +477,12 @@ header.theme-light .dwk-burger__patty {
         position: relative; /* Disable pinning on smaller screens */
         top: 0;
         padding-right: 0;
+    }
+    .gallery-left h2 {
+        font-size: 6vw;
+    }
+    .gallery-left p {
+        font-size: 2.5vw;
     }
 }
 
@@ -470,8 +498,20 @@ header.theme-light .dwk-burger__patty {
     .grid-col-right {
         margin-top: 0; /* Remove stagger on mobile */
     }
+    .gallery-left p {
+        font-size: 2.75vw;
+    }
 }
 
+@media (max-width: 480px) {
+    .gallery-left h2 {
+        font-size: 6vw;
+    }
+    .gallery-left p {
+        font-size: 3.5vw;
+        max-width: 100%;
+    }
+}
 
 
 

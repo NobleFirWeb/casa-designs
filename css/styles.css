@@ -433,7 +433,7 @@ header.theme-light .dwk-burger__patty {
     font-weight: 600;
     text-transform: uppercase;
     margin-bottom: 20px;
-    line-height: 1;
+    line-height: 0.85;
 }
 
 .about-intro p {
@@ -1133,7 +1133,7 @@ header.theme-light .dwk-burger__patty {
 
 #services .spinning-text {
     fill: #000000;
-    letter-spacing: 1.75px;
+    letter-spacing: 1.5px;
 }
 
 #services .cloneable {
@@ -1245,7 +1245,7 @@ header.theme-light .dwk-burger__patty {
 
 
 .slide-caption {
-    color: #000000;
+    color: #ffffff;
     z-index: 1;
     position: absolute;
     bottom: 0;
