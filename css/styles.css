@@ -406,7 +406,7 @@ header.theme-light .dwk-burger__patty {
     }
     .video-mask {
         width: 400px;
-        height: 570px;
+        height: 480px;
         x: 300px;
         y: 100;
     }
@@ -1708,7 +1708,6 @@ header.theme-light .dwk-burger__patty {
         grid-column: span 2 !important; /* Make it a square like the others */
         order: 8;
         padding: 1.5rem;
-        border-right: none !important; /* Clean edge */
     }
 
     /* Typography Adjustments */
