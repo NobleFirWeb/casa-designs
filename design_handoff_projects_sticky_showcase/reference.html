@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reference — Projects Sticky Showcase (option 1c)</title>
+<!--
+  DESIGN REFERENCE for the Casa Designs projects-section redesign (option 1c).
+  Standalone vanilla HTML/CSS/JS — open directly in a browser.
+  Intended to be recreated inside index.html / css/styles.css / js/gsap.js
+  using the site's existing patterns (see README.md).
+-->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #000000;
+}
+
+/* ===== Section header — same pattern as existing .header-row ===== */
+.projects-section { width: 100%; margin: 5% 0; }
+
+.projects-section .header-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 25vh;
+  border-bottom: 0.5px solid #999;
+}
+.projects-section .header-left {
+  width: 75%;
+  padding: 3rem 0 1.5rem 12rem;
+  box-sizing: border-box;
+}
+.projects-section .header-left h2 {
+  margin: 0;
+  font-size: 4vw;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  line-height: 0.85;
+  letter-spacing: -0.25vw;
+}
+.projects-section .header-left p {
+  font-size: 1.2vw;
+  line-height: 1.2;
+  color: #000000;
+  max-width: 70%;
+}
+.projects-section .header-right {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Spinning badge — identical to existing .badge-container pattern */
+.badge-container { position: relative; width: 175px; height: 175px; display: flex; align-items: center; justify-content: center; }
+.spinning-text-svg { position: absolute; width: 100%; height: 100%; animation: rotateText 12s linear infinite; pointer-events: none; }
+.projects-section .spinning-text { fill: #000000; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 2.25px; }
+.btn-red-static { background: #ff0000; width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; z-index: 2; transition: transform 0.3s ease; }
+.btn-red-static:hover { transform: scale(0.95); }
+@keyframes rotateText { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* ===== Sticky showcase ===== */
+.showcase { display: flex; align-items: stretch; }
+
+.showcase-media-col {
+  width: 50%;
+  box-sizing: border-box;
+  padding: 40px 0 40px 4.5vw;
+}
+.showcase-frame {
+  position: sticky;
+  top: 40px;
+  height: calc(100vh - 80px);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #111111;
+}
+.showcase-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 0.6s ease, transform 0.9s ease;
+}
+.showcase-frame img.active { opacity: 1; transform: scale(1); }
+.showcase-counter {
+  position: absolute;
+  left: 28px;
+  bottom: 24px;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  color: #ffffff;
+  font-weight: 600;
+  z-index: 2;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+}
+.showcase-counter .current { font-size: 28px; }
+.showcase-counter .total { font-size: 14px; opacity: 0.7; }
+
+.showcase-text-col { width: 50%; box-sizing: border-box; }
+.showcase-block {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 6.5vw 0 5vw;
+  border-bottom: 0.5px solid #999;
+  box-sizing: border-box;
+}
+.showcase-block .num {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #bbbbbb;
+  transition: color 0.4s ease;
+}
+.showcase-block.active .num { color: #ff0000; }
+.showcase-block h3 {
+  margin: 14px 0 0;
+  font-size: 3vw;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: -0.1vw;
+  line-height: 0.95;
+}
+.showcase-block p {
+  margin: 20px 0 0;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #333333;
+  max-width: 44ch;
+}
+.showcase-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+.showcase-tags .pill {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 7px 14px;
+  border: 0.5px solid #999;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* Spacer so you can see the scroll behavior in isolation */
+.demo-spacer { height: 30vh; }
+</style>
+</head>
+<body>
+
+<section class="projects-section" id="projects-section">
+  <div class="header-row">
+    <div class="header-left">
+      <h2>
+        <span>Our</span>
+        <span>Recent Designs</span>
+      </h2>
+      <p>From elegant cutting boards to bespoke, custom furniture pieces, our portfolio showcases the artistry and craftsmanship that defines Casa Designs.</p>
+    </div>
+    <div class="header-right">
+      <div class="badge-container">
+        <svg class="spinning-text-svg" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+          <path id="textCircleProjects" d="M 75, 75 m -60, 0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0" fill="none" />
+          <text><textPath href="#textCircleProjects" class="spinning-text">VIEW ALL DESIGNS &#8226; VIEW ALL DESIGNS &#8226;</textPath></text>
+        </svg>
+        <a href="gallery.html" class="btn-red-static">
+          <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" viewBox="0 0 24 24"><path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16m0 0l-6-6m6 6l-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="showcase">
+    <div class="showcase-media-col">
+      <div class="showcase-frame">
+        <img src="./img/portfolio1.jpg" alt="Edge-Grain Blocks" class="active" data-showcase-img>
+        <img src="./img/portfolio2.jpg" alt="Face-Grain Blocks" data-showcase-img>
+        <img src="./img/portfolio3.jpg" alt="Custom Cheese Slicers" data-showcase-img>
+        <img src="./img/sf-club.jpg" alt="SF Olympic Club" data-showcase-img>
+        <img src="./img/custom-cover.jpg" alt="Custom Projects" data-showcase-img>
+        <div class="showcase-counter"><span class="current" data-showcase-current>01</span><span class="total">/ 05</span></div>
+      </div>
+    </div>
+
+    <div class="showcase-text-col">
+      <div class="showcase-block active" data-showcase-block>
+        <span class="num">( _01 )</span>
+        <h3>Edge-Grain Blocks</h3>
+        <p>Professional-grade butcher blocks, built from end-matched walnut and maple and engineered for a lifetime of daily use.</p>
+        <div class="showcase-tags"><span class="pill">Walnut &amp; Maple</span><span class="pill">Food Safe</span></div>
+      </div>
+      <div class="showcase-block" data-showcase-block>
+        <span class="num">( _02 )</span>
+        <h3>Face-Grain Blocks</h3>
+        <p>Showpiece serving boards that put the natural figure of each hand-selected plank front and center.</p>
+        <div class="showcase-tags"><span class="pill">Hand-Finished</span><span class="pill">Premium Wood</span></div>
+      </div>
+      <div class="showcase-block" data-showcase-block>
+        <span class="num">( _03 )</span>
+        <h3>Custom Cheese Slicers</h3>
+        <p>Wire-arm slicers and charcuterie displays, handcrafted for the boldest spreads.</p>
+        <div class="showcase-tags"><span class="pill">Charcuterie</span><span class="pill">Handcrafted</span></div>
+      </div>
+      <div class="showcase-block" data-showcase-block>
+        <span class="num">( _04 )</span>
+        <h3>SF Olympic Club</h3>
+        <p>A commissioned series of serving pieces for San Francisco&rsquo;s historic Olympic Club.</p>
+        <div class="showcase-tags"><span class="pill">Commission</span><span class="pill">Hospitality</span></div>
+      </div>
+      <div class="showcase-block" data-showcase-block>
+        <span class="num">( _05 )</span>
+        <h3>Custom Projects</h3>
+        <p>One-of-a-kind commissions &mdash; furniture, restorations, and everything in between.</p>
+        <div class="showcase-tags"><span class="pill">Bespoke</span><span class="pill">Made to Order</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="demo-spacer"></div>
+
+<script>
+// Vanilla activation logic. In the real site, prefer GSAP ScrollTrigger
+// (already loaded on index.html) — see README.md "Interactions & Behavior".
+(function () {
+  var blocks = Array.prototype.slice.call(document.querySelectorAll('[data-showcase-block]'));
+  var imgs = Array.prototype.slice.call(document.querySelectorAll('[data-showcase-img]'));
+  var counter = document.querySelector('[data-showcase-current]');
+  var active = 0;
+
+  function setActive(i) {
+    if (i === active) return;
+    active = i;
+    blocks.forEach(function (b, j) { b.classList.toggle('active', j === i); });
+    imgs.forEach(function (im, j) { im.classList.toggle('active', j === i); });
+    counter.textContent = String(i + 1).padStart(2, '0');
+  }
+
+  function onScroll() {
+    var mid = window.innerHeight / 2;
+    for (var i = 0; i < blocks.length; i++) {
+      var r = blocks[i].getBoundingClientRect();
+      if (r.top <= mid && r.bottom > mid) { setActive(i); return; }
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+</body>
+</html>

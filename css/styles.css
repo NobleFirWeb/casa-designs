@@ -1,12 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk&family=Syne:wght@400..800&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk&family=Syne:wght@400..800&display=swap');
 
 body, html {
             margin: 0;
             padding: 0;
             background: #ffffff;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            overflow-x: hidden;
         }
+
+html { overflow-x: hidden; }
+body { overflow-x: clip; }
 
 
 /* Page */
@@ -1775,96 +1777,149 @@ header.theme-light .dwk-burger__patty {
     color: #000000;
 }
 
-.projects-wrapper {
-    min-height: 100vh;
-    min-width: 100%;
-  margin: 0;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-}
-
-.wrapper {
-  width: 100%;
-}
-
-.slider-img-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  user-select: none;
-  z-index: 0;
-}
-
-.slider-img-wrapper .slider-img {
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  height: 80vmin;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  object-position: center top !important;
-  z-index: -1;
-  border-radius: 8px;
-  opacity: 0; 
-}
-
-
-
-.wrapper-header,
-.wrapper-footer {
-    height: 50vh;
+/* ===== Sticky showcase ===== */
+.showcase {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 
-.slider {
-  height: 100vh;
-  min-width: 720px;
-  padding-left: 10vw;
-  position: relative;
-  z-index: 1;
+.showcase-media-col {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 40px 0 40px 4.5vw;
+    position: sticky;
+    top: 0;
+    height: 100vh;
 }
 
-
-
-
-
-.slider .title {
-  font-weight: 500;
-  font-size: 4vw;
-  text-transform: uppercase;
-  letter-spacing: 0.25px;
-  mix-blend-mode: overlay; 
+.showcase-frame {
+    height: calc(100vh - 80px);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #111111;
 }
 
-.slider .desc {
-  margin-top: 0.2rem;
-  font-weight: 300;
-  line-height: 1.5;
-  color: #333;
-  mix-blend-mode: overlay;
+.showcase-frame img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.06);
+    transition: opacity 0.6s ease, transform 0.9s ease;
+}
+
+.showcase-frame img.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.showcase-counter {
+    position: absolute;
+    left: 28px;
+    bottom: 24px;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    color: #ffffff;
+    font-weight: 600;
+    z-index: 2;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+}
+
+.showcase-counter .current { font-size: 28px; }
+.showcase-counter .total { font-size: 14px; opacity: 0.7; }
+
+.showcase-text-col {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.showcase-block {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 6.5vw 0 5vw;
+    border-bottom: 0.5px solid #999;
+    box-sizing: border-box;
+}
+
+.showcase-block .num {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #bbbbbb;
+    transition: color 0.4s ease;
+}
+
+.showcase-block.active .num { color: #ff0000; }
+
+.showcase-block h3 {
+    margin: 14px 0 0;
+    font-size: 3vw;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: -0.1vw;
+    line-height: 0.95;
+}
+
+.showcase-block p {
+    margin: 20px 0 0;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #333333;
+    max-width: 44ch;
+}
+
+.showcase-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 28px;
+}
+
+.showcase-tags .pill {
+    color: #000000;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 7px 14px;
+    border: 0.5px solid #999;
+    border-radius: 999px;
+    white-space: nowrap;
 }
 
 /* 1024px - Large Tablets & Laptops */
 @media screen and (max-width: 1024px) {
-    .projects-wrapper {
-        display: flex;
+    .showcase {
         flex-direction: column;
-        align-items: center; /* Centers items horizontally */
-        justify-content: center;
-        width: 100%;
-        padding: 0 5%;
     }
 
-    .project-item, .slider-img {
-        width: 95%; /* Takes up more space on smaller screens */
-        max-width: 900px;
-        margin: 0 auto; /* Ensures centering */
+    .showcase-media-col,
+    .showcase-text-col {
+        width: 100%;
+    }
+
+    .showcase-media-col {
+        padding: 0 5% 24px;
+        height: auto;
+        top: 0;
+    }
+
+    .showcase-frame {
+        height: 60vw;
+    }
+
+    .showcase-block {
+        min-height: auto;
+        padding: 32px 5%;
+    }
+
+    .showcase-block h3 {
+        font-size: 28px;
     }
 }
 
@@ -1921,6 +1976,7 @@ header.theme-light .dwk-burger__patty {
 /*-- Collage Styles --*/
 .collage-header {
     margin: 0 auto;
+    margin-top: 7.5%;
     width: 90%;
     max-width: 100%;
     display: flex;
@@ -1928,7 +1984,7 @@ header.theme-light .dwk-burger__patty {
 }
 
 .collage-title {
-    font-size: clamp(2rem, 5.95rem, 7vw);
+    font-size: clamp(2rem, 5.35vw, 6.5vw);
     font-weight: 500;
     text-transform: uppercase;
     margin-bottom: 0;
@@ -1956,7 +2012,7 @@ header.theme-light .dwk-burger__patty {
 }
 
 .grid-item2 {
-  background-image: url("https://images.unsplash.com/photo-1534759846116-5799c33ce22a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=19c8355cd5aff72debf2f4720f4c7e09&auto=format&fit=crop&w=688&q=80");
+  background-image: url("../img/woodworking2.jpg");
   background-size: cover;
   background-position: center;
   grid-column: 1/2;
@@ -1964,9 +2020,9 @@ header.theme-light .dwk-burger__patty {
 }
 
 .grid-item3 {
-  background-image: url("https://images.unsplash.com/photo-1508097549463-97f74cb9a6aa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=52c257bf60c788a1332419c74c6a8a01&auto=format&fit=crop&w=1350&q=80");
+  background-image: url("../img/wood-types1.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   grid-column: 1/5;
   grid-row: 5/5;
 }
@@ -1988,7 +2044,7 @@ header.theme-light .dwk-burger__patty {
 }
 
 .grid-item6 {
-  background-image: url("https://images.unsplash.com/photo-1515694581961-1fbdb6840a5f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4267be6fb944c94b672e0b3ddb458286&auto=format&fit=crop&w=634&q=80");
+  background-image: url("../img/woodworking3.jpg");
   background-size: cover;
   background-position: center;
   grid-column: 4/5;
@@ -1996,7 +2052,7 @@ header.theme-light .dwk-burger__patty {
 }
 
 .grid-item7 {
-  background-image: url("https://images.unsplash.com/photo-1534703580202-6123d4189ef6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5478b30dec2346f00a40ab259d162068&auto=format&fit=crop&w=634&q=80");
+  background-image: url("../img/woodworking4.jpg");
   background-size: cover;
   background-position: center;
   grid-column: 5/6;
@@ -2054,7 +2110,7 @@ header.theme-light .dwk-burger__patty {
     .collage-header {
         padding: 0;
         width: 98%;
-        margin: o auto;
+        margin: 7rem auto 0;
     }
     .collage-title {
         text-align: center;

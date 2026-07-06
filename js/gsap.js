@@ -221,33 +221,33 @@ function initScrollTextReveal() {
 
 
 
-const titles = gsap.utils.toArray('.slider .title');
-const imgs = gsap.utils.toArray('.slider-img');
+// Sticky showcase: activate blocks/images by scroll midpoint
+(function () {
+    var blocks = Array.prototype.slice.call(document.querySelectorAll('[data-showcase-block]'));
+    var imgs = Array.prototype.slice.call(document.querySelectorAll('[data-showcase-img]'));
+    var counter = document.querySelector('[data-showcase-current]');
+    if (!blocks.length) return;
+    var active = 0;
 
-const handleImageAnimation = () => {
-    
-  titles.forEach((title, i) => {
-    const img = imgs[i];
-    
-    const imgTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: title,
-        scrub: true,
-        start: 'top 95%',
-        end: 'top 5%',
-      }
+    function setActive(i) {
+        if (i === active) return;
+        active = i;
+        blocks.forEach(function (b, j) { b.classList.toggle('active', j === i); });
+        imgs.forEach(function (im, j) { im.classList.toggle('active', j === i); });
+        if (counter) counter.textContent = String(i + 1).padStart(2, '0');
+    }
+
+    ScrollTrigger.create({
+        trigger: '.showcase-text-col',
+        start: 'top bottom',
+        end: 'bottom top',
+        onUpdate: function () {
+            var mid = window.innerHeight / 2;
+            for (var i = 0; i < blocks.length; i++) {
+                var r = blocks[i].getBoundingClientRect();
+                if (r.top <= mid && r.bottom > mid) { setActive(i); return; }
+            }
+        }
     });
-
-    imgTl
-      .fromTo(img, 
-        { opacity: 0, scale: 0.5 }, 
-        { opacity: 1, scale: 1, ease: 'none', }
-      )
-      .to(img, 
-        { opacity: 0, scale: 1.05, ease: 'none' }
-      );
-  });
-};
-
-handleImageAnimation();
+})();
 
